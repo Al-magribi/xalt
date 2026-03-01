@@ -37,8 +37,30 @@ jobs:
         run: |
           rm -rf release
           mkdir -p release/.next
-          cp -r .next/standalone/* release/
-          cp -r .next/static release/.next/static
+          if [ -d ".next/standalone" ]; then
+            STANDALONE_DIR=".next/standalone"
+          elif [ -d ".next/build/standalone" ]; then
+            STANDALONE_DIR=".next/build/standalone"
+          else
+            echo "Standalone output not found. Checked .next/standalone and .next/build/standalone"
+            ls -la .next || true
+            ls -la .next/build || true
+            exit 1
+          fi
+
+          if [ -d ".next/static" ]; then
+            STATIC_DIR=".next/static"
+          elif [ -d ".next/build/static" ]; then
+            STATIC_DIR=".next/build/static"
+          else
+            echo "Static output not found. Checked .next/static and .next/build/static"
+            ls -la .next || true
+            ls -la .next/build || true
+            exit 1
+          fi
+
+          cp -r "${STANDALONE_DIR}/"* release/
+          cp -r "${STATIC_DIR}" release/.next/static
           cp -r public release/public
 
       - name: Publish runtime branch
