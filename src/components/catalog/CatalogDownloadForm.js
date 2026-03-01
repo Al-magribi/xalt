@@ -11,7 +11,7 @@ const INITIAL_FORM = {
 
 export default function CatalogDownloadForm({ hasActiveCatalog = false, catalogTitle = "" }) {
   const [form, setForm] = useState(INITIAL_FORM);
-  const [feedback, setFeedback] = useState({ ok: false, message: "" });
+  const [feedback, setFeedback] = useState({ ok: false, message: "", downloadUrl: "" });
   const [isSubmitting, startSubmitting] = useTransition();
 
   const onChange = (event) => {
@@ -21,7 +21,7 @@ export default function CatalogDownloadForm({ hasActiveCatalog = false, catalogT
 
   const onSubmit = (event) => {
     event.preventDefault();
-    setFeedback({ ok: false, message: "" });
+    setFeedback({ ok: false, message: "", downloadUrl: "" });
 
     startSubmitting(async () => {
       const response = await requestCatalogDownloadAction({
@@ -34,6 +34,7 @@ export default function CatalogDownloadForm({ hasActiveCatalog = false, catalogT
         setFeedback({
           ok: false,
           message: response?.message || "Gagal mengirim katalog.",
+          downloadUrl: "",
         });
         return;
       }
@@ -41,6 +42,7 @@ export default function CatalogDownloadForm({ hasActiveCatalog = false, catalogT
       setFeedback({
         ok: true,
         message: response.message || "Katalog berhasil dikirim ke email Anda.",
+        downloadUrl: String(response?.downloadUrl || "").trim(),
       });
       setForm(INITIAL_FORM);
     });
@@ -104,6 +106,17 @@ export default function CatalogDownloadForm({ hasActiveCatalog = false, catalogT
             <p className={`text-sm ${feedback.ok ? "text-emerald-700" : "text-rose-700"}`}>
               {feedback.message}
             </p>
+          ) : null}
+
+          {feedback.ok && feedback.downloadUrl ? (
+            <a
+              href={feedback.downloadUrl}
+              target='_blank'
+              rel='noreferrer'
+              className='inline-flex w-full items-center justify-center rounded-xl border border-blue-300 bg-blue-50 px-5 py-3 text-sm font-semibold text-blue-900 transition hover:bg-blue-100'
+            >
+              Download Langsung Katalog
+            </a>
           ) : null}
 
           <button

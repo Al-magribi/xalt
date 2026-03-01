@@ -579,9 +579,11 @@ export async function requestCatalogDownloadAction(payload) {
       if (isCertificateError) {
         console.error("[catalog] SMTP TLS certificate validation failed:", error);
         return {
-          ok: false,
+          ok: true,
+          emailSent: false,
+          downloadUrl: activeCatalog.file_url,
           message:
-            "Sertifikat TLS pada server email tidak valid/chain belum lengkap. Perbaiki SSL certificate mail server atau set SMTP_CA_CERT_PATH pada aplikasi.",
+            "Permintaan Anda sudah tercatat, namun email belum dapat dikirim karena masalah sertifikat TLS. Silakan unduh katalog langsung dari link yang tersedia.",
         };
       }
 
@@ -595,15 +597,24 @@ export async function requestCatalogDownloadAction(payload) {
       if (networkErrorCodes.has(error?.code)) {
         console.error("[catalog] SMTP connection failed while sending catalog email:", error);
         return {
-          ok: false,
+          ok: true,
+          emailSent: false,
+          downloadUrl: activeCatalog.file_url,
           message:
-            "Tidak dapat terhubung ke server email. Cek host/port SMTP (umumnya SSL:465 atau TLS:587) dan pastikan port tidak diblokir.",
+            "Permintaan Anda sudah tercatat, namun email belum dapat dikirim karena koneksi SMTP bermasalah. Silakan unduh katalog langsung dari link yang tersedia.",
         };
       }
-      throw error;
+      console.error("[catalog] SMTP send failed with unexpected error:", error);
+      return {
+        ok: true,
+        emailSent: false,
+        downloadUrl: activeCatalog.file_url,
+        message:
+          "Permintaan Anda sudah tercatat, namun email belum dapat dikirim saat ini. Silakan unduh katalog langsung dari link yang tersedia.",
+      };
     }
 
-    return { ok: true, message: "Katalog berhasil dikirim ke email Anda." };
+    return { ok: true, emailSent: true, message: "Katalog berhasil dikirim ke email Anda." };
   } catch (error) {
     return {
       ok: false,
