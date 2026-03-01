@@ -1,0 +1,51 @@
+name: Build Runtime Branch
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-runtime-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build app
+        run: npm run build
+
+      - name: Prepare runtime bundle
+        run: |
+          rm -rf release
+          mkdir -p release/.next
+          cp -r .next/standalone/* release/
+          cp -r .next/static release/.next/static
+          cp -r public release/public
+
+      - name: Publish runtime branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: runtime
+          publish_dir: ./release
+          force_orphan: true
+          enable_jekyll: false
