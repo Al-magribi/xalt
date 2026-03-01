@@ -59,7 +59,8 @@ jobs:
             exit 1
           fi
 
-          cp -r "${STANDALONE_DIR}/"* release/
+          # Copy all standalone files including hidden entries like ".next"
+          cp -a "${STANDALONE_DIR}/." release/
           cp -r "${STATIC_DIR}" release/.next/static
           cp -r public release/public
 
