@@ -14,6 +14,8 @@ import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 import MerchandiseDetailShowcase from "@/components/merchandise/MerchandiseDetailShowcase";
 
+export const dynamic = "force-dynamic";
+
 function formatMoney(value, currency) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -45,11 +47,6 @@ function toQueryString(searchParams) {
 
   const queryString = params.toString();
   return queryString || null;
-}
-
-export async function generateStaticParams() {
-  const items = await getActiveMerchandiseForHome();
-  return items.map((item) => ({ slug: item.slug }));
 }
 
 export async function generateMetadata({ params }) {
