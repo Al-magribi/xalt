@@ -1,6 +1,8 @@
 import Home from "@/components/home/Home";
 import { trackVisitorPageView } from "@/actions/analytics";
 
+export const dynamic = "force-dynamic";
+
 function toQueryString(searchParams) {
   if (!searchParams || typeof searchParams !== "object") return null;
   const params = new URLSearchParams();

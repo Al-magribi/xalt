@@ -7,6 +7,8 @@ import { getWebsiteBranding } from "@/actions/setting";
 import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 
+export const dynamic = "force-dynamic";
+
 function toWhatsAppNumber(value) {
   return String(value || "").replace(/[^\d]/g, "");
 }

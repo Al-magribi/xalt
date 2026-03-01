@@ -7,6 +7,8 @@ import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 import MerchandiseOrderForm from "@/components/order/MerchandiseOrderForm";
 
+export const dynamic = "force-dynamic";
+
 function formatMoney(value, currency) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",

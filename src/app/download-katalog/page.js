@@ -4,6 +4,8 @@ import { getWebsiteBranding } from "@/actions/setting";
 import CatalogDownloadForm from "@/components/catalog/CatalogDownloadForm";
 import HomeHeader from "@/components/home/HomeHeader";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Download Katalog",
 };
