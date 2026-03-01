@@ -12,7 +12,7 @@
     "bcrypt": "^6.0.0",
     "dotenv": "^17.3.1",
     "framer-motion": "^12.34.3",
-    "geoip-lite": "^2.0.0",
+    "geoip-lite": "^1.4.10",
     "next": "16.1.6",
     "nodemailer": "^8.0.1",
     "pg": "^8.16.3",
