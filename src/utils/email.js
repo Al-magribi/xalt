@@ -1,5 +1,4 @@
 import fs from "node:fs/promises";
-import path from "node:path";
 import nodemailer from "nodemailer";
 import { query } from "@/config/db";
 
@@ -229,33 +228,6 @@ async function getMailerContext() {
   };
 }
 
-async function getAppUrlFromDb() {
-  const result = await query(
-    `SELECT app_url
-     FROM settings.website_config
-     WHERE id = 1
-     LIMIT 1`,
-  );
-
-  const rawUrl = String(result.rows?.[0]?.app_url || "").trim();
-  if (!rawUrl) {
-    throw new Error("App URL belum diatur. Silakan isi App URL pada Website Configuration.");
-  }
-
-  let parsed;
-  try {
-    parsed = new URL(rawUrl);
-  } catch {
-    throw new Error("App URL tidak valid. Perbarui App URL pada Website Configuration.");
-  }
-
-  if (!["http:", "https:"].includes(parsed.protocol)) {
-    throw new Error("App URL harus menggunakan protokol http:// atau https://.");
-  }
-
-  return rawUrl.replace(/\/$/, "");
-}
-
 async function sendMailWithFallback(mailer, mailOptions) {
   let lastError = null;
 
@@ -335,63 +307,5 @@ export async function sendActivationEmail(toEmail, activationLink) {
     subject,
     text,
     html,
-  });
-}
-
-export async function sendCatalogDownloadEmail({
-  toEmail,
-  recipientName,
-  catalogTitle,
-  fileUrl,
-  fileName,
-}) {
-  const mailer = await getMailerContext();
-  if (!mailer) {
-    throw new Error("Konfigurasi SMTP belum aktif. Silakan aktifkan SMTP terlebih dahulu.");
-  }
-
-  const normalizedFileUrl = String(fileUrl || "").trim();
-  if (!normalizedFileUrl.startsWith("/")) {
-    throw new Error("Lokasi file katalog tidak valid.");
-  }
-
-  const localPath = path.join(process.cwd(), "public", normalizedFileUrl.replace(/^\//, ""));
-  await fs.access(localPath);
-
-  const appUrl = await getAppUrlFromDb();
-  const downloadUrl = `${appUrl}${normalizedFileUrl}`;
-  const safeTitle = String(catalogTitle || "Katalog Produk").trim();
-  const safeRecipient = String(recipientName || "Pelanggan").trim();
-
-  const subject = `Download ${safeTitle}`;
-  const text =
-    `Halo ${safeRecipient},\n\n` +
-    `Berikut kami kirim file ${safeTitle} sesuai permintaan Anda.\n` +
-    `Jika lampiran tidak muncul, Anda bisa mengunduh dari link berikut:\n${downloadUrl}\n\n` +
-    "Terima kasih.";
-
-  const html = renderEmailTemplate({
-    preheader: `File ${safeTitle} siap diunduh.`,
-    title: "Katalog Berhasil Dikirim",
-    intro: `Halo ${safeRecipient}, berikut kami kirim file ${safeTitle} melalui lampiran email ini.`,
-    ctaLabel: "Download Katalog",
-    ctaUrl: downloadUrl,
-    note: "Jika Anda tidak meminta file ini, Anda dapat mengabaikan email ini.",
-  });
-
-  await sendMailWithFallback(mailer, {
-    from: mailer.fromAddress,
-    to: toEmail,
-    replyTo: mailer.replyTo,
-    subject,
-    text,
-    html,
-    attachments: [
-      {
-        filename: String(fileName || "catalog.pdf").trim() || "catalog.pdf",
-        path: localPath,
-        contentType: "application/pdf",
-      },
-    ],
   });
 }

@@ -33,7 +33,7 @@ export default function CatalogDownloadForm({ hasActiveCatalog = false, catalogT
       if (!response?.ok) {
         setFeedback({
           ok: false,
-          message: response?.message || "Gagal mengirim katalog.",
+          message: response?.message || "Gagal memproses permintaan katalog.",
           downloadUrl: "",
         });
         return;
@@ -41,7 +41,7 @@ export default function CatalogDownloadForm({ hasActiveCatalog = false, catalogT
 
       setFeedback({
         ok: true,
-        message: response.message || "Katalog berhasil dikirim ke email Anda.",
+        message: response.message || "Data berhasil dicatat. Silakan download katalog.",
         downloadUrl: String(response?.downloadUrl || "").trim(),
       });
       setForm(INITIAL_FORM);
@@ -53,7 +53,7 @@ export default function CatalogDownloadForm({ hasActiveCatalog = false, catalogT
       <article className='rounded-2xl border border-slate-200 bg-white p-5 sm:p-6'>
         <h2 className='text-2xl font-semibold text-slate-900'>Download Katalog</h2>
         <p className='mt-2 text-sm text-slate-600'>
-          Isi data berikut. File katalog akan dikirim ke email Anda.
+          Isi data berikut untuk mencatat lead, lalu download katalog secara langsung.
         </p>
         <p className='mt-3 rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-600'>
           File aktif: <span className='font-semibold text-slate-900'>{catalogTitle || "-"}</span>
@@ -124,7 +124,7 @@ export default function CatalogDownloadForm({ hasActiveCatalog = false, catalogT
             disabled={!hasActiveCatalog || isSubmitting}
             className='inline-flex w-full items-center justify-center rounded-xl bg-blue-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:bg-slate-400'
           >
-            {isSubmitting ? "Mengirim..." : "Download Katalog"}
+            {isSubmitting ? "Memproses..." : "Download Katalog"}
           </button>
         </form>
       </article>
@@ -132,9 +132,9 @@ export default function CatalogDownloadForm({ hasActiveCatalog = false, catalogT
       <article className='rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6'>
         <h3 className='text-lg font-semibold text-slate-900'>Info</h3>
         <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600'>
-          <li>Pastikan email yang diisi aktif.</li>
-          <li>File katalog akan dikirim sebagai lampiran PDF ke email Anda.</li>
-          <li>Cek folder spam/promosi bila email belum masuk.</li>
+          <li>Data form akan disimpan sebagai lead.</li>
+          <li>Setelah submit, tombol download katalog akan muncul otomatis.</li>
+          <li>Gunakan email dan nomor WhatsApp aktif untuk kebutuhan follow-up.</li>
         </ul>
 
         {!hasActiveCatalog ? (

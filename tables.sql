@@ -1,4 +1,5 @@
-﻿BEGIN;
+﻿-- Active: 1772436768837@@202.10.47.208@5432@xalt
+BEGIN;
 
 CREATE SCHEMA IF NOT EXISTS content;
 CREATE SCHEMA IF NOT EXISTS sales;
@@ -373,11 +374,19 @@ CREATE TABLE IF NOT EXISTS auth.users (
   email TEXT NOT NULL UNIQUE,
   password_hash TEXT NOT NULL,
   full_name TEXT,
+  phone_number TEXT,
+  avatar_url TEXT,
   role TEXT NOT NULL DEFAULT 'user' CHECK (role IN ('admin', 'user')),
   is_active BOOLEAN NOT NULL DEFAULT TRUE,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+ALTER TABLE auth.users
+  ADD COLUMN IF NOT EXISTS phone_number TEXT;
+
+ALTER TABLE auth.users
+  ADD COLUMN IF NOT EXISTS avatar_url TEXT;
 
 CREATE TABLE IF NOT EXISTS auth.sessions (
   id BIGSERIAL PRIMARY KEY,

@@ -2,7 +2,10 @@
 
 import bcrypt from "bcrypt";
 import crypto from "crypto";
+import fs from "node:fs/promises";
+import path from "node:path";
 import { cookies } from "next/headers";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { query, withTransaction } from "@/config/db";
 import { sendActivationEmail, sendResetEmail } from "@/utils/email";
@@ -20,6 +23,9 @@ const SESSION_DAYS_DEFAULT = 7;
 const SESSION_DAYS_REMEMBER = 30;
 const RESET_TOKEN_HOURS = 1;
 const ACTIVATION_TOKEN_HOURS = 24;
+const MAX_AVATAR_SIZE_BYTES = 2 * 1024 * 1024;
+const PROFILE_UPLOAD_PREFIX = "/uploads/profile/";
+const PROFILE_UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "profile");
 
 const DUMMY_HASH =
   "$2b$12$4dA2JCGH1c0CZ4eN36sC2u7DZXA9fVv2oydQ3GTRT5yfP8gQ1h88u";
@@ -30,6 +36,55 @@ function makeToken(bytes = 32) {
 
 function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
+}
+
+function toSafeExt(fileName = "") {
+  const ext = path.extname(fileName).toLowerCase();
+  if (!ext) return ".png";
+  return ext.replace(/[^.a-z0-9]/g, "") || ".png";
+}
+
+function isLocalAvatarUrl(url) {
+  return typeof url === "string" && url.startsWith(PROFILE_UPLOAD_PREFIX);
+}
+
+function toLocalAvatarPath(url) {
+  if (!isLocalAvatarUrl(url)) return null;
+  const relative = url.replace(/^\//, "");
+  return path.join(process.cwd(), "public", relative);
+}
+
+async function deleteAvatarIfExists(url) {
+  const filePath = toLocalAvatarPath(url);
+  if (!filePath) return;
+
+  try {
+    await fs.unlink(filePath);
+  } catch (error) {
+    if (error?.code !== "ENOENT") {
+      throw error;
+    }
+  }
+}
+
+async function saveAvatarFile(file) {
+  if (!(file instanceof File) || file.size === 0) return null;
+  if (!file.type?.startsWith("image/")) {
+    throw new Error("Avatar harus berupa file gambar.");
+  }
+  if (file.size > MAX_AVATAR_SIZE_BYTES) {
+    throw new Error("Ukuran avatar melebihi 2MB.");
+  }
+
+  await fs.mkdir(PROFILE_UPLOAD_DIR, { recursive: true });
+
+  const ext = toSafeExt(file.name);
+  const fileName = `${Date.now()}-${crypto.randomUUID()}${ext}`;
+  const filePath = path.join(PROFILE_UPLOAD_DIR, fileName);
+  const buffer = Buffer.from(await file.arrayBuffer());
+
+  await fs.writeFile(filePath, buffer);
+  return `${PROFILE_UPLOAD_PREFIX}${fileName}`;
 }
 
 async function getBaseUrl() {
@@ -100,7 +155,7 @@ export async function getCurrentUser() {
 
   const tokenHash = sha256(token);
   const result = await query(
-    `SELECT u.id, u.email, u.full_name, u.role
+    `SELECT u.id, u.email, u.full_name, u.role, u.avatar_url
      FROM auth.sessions s
      JOIN auth.users u ON u.id = s.user_id
      WHERE s.refresh_token_hash = $1
@@ -132,6 +187,186 @@ export async function requireRole(role) {
   }
 
   return user;
+}
+
+export async function getAdminProfileData() {
+  const user = await requireRole("admin");
+
+  const result = await query(
+    `SELECT
+       id,
+       email,
+       full_name,
+       role,
+       is_active,
+       phone_number,
+       avatar_url,
+       created_at,
+       updated_at
+     FROM auth.users
+     WHERE id = $1
+     LIMIT 1`,
+    [user.id],
+  );
+
+  if (result.rowCount === 0) {
+    return null;
+  }
+
+  const row = result.rows[0];
+  return {
+    id: Number(row.id),
+    email: row.email || "",
+    full_name: row.full_name || "",
+    role: row.role || "admin",
+    is_active: Boolean(row.is_active),
+    phone_number: row.phone_number || "",
+    avatar_url: row.avatar_url || "",
+    created_at: row.created_at,
+    updated_at: row.updated_at,
+  };
+}
+
+export async function updateAdminProfileAction(_prevState, formData) {
+  const user = await requireRole("admin");
+  const fullName = String(formData.get("full_name") || "").trim();
+  const email = String(formData.get("email") || "")
+    .trim()
+    .toLowerCase();
+  const phoneNumber = String(formData.get("phone_number") || "").trim();
+  const avatarFile = formData.get("avatar_file");
+  const currentPassword = String(formData.get("current_password") || "");
+  const newPassword = String(formData.get("new_password") || "");
+  const confirmPassword = String(formData.get("confirm_password") || "");
+
+  if (!fullName) {
+    return { ok: false, message: "Nama lengkap wajib diisi." };
+  }
+  if (!email) {
+    return { ok: false, message: "Email wajib diisi." };
+  }
+
+  const wantsPasswordChange =
+    currentPassword.length > 0 ||
+    newPassword.length > 0 ||
+    confirmPassword.length > 0;
+
+  if (wantsPasswordChange) {
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      return {
+        ok: false,
+        message:
+          "Untuk ubah password, isi password saat ini, password baru, dan konfirmasi password.",
+      };
+    }
+    if (newPassword.length < 8) {
+      return {
+        ok: false,
+        message: "Password baru minimal 8 karakter.",
+      };
+    }
+    if (newPassword !== confirmPassword) {
+      return { ok: false, message: "Konfirmasi password tidak sama." };
+    }
+  }
+
+  const uploadedFiles = [];
+  try {
+    const conflictResult = await query(
+      `SELECT id
+       FROM auth.users
+       WHERE email = $1
+         AND id <> $2
+       LIMIT 1`,
+      [email, user.id],
+    );
+
+    if (conflictResult.rowCount > 0) {
+      return { ok: false, message: "Email sudah digunakan akun lain." };
+    }
+
+    const currentResult = await query(
+      `SELECT password_hash, avatar_url
+       FROM auth.users
+       WHERE id = $1
+       LIMIT 1`,
+      [user.id],
+    );
+
+    if (currentResult.rowCount === 0) {
+      return { ok: false, message: "Akun admin tidak ditemukan." };
+    }
+
+    const currentUser = currentResult.rows[0];
+    let nextPasswordHash = null;
+    let nextAvatarUrl = currentUser.avatar_url || null;
+
+    if (wantsPasswordChange) {
+      const passwordMatch = await bcrypt.compare(
+        currentPassword,
+        currentUser.password_hash,
+      );
+
+      if (!passwordMatch) {
+        return { ok: false, message: "Password saat ini tidak sesuai." };
+      }
+
+      nextPasswordHash = await bcrypt.hash(newPassword, 12);
+    }
+
+    if (avatarFile instanceof File && avatarFile.size > 0) {
+      nextAvatarUrl = await saveAvatarFile(avatarFile);
+      uploadedFiles.push(nextAvatarUrl);
+    }
+
+    if (nextPasswordHash) {
+      await query(
+        `UPDATE auth.users
+         SET full_name = $1,
+             email = $2,
+             phone_number = $3,
+             avatar_url = $4,
+             password_hash = $5,
+             updated_at = NOW()
+         WHERE id = $6`,
+        [
+          fullName,
+          email,
+          phoneNumber || null,
+          nextAvatarUrl,
+          nextPasswordHash,
+          user.id,
+        ],
+      );
+    } else {
+      await query(
+        `UPDATE auth.users
+         SET full_name = $1,
+             email = $2,
+             phone_number = $3,
+             avatar_url = $4,
+             updated_at = NOW()
+         WHERE id = $5`,
+        [fullName, email, phoneNumber || null, nextAvatarUrl, user.id],
+      );
+    }
+
+    if (
+      currentUser.avatar_url &&
+      nextAvatarUrl &&
+      currentUser.avatar_url !== nextAvatarUrl
+    ) {
+      await deleteAvatarIfExists(currentUser.avatar_url);
+    }
+
+    revalidatePath("/admin/profile");
+    return { ok: true, message: "Profil admin berhasil diperbarui." };
+  } catch (error) {
+    for (const fileUrl of uploadedFiles) {
+      await deleteAvatarIfExists(fileUrl);
+    }
+    return { ok: false, message: error?.message || "Gagal memperbarui profil admin." };
+  }
 }
 
 export async function loginAction(_prevState, formData) {

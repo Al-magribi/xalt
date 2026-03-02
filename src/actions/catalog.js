@@ -2,11 +2,16 @@
 
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
+import { createRequire } from "node:module";
 import path from "node:path";
 import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 import { requireRole } from "@/actions/auth";
 import { query, withTransaction } from "@/config/db";
-import { sendCatalogDownloadEmail } from "@/utils/email";
+
+const require = createRequire(import.meta.url);
+let geoipModule = null;
+let geoipUnavailable = false;
 
 const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024;
 const PUBLIC_KIT_UPLOAD_PREFIX = "/uploads/kits/";
@@ -525,6 +530,154 @@ function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || "").trim());
 }
 
+function parseForwardedHeader(value) {
+  return String(value || "")
+    .split(",")
+    .map((entry) => {
+      const match = entry.match(/for=([^;]+)/i);
+      return match ? match[1] : "";
+    })
+    .filter(Boolean);
+}
+
+function normalizeCandidateIp(rawValue) {
+  const value = String(rawValue || "")
+    .trim()
+    .replace(/^"|"$/g, "")
+    .replace(/^\[|\]$/g, "");
+
+  if (!value || value.toLowerCase() === "unknown") return "";
+
+  if (value.startsWith("::ffff:")) {
+    return value.slice(7);
+  }
+
+  if (/^\d{1,3}(\.\d{1,3}){3}:\d+$/.test(value)) {
+    return value.split(":")[0];
+  }
+
+  return value;
+}
+
+function getClientIpFromHeaders(headerStore) {
+  const forwarded = String(headerStore.get("x-forwarded-for") || "")
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
+  const standardForwarded = parseForwardedHeader(headerStore.get("forwarded"));
+  const realIp = String(headerStore.get("x-real-ip") || "").trim();
+  const cfConnectingIp = String(headerStore.get("cf-connecting-ip") || "").trim();
+  const trueClientIp = String(headerStore.get("true-client-ip") || "").trim();
+  const fastlyClientIp = String(headerStore.get("fastly-client-ip") || "").trim();
+  const vercelForwardedFor = String(headerStore.get("x-vercel-forwarded-for") || "").trim();
+  const clientIp = String(headerStore.get("x-client-ip") || "").trim();
+  const clusterClientIp = String(headerStore.get("x-cluster-client-ip") || "").trim();
+  const flyClientIp = String(headerStore.get("fly-client-ip") || "").trim();
+  const netlifyClientIp = String(headerStore.get("x-nf-client-connection-ip") || "").trim();
+  const doConnectingIp = String(headerStore.get("do-connecting-ip") || "").trim();
+
+  const candidates = [
+    ...forwarded,
+    ...standardForwarded,
+    vercelForwardedFor,
+    realIp,
+    cfConnectingIp,
+    trueClientIp,
+    fastlyClientIp,
+    clientIp,
+    clusterClientIp,
+    flyClientIp,
+    netlifyClientIp,
+    doConnectingIp,
+  ];
+
+  for (const candidate of candidates) {
+    const normalized = normalizeCandidateIp(candidate);
+    if (normalized) return normalized;
+  }
+
+  return "";
+}
+
+function normalizeIp(ip) {
+  const value = String(ip || "").trim();
+  if (!value) return null;
+  if (value === "::1") return "127.0.0.1";
+  return value.toLowerCase() === "unknown" ? null : value;
+}
+
+function getCityFromHeaders(headerStore) {
+  const headerCandidates = [
+    "x-vercel-ip-city",
+    "cf-ipcity",
+    "x-geo-city",
+    "x-appengine-city",
+    "fly-client-city",
+  ];
+
+  for (const headerName of headerCandidates) {
+    const value = String(headerStore.get(headerName) || "").trim();
+    if (value) return value;
+  }
+
+  return null;
+}
+
+function lookupCityByIp(ip) {
+  if (!ip || geoipUnavailable) return null;
+
+  if (!geoipModule) {
+    try {
+      geoipModule = require("geoip-lite");
+    } catch {
+      geoipUnavailable = true;
+      return null;
+    }
+  }
+
+  try {
+    const geo = geoipModule.lookup(ip);
+    return String(geo?.city || "").trim() || null;
+  } catch {
+    return null;
+  }
+}
+
+async function lookupCityByExternalApi(ip) {
+  if (!ip || ip === "127.0.0.1") return null;
+
+  const endpointCandidates = [
+    `https://ipapi.co/${encodeURIComponent(ip)}/json/`,
+    `https://ipwho.is/${encodeURIComponent(ip)}`,
+  ];
+
+  for (const endpoint of endpointCandidates) {
+    let timeout = null;
+    try {
+      const controller = new AbortController();
+      timeout = setTimeout(() => controller.abort(), 1500);
+      const response = await fetch(endpoint, {
+        method: "GET",
+        cache: "no-store",
+        signal: controller.signal,
+      });
+
+      if (!response.ok) continue;
+      const json = await response.json();
+      const city =
+        String(json?.city || json?.data?.city || "")
+          .trim() || null;
+      if (city) return city;
+    } catch {
+      // Ignore API fallback failures.
+    } finally {
+      if (timeout) clearTimeout(timeout);
+    }
+  }
+
+  return null;
+}
+
 export async function requestCatalogDownloadAction(payload) {
   try {
     const fullName = String(payload?.name || "").trim();
@@ -542,6 +695,19 @@ export async function requestCatalogDownloadAction(payload) {
       return { ok: false, message: "File katalog belum tersedia." };
     }
 
+    const requestHeaders = await headers();
+    const detectedIp = normalizeIp(getClientIpFromHeaders(requestHeaders)) || "127.0.0.1";
+    const headerCity = getCityFromHeaders(requestHeaders);
+    const geoipCity = lookupCityByIp(detectedIp);
+    const externalCity = !headerCity && !geoipCity
+      ? await lookupCityByExternalApi(detectedIp)
+      : null;
+    const cityName =
+      headerCity ||
+      geoipCity ||
+      externalCity ||
+      (detectedIp === "127.0.0.1" ? "Localhost" : "Unknown");
+
     await query(
       `INSERT INTO sales.contact_leads (
          name,
@@ -550,75 +716,29 @@ export async function requestCatalogDownloadAction(payload) {
          channel,
          phone,
          email,
-         status
+         status,
+         real_ip,
+         city_name
        )
-       VALUES ($1, $2, '/download-katalog', 'catalog_download', $3, $4, 'new')`,
+       VALUES ($1, $2, '/download-katalog', 'catalog_download', $3, $4, 'new', $5::inet, $6)`,
       [
         fullName,
         `Request download katalog: ${activeCatalog.title || activeCatalog.file_name || "Katalog"}`,
         whatsapp,
         email,
+        detectedIp,
+        cityName,
       ],
     );
-
-    try {
-      await sendCatalogDownloadEmail({
-        toEmail: email,
-        recipientName: fullName,
-        catalogTitle: activeCatalog.title || "Katalog Produk",
-        fileUrl: activeCatalog.file_url,
-        fileName: activeCatalog.file_name || "catalog.pdf",
-      });
-    } catch (error) {
-      const errorMessage = String(error?.message || "").toLowerCase();
-      const isCertificateError =
-        errorMessage.includes("unable to verify the first certificate") ||
-        errorMessage.includes("self signed certificate") ||
-        errorMessage.includes("certificate has expired") ||
-        errorMessage.includes("hostname/ip does not match certificate");
-      if (isCertificateError) {
-        console.error("[catalog] SMTP TLS certificate validation failed:", error);
-        return {
-          ok: true,
-          emailSent: false,
-          downloadUrl: activeCatalog.file_url,
-          message:
-            "Permintaan Anda sudah tercatat, namun email belum dapat dikirim karena masalah sertifikat TLS. Silakan unduh katalog langsung dari link yang tersedia.",
-        };
-      }
-
-      const networkErrorCodes = new Set([
-        "ENETUNREACH",
-        "EHOSTUNREACH",
-        "ECONNREFUSED",
-        "ETIMEDOUT",
-        "ESOCKET",
-      ]);
-      if (networkErrorCodes.has(error?.code)) {
-        console.error("[catalog] SMTP connection failed while sending catalog email:", error);
-        return {
-          ok: true,
-          emailSent: false,
-          downloadUrl: activeCatalog.file_url,
-          message:
-            "Permintaan Anda sudah tercatat, namun email belum dapat dikirim karena koneksi SMTP bermasalah. Silakan unduh katalog langsung dari link yang tersedia.",
-        };
-      }
-      console.error("[catalog] SMTP send failed with unexpected error:", error);
-      return {
-        ok: true,
-        emailSent: false,
-        downloadUrl: activeCatalog.file_url,
-        message:
-          "Permintaan Anda sudah tercatat, namun email belum dapat dikirim saat ini. Silakan unduh katalog langsung dari link yang tersedia.",
-      };
-    }
-
-    return { ok: true, emailSent: true, message: "Katalog berhasil dikirim ke email Anda." };
+    return {
+      ok: true,
+      downloadUrl: activeCatalog.file_url,
+      message: "Data Anda berhasil dicatat. Silakan download katalog sekarang.",
+    };
   } catch (error) {
     return {
       ok: false,
-      message: error?.message || "Gagal mengirim katalog.",
+      message: error?.message || "Gagal memproses permintaan katalog.",
     };
   }
 }

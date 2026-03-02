@@ -44,5 +44,6 @@ export async function getAdminNavItems() {
     { id: "order", label: "Order", href: "/admin/order", sort_order: 2 },
     { id: "analytic", label: "Analytic", href: "/admin/analytic", sort_order: 3 },
     { id: "setting", label: "Setting", href: "/admin/setting", sort_order: 4 },
+    { id: "profile", label: "Profile", href: "/admin/profile", sort_order: 5 },
   ];
 }
