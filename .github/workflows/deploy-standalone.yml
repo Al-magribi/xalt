@@ -70,5 +70,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: runtime
           publish_dir: ./release
-          force_orphan: true
+          force_orphan: false
           enable_jekyll: false
