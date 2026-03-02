@@ -1,0 +1,3 @@
+module.exports=[93695,(a,b,c)=>{b.exports=a.x("next/dist/shared/lib/no-fallback-error.external.js",()=>require("next/dist/shared/lib/no-fallback-error.external.js"))},81967,a=>{a.n(a.i(29735))},43619,a=>{a.n(a.i(79962))},13718,a=>{a.n(a.i(85523))},18198,a=>{a.n(a.i(45518))},62212,a=>{a.n(a.i(66114))},33301,a=>a.a(async(b,c)=>{try{var d=a.i(7997),e=a.i(58259),f=b([e]);async function g(){let a=await (0,e.requireRole)("user");return(0,d.jsxs)("div",{children:["userDashPage - ",a.full_name||a.email]})}[e]=f.then?(await f)():f,a.s(["default",()=>g]),c()}catch(a){c(a)}},!1)];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__a0c8f1f3._.js.map

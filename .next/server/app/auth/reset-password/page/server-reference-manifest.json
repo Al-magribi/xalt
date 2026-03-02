@@ -1,0 +1,20 @@
+{
+  "node": {
+    "6067e6ee17479d3fe5c73905f704df6cd38430203c": {
+      "workers": {
+        "app/auth/reset-password/page": {
+          "moduleId": 71166,
+          "async": true,
+          "exportedName": "resetPasswordAction",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/auth/reset-password/page": "action-browser"
+      },
+      "exportedName": "resetPasswordAction",
+      "filename": "src/actions/auth.js"
+    }
+  },
+  "edge": {}
+}
