@@ -1,21 +1,6 @@
 {
   "node": {
-    "40b01e0cc54b22005d7330b0333ac931c1f3405b26": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "trackVisitorPageView",
-          "filename": "src/actions/analytics.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "trackVisitorPageView",
-      "filename": "src/actions/analytics.js"
-    },
-    "40efd5f9482107823f85216c24192f9becadd29d4a": {
+    "4043db622aab094c69aeede65b724002418049a4c9": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -30,7 +15,22 @@
       "exportedName": "getAdminAnalyticsData",
       "filename": "src/actions/analytics.js"
     },
-    "60637f375568e5fd9c02148b2ac7acaa38310bedf3": {
+    "40f436318599db664f7c93acbc1706d0c4bad9e5cb": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "trackVisitorPageView",
+          "filename": "src/actions/analytics.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "trackVisitorPageView",
+      "filename": "src/actions/analytics.js"
+    },
+    "60177f30f98ce4bb2d1ed5113d61d328424e8d0cb9": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -45,7 +45,7 @@
       "exportedName": "deleteAdminLeadAction",
       "filename": "src/actions/analytics.js"
     },
-    "00020996d49dd7f19edd89f0fba9f755ea8ee501b9": {
+    "002cf72eab30fcb60972fc32690294255fd3a08b69": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -60,37 +60,7 @@
       "exportedName": "requireUser",
       "filename": "src/actions/auth.js"
     },
-    "00847eaf925b0d95ce1782318eeb58783fe28decbd": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "getAdminProfileData",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "getAdminProfileData",
-      "filename": "src/actions/auth.js"
-    },
-    "009f4703bf47188527e79c3a9a9c8d686e24cbf483": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "logoutAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "logoutAction",
-      "filename": "src/actions/auth.js"
-    },
-    "00d2e55446be30b621afbd2f4138c09711d2f0b994": {
+    "00618f0ac2251bff5342405f293157917851d66c8a": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -105,7 +75,37 @@
       "exportedName": "getCurrentUser",
       "filename": "src/actions/auth.js"
     },
-    "403ec74b146ec2abb01fb7976fd310b5f679d1f3ca": {
+    "0069104d72ef3265cd609d39aa6f1cb4194f5aa148": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "getAdminProfileData",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "getAdminProfileData",
+      "filename": "src/actions/auth.js"
+    },
+    "00c793d078a882f8647338768b00eda69c634bbaaf": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "logoutAction",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "logoutAction",
+      "filename": "src/actions/auth.js"
+    },
+    "40f12f72de26dac2f712135b221c79839717785687": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -120,7 +120,7 @@
       "exportedName": "requireRole",
       "filename": "src/actions/auth.js"
     },
-    "40b80194e8f911061c2b09797ef762a9bfc39b7dd5": {
+    "40f81ce9b5776433e0c3d1789438547dd3bfc7a780": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -135,37 +135,7 @@
       "exportedName": "activateAccountByToken",
       "filename": "src/actions/auth.js"
     },
-    "6067e6ee17479d3fe5c73905f704df6cd38430203c": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "resetPasswordAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "resetPasswordAction",
-      "filename": "src/actions/auth.js"
-    },
-    "609a24a82ac01fca58264085cd7543907a76bc8d4b": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "requestPasswordResetAction",
-      "filename": "src/actions/auth.js"
-    },
-    "60ad2f3443dc6fe5fae46aa8df9d2a34432c172531": {
+    "601a7e5c4255cee137ca88fbd2aba094a59893fbf4": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -180,22 +150,7 @@
       "exportedName": "updateAdminProfileAction",
       "filename": "src/actions/auth.js"
     },
-    "60e04abf81435c72102b49d50a639fade84c2d339c": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "loginAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "loginAction",
-      "filename": "src/actions/auth.js"
-    },
-    "60ec3b18bf02d68374aefdcd9bc92948e45a86b6c2": {
+    "6044e568c26e24547ce11ff97bb3ed8a10b4d5c5c8": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -210,67 +165,52 @@
       "exportedName": "registerAction",
       "filename": "src/actions/auth.js"
     },
-    "00008ec82141541eb72f20dcf0cb7a6f02c7c8f3c4": {
+    "6091f857a7bc071e928a50a97c3694dffcdf73abe9": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "getAdminCatalogKits",
-          "filename": "src/actions/catalog.js"
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
         }
       },
       "layer": {
         "app/catalog/[slug]/page": "rsc"
       },
-      "exportedName": "getAdminCatalogKits",
-      "filename": "src/actions/catalog.js"
+      "exportedName": "requestPasswordResetAction",
+      "filename": "src/actions/auth.js"
     },
-    "00038ebcae220a1cf2d5bb35bdf286c6105d4fcf5f": {
+    "6095b2770ed3e746bdc84fe58a2a5b5c0eafb151d8": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "getAdminCatalogFiles",
-          "filename": "src/actions/catalog.js"
+          "exportedName": "resetPasswordAction",
+          "filename": "src/actions/auth.js"
         }
       },
       "layer": {
         "app/catalog/[slug]/page": "rsc"
       },
-      "exportedName": "getAdminCatalogFiles",
-      "filename": "src/actions/catalog.js"
+      "exportedName": "resetPasswordAction",
+      "filename": "src/actions/auth.js"
     },
-    "0070a2334a1f6a5cd3ad80292c539d54a6b360de1b": {
+    "60ba364c17527dbd6fcba91cde1851fd54d53a89d4": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "getActiveMerchandiseForHome",
-          "filename": "src/actions/catalog.js"
+          "exportedName": "loginAction",
+          "filename": "src/actions/auth.js"
         }
       },
       "layer": {
         "app/catalog/[slug]/page": "rsc"
       },
-      "exportedName": "getActiveMerchandiseForHome",
-      "filename": "src/actions/catalog.js"
+      "exportedName": "loginAction",
+      "filename": "src/actions/auth.js"
     },
-    "0094c6bf12991f67d5bb71627709195b061b1cd2bb": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "getAdminMerchandiseItems",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "getAdminMerchandiseItems",
-      "filename": "src/actions/catalog.js"
-    },
-    "00ac397b347e5a9c76fdeff3b6738b975b60bc8338": {
+    "0000799a5ae11b022c4f91da54eaca5f8dd3190762": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -285,7 +225,67 @@
       "exportedName": "getActiveCatalogFile",
       "filename": "src/actions/catalog.js"
     },
-    "00fc229adec9d0564b4e6e7ed23e19c8555910621f": {
+    "00308a26d7c36fa676f636cce56bf9466d1088c691": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "getAdminMerchandiseItems",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "getAdminMerchandiseItems",
+      "filename": "src/actions/catalog.js"
+    },
+    "005d4659cf793b85aa9573931f5745af9a33c30a4b": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "getActiveMerchandiseForHome",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "getActiveMerchandiseForHome",
+      "filename": "src/actions/catalog.js"
+    },
+    "008dbc9788cb7b66d7556df267df767cf51b400a19": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "getAdminCatalogFiles",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "getAdminCatalogFiles",
+      "filename": "src/actions/catalog.js"
+    },
+    "0091e5a671111a8af62d0992c485de08f69fae9647": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "getAdminCatalogKits",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "getAdminCatalogKits",
+      "filename": "src/actions/catalog.js"
+    },
+    "00cd453f4b70fe9ca2b2469efb18a8a7c74a1d9dcf": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -300,22 +300,7 @@
       "exportedName": "getActiveKitsForHome",
       "filename": "src/actions/catalog.js"
     },
-    "40489e3201046726a23d0fa441044f0dfa7aa30384": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "getMerchandiseDetailBySlug",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "getMerchandiseDetailBySlug",
-      "filename": "src/actions/catalog.js"
-    },
-    "4057c1bdac6748c51997d215108bbfec366a7f820d": {
+    "4019ea2b5831cb535a356d6c4097494cb3b3f7c160": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -330,7 +315,7 @@
       "exportedName": "requestCatalogDownloadAction",
       "filename": "src/actions/catalog.js"
     },
-    "40d47b19fe45fabee72ecee1c273d37eddd8466ec9": {
+    "40559cd7d2143731705448e0c26e3f7b863b420c74": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -345,7 +330,22 @@
       "exportedName": "getKitDetailBySlug",
       "filename": "src/actions/catalog.js"
     },
-    "602db1f7a9d6e3ac56b56b784c362fd0462da7cacd": {
+    "40ace9208d0d7ce20a535a69c4fda39ea18ac5c0d7": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "getMerchandiseDetailBySlug",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "getMerchandiseDetailBySlug",
+      "filename": "src/actions/catalog.js"
+    },
+    "602c573f7cceaa7e28858e80eb28932e1b94a7f52f": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -360,22 +360,7 @@
       "exportedName": "updateMerchandiseAction",
       "filename": "src/actions/catalog.js"
     },
-    "604fa66a3268c7999bf80360eae01aee061a230fca": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "createKitAction",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "createKitAction",
-      "filename": "src/actions/catalog.js"
-    },
-    "606aadcda36b45e7e5f87371aa6f9c517a47f749e7": {
+    "6044d93fb470510abad081f549f9327f240687d552": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -390,22 +375,7 @@
       "exportedName": "deleteKitAction",
       "filename": "src/actions/catalog.js"
     },
-    "6084d84e109a5d98da0167ffe10d63fc8895a8d53d": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "uploadCatalogFileAction",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "uploadCatalogFileAction",
-      "filename": "src/actions/catalog.js"
-    },
-    "60d8be3a2274a7f0ea74538f860ba2ad029537f950": {
+    "60478f1d133de037b58119a45cc9230d7be5c8aee3": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -420,22 +390,22 @@
       "exportedName": "updateKitAction",
       "filename": "src/actions/catalog.js"
     },
-    "60e76ecc27c599688522eb572759b4d8522b1e2cb6": {
+    "60adbe400e70ef5583eb304168482e22a7adaf93dd": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "deleteMerchandiseAction",
+          "exportedName": "uploadCatalogFileAction",
           "filename": "src/actions/catalog.js"
         }
       },
       "layer": {
         "app/catalog/[slug]/page": "rsc"
       },
-      "exportedName": "deleteMerchandiseAction",
+      "exportedName": "uploadCatalogFileAction",
       "filename": "src/actions/catalog.js"
     },
-    "60effe9f8b831b0e91ecc8745c10371762beb21c69": {
+    "60bb78ab2d468e73c19e1b8fc816b754be3175fe56": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -450,22 +420,37 @@
       "exportedName": "createMerchandiseAction",
       "filename": "src/actions/catalog.js"
     },
-    "007cc76a864b94e730376dbdc3a2343a8199c104b4": {
+    "60c39dffdc679a8d01f336f73f6d83b7fb6c291aa7": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "getTrustedLogos",
-          "filename": "src/actions/setting.js"
+          "exportedName": "deleteMerchandiseAction",
+          "filename": "src/actions/catalog.js"
         }
       },
       "layer": {
         "app/catalog/[slug]/page": "rsc"
       },
-      "exportedName": "getTrustedLogos",
-      "filename": "src/actions/setting.js"
+      "exportedName": "deleteMerchandiseAction",
+      "filename": "src/actions/catalog.js"
     },
-    "00c943acba9f165faf35840acc9ee3a2899488b717": {
+    "60db44f46f6431d75d011cab6e88519012905165be": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "createKitAction",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "createKitAction",
+      "filename": "src/actions/catalog.js"
+    },
+    "009a1721a28d337fd3e2871de47e59cd0b7a70cb8c": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -480,7 +465,22 @@
       "exportedName": "getWebsiteBranding",
       "filename": "src/actions/setting.js"
     },
-    "00e34a9284c5a85e7c367cafc4987932c8fdaa5b11": {
+    "00ad2772ff3871f5be3db83085e390399c1a362455": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "getTrustedLogos",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "getTrustedLogos",
+      "filename": "src/actions/setting.js"
+    },
+    "00c8d3c82cb3e6f04956e09ad19bd70dfbd16a49d8": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -495,22 +495,7 @@
       "exportedName": "getAdminSettingsData",
       "filename": "src/actions/setting.js"
     },
-    "60156a4ae910f9ac1c81c0ff9b6585a2354ebcfa9d": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "updateApiIntegrationAction",
-      "filename": "src/actions/setting.js"
-    },
-    "603644ad1bb3bd2326382e863e37b7cb01734e0b94": {
+    "608c04dd809d0a875a6ae85fb6cd5dbbc946355a20": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -525,37 +510,22 @@
       "exportedName": "updateWebsiteConfigAction",
       "filename": "src/actions/setting.js"
     },
-    "605a21a8e0bb6ad8622a74a308d97010f426ced3af": {
+    "60a51202eaef8841503259b58eff37f82b17f6b586": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "updateTrustedLogoAction",
+          "exportedName": "updateSmtpConfigAction",
           "filename": "src/actions/setting.js"
         }
       },
       "layer": {
         "app/catalog/[slug]/page": "rsc"
       },
-      "exportedName": "updateTrustedLogoAction",
+      "exportedName": "updateSmtpConfigAction",
       "filename": "src/actions/setting.js"
     },
-    "608315f24ad7c720c25b8f0bea7be586d030341dfa": {
-      "workers": {
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "deleteTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/catalog/[slug]/page": "rsc"
-      },
-      "exportedName": "deleteTrustedLogoAction",
-      "filename": "src/actions/setting.js"
-    },
-    "608b0ef955aba622950b3d790efadaa7917cf4f739": {
+    "60c78a7aa719a350bd1f788e826f49abd46cc9cbcb": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -570,7 +540,37 @@
       "exportedName": "addTrustedLogoAction",
       "filename": "src/actions/setting.js"
     },
-    "609456fa391cfafab47007b63178ed2052d3ae54b2": {
+    "60cacb6299897ba6fc641cd86f53f46fc82738b3f9": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "updateTrustedLogoAction",
+      "filename": "src/actions/setting.js"
+    },
+    "60de06d1ab472637aa85f64a9a3dfafd161417aec3": {
+      "workers": {
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "deleteTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/catalog/[slug]/page": "rsc"
+      },
+      "exportedName": "deleteTrustedLogoAction",
+      "filename": "src/actions/setting.js"
+    },
+    "60f07d78d66570625a66f18a200a17a6b4987d853c": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
@@ -585,19 +585,19 @@
       "exportedName": "updateSeoMetadataAction",
       "filename": "src/actions/setting.js"
     },
-    "60ee6ad98139c577fae6fe056eee80cd765d5da9a3": {
+    "60ff14d2c4349f89a1200b63abe7f3a1e4285188d5": {
       "workers": {
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "updateSmtpConfigAction",
+          "exportedName": "updateApiIntegrationAction",
           "filename": "src/actions/setting.js"
         }
       },
       "layer": {
         "app/catalog/[slug]/page": "rsc"
       },
-      "exportedName": "updateSmtpConfigAction",
+      "exportedName": "updateApiIntegrationAction",
       "filename": "src/actions/setting.js"
     }
   },
