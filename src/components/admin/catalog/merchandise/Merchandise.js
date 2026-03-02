@@ -18,6 +18,12 @@ import MerchandiseCreateModal from "@/components/admin/catalog/merchandise/Merch
 import MerchandiseUpdateModal from "@/components/admin/catalog/merchandise/MerchandiseUpdateModal";
 
 const INITIAL_FORM_STATE = { ok: false, message: "" };
+const FALLBACK_IMAGE_SRC = "/placeholder-image.svg";
+
+function getSafeImageSrc(value) {
+  if (typeof value === "string" && value.trim()) return value;
+  return FALLBACK_IMAGE_SRC;
+}
 
 function SubmitButton({ idleLabel, pendingLabel, className }) {
   const { pending } = useFormStatus();
@@ -261,7 +267,7 @@ export default function Merchandise({
                   <div className='flex items-start gap-3 border-b border-slate-200 p-3'>
                     <div className='relative h-20 w-20 shrink-0 overflow-hidden rounded-md border border-slate-200 bg-slate-100'>
                       <Image
-                        src={item.image_url}
+                        src={getSafeImageSrc(item.image_url)}
                         alt={item.title}
                         fill
                         sizes='100px'

@@ -9,6 +9,12 @@ import KitCreateModal from "@/components/admin/catalog/kit/KitCreateModal";
 import KitUpdateModal from "@/components/admin/catalog/kit/KitUpdateModal";
 
 const INITIAL_FORM_STATE = { ok: false, message: "" };
+const FALLBACK_IMAGE_SRC = "/placeholder-image.svg";
+
+function getSafeImageSrc(value) {
+  if (typeof value === "string" && value.trim()) return value;
+  return FALLBACK_IMAGE_SRC;
+}
 
 function SubmitButton({ idleLabel, pendingLabel, className }) {
   const { pending } = useFormStatus();
@@ -127,7 +133,7 @@ export default function Kit({ kits = [] }) {
                   <div className='flex items-start gap-3'>
                     <div className='relative h-16 w-20 overflow-hidden rounded-md border border-slate-200 bg-slate-100'>
                       <Image
-                        src={kit.hero_image_url}
+                        src={getSafeImageSrc(kit.hero_image_url)}
                         alt={kit.title}
                         fill
                         sizes='80px'
@@ -141,7 +147,7 @@ export default function Kit({ kits = [] }) {
                       <p className='text-xs text-slate-500'>/{kit.slug}</p>
                       <p className='mt-1 text-xs text-slate-500'>
                         Update: {formatDate(kit.updated_at)} | Gallery:{" "}
-                        {kit.gallery.length}
+                        {Array.isArray(kit.gallery) ? kit.gallery.length : 0}
                       </p>
                     </div>
                   </div>
