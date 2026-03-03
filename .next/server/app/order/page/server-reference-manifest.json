@@ -1,36 +1,6 @@
 {
   "node": {
-    "00959c7e8f1b0d3b3f4854ba0a9d89b4eba543999e": {
-      "workers": {
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/order/page": "rsc"
-      },
-      "exportedName": "getWebsiteBranding",
-      "filename": "src/actions/setting.js"
-    },
-    "009ad6b49fdcca246769060584030432f3dede3075": {
-      "workers": {
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/order/page": "rsc"
-      },
-      "exportedName": "getAdminSettingsData",
-      "filename": "src/actions/setting.js"
-    },
-    "00a413c30bc6ba285412954ede1567e1918f3a4260": {
+    "002e6a22597031f8262fc5ca815d8e90bf3dbfe78f": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
@@ -45,67 +15,37 @@
       "exportedName": "getTrustedLogos",
       "filename": "src/actions/setting.js"
     },
-    "600b8fc3cc3edf306b3ed8a28c593c643eddccd536": {
+    "00332fe3340d364fbbc18e45d7322114bc55e2f954": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         }
       },
       "layer": {
         "app/order/page": "rsc"
       },
-      "exportedName": "addTrustedLogoAction",
+      "exportedName": "getWebsiteBranding",
       "filename": "src/actions/setting.js"
     },
-    "600f6d6fdfa1cd8fb4c71197a2dbc5ae5852bd4cc7": {
+    "00cce3e472bbf87f28dccd7a25da74253eeace7aa6": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         }
       },
       "layer": {
         "app/order/page": "rsc"
       },
-      "exportedName": "updateWebsiteConfigAction",
+      "exportedName": "getAdminSettingsData",
       "filename": "src/actions/setting.js"
     },
-    "6037253b8d0d1f2364491fcbb59f51e1c1e5e8578a": {
-      "workers": {
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/order/page": "rsc"
-      },
-      "exportedName": "updateTrustedLogoAction",
-      "filename": "src/actions/setting.js"
-    },
-    "606097c085bec330a22f016ecfdba4bd1f0b280366": {
-      "workers": {
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/order/page": "rsc"
-      },
-      "exportedName": "updateApiIntegrationAction",
-      "filename": "src/actions/setting.js"
-    },
-    "606bbba9c0cc5db522c48c5d43bc6b697aa135b264": {
+    "600bbc8c78f0ea80602db8e2e8cca84f2fcef4cf08": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
@@ -120,7 +60,22 @@
       "exportedName": "deleteTrustedLogoAction",
       "filename": "src/actions/setting.js"
     },
-    "6074f566844aea4fb3e1df8b032d19c90a57a4c8d5": {
+    "6024c2ecbd9feae5156b37b25c46d17123dedf97aa": {
+      "workers": {
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/order/page": "rsc"
+      },
+      "exportedName": "updateTrustedLogoAction",
+      "filename": "src/actions/setting.js"
+    },
+    "6028d71f0b62f2f16acc13447bf63f7f6d5772e444": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
@@ -135,7 +90,7 @@
       "exportedName": "updateSmtpConfigAction",
       "filename": "src/actions/setting.js"
     },
-    "60ac236a121c2ace30b3cef9dbe0d954b1a10deb6d": {
+    "602a86c4e98d2fce7e8dc7cd901cceb7452b347c6e": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
@@ -150,7 +105,52 @@
       "exportedName": "updateSeoMetadataAction",
       "filename": "src/actions/setting.js"
     },
-    "407419a917f1b2dc512c4896ee5cda70bfa46ba1dc": {
+    "60566c8f867348c5af2cb17aad2ec0950d81974e0a": {
+      "workers": {
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/order/page": "rsc"
+      },
+      "exportedName": "updateWebsiteConfigAction",
+      "filename": "src/actions/setting.js"
+    },
+    "606c09bf695be7298eb698c0d006b784a538f67465": {
+      "workers": {
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/order/page": "rsc"
+      },
+      "exportedName": "updateApiIntegrationAction",
+      "filename": "src/actions/setting.js"
+    },
+    "607a7d5b77ce65c55bd628ec7593d1d8c16f7bf0ec": {
+      "workers": {
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/order/page": "rsc"
+      },
+      "exportedName": "addTrustedLogoAction",
+      "filename": "src/actions/setting.js"
+    },
+    "4058c0bbf226b9cefe99e8f1536bfd12955ddf1a01": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
@@ -165,7 +165,7 @@
       "exportedName": "getPublicOrderStatusByWhatsappAction",
       "filename": "src/actions/order.js"
     },
-    "40250252ec1038113bb182940d4018ba498c22b8b4": {
+    "400d12cb66082b7df131090ce3863e6eb7c048c869": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,

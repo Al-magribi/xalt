@@ -1,177 +1,6 @@
 {
   "node": {
-    "0012dc69f8f0826697e0b0ddede9d299814def1e45": {
-      "workers": {
-        "app/(dashboard)/admin/catalog/page": {
-          "moduleId": 55632,
-          "async": true,
-          "exportedName": "getAdminCatalogKits",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "getAdminCatalogKits",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getAdminCatalogKits",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/merchandise/[slug]/order/page": {
-          "moduleId": 2748,
-          "async": true,
-          "exportedName": "getAdminCatalogKits",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/merchandise/[slug]/page": {
-          "moduleId": 53429,
-          "async": true,
-          "exportedName": "getAdminCatalogKits",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/merchandise/page": {
-          "moduleId": 67902,
-          "async": true,
-          "exportedName": "getAdminCatalogKits",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "getAdminCatalogKits",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/catalog/page": "rsc",
-        "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
-        "app/merchandise/[slug]/order/page": "rsc",
-        "app/merchandise/[slug]/page": "rsc",
-        "app/merchandise/page": "rsc",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/catalog.js",
-      "exportedName": "getAdminCatalogKits"
-    },
-    "004d67081a9e6fe695ed907f7b4750f53031c517a8": {
-      "workers": {
-        "app/(dashboard)/admin/catalog/page": {
-          "moduleId": 55632,
-          "async": true,
-          "exportedName": "getAdminMerchandiseItems",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "getAdminMerchandiseItems",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getAdminMerchandiseItems",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/merchandise/[slug]/order/page": {
-          "moduleId": 2748,
-          "async": true,
-          "exportedName": "getAdminMerchandiseItems",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/merchandise/[slug]/page": {
-          "moduleId": 53429,
-          "async": true,
-          "exportedName": "getAdminMerchandiseItems",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/merchandise/page": {
-          "moduleId": 67902,
-          "async": true,
-          "exportedName": "getAdminMerchandiseItems",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "getAdminMerchandiseItems",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/catalog/page": "rsc",
-        "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
-        "app/merchandise/[slug]/order/page": "rsc",
-        "app/merchandise/[slug]/page": "rsc",
-        "app/merchandise/page": "rsc",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/catalog.js",
-      "exportedName": "getAdminMerchandiseItems"
-    },
-    "005feda9c32639bba844235d1cb900c0de16430429": {
-      "workers": {
-        "app/(dashboard)/admin/catalog/page": {
-          "moduleId": 55632,
-          "async": true,
-          "exportedName": "getAdminCatalogFiles",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "getAdminCatalogFiles",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getAdminCatalogFiles",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/merchandise/[slug]/order/page": {
-          "moduleId": 2748,
-          "async": true,
-          "exportedName": "getAdminCatalogFiles",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/merchandise/[slug]/page": {
-          "moduleId": 53429,
-          "async": true,
-          "exportedName": "getAdminCatalogFiles",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/merchandise/page": {
-          "moduleId": 67902,
-          "async": true,
-          "exportedName": "getAdminCatalogFiles",
-          "filename": "src/actions/catalog.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "getAdminCatalogFiles",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/catalog/page": "rsc",
-        "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
-        "app/merchandise/[slug]/order/page": "rsc",
-        "app/merchandise/[slug]/page": "rsc",
-        "app/merchandise/page": "rsc",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/catalog.js",
-      "exportedName": "getAdminCatalogFiles"
-    },
-    "007d05750e687f740ed7e18b419c727abcb62e025d": {
+    "001e0ba6e66ea45214babe178b28cd244f17a6719b": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
@@ -228,48 +57,48 @@
       "filename": "src/actions/catalog.js",
       "exportedName": "getActiveCatalogFile"
     },
-    "007e1054e79b3ad60fdc234fecd6fb5b19bcd63e15": {
+    "004afc51aa44c9e7c237b8cf4c0159ea5be6b3a338": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
           "async": true,
-          "exportedName": "getActiveMerchandiseForHome",
+          "exportedName": "getAdminCatalogKits",
           "filename": "src/actions/catalog.js"
         },
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "getActiveMerchandiseForHome",
+          "exportedName": "getAdminCatalogKits",
           "filename": "src/actions/catalog.js"
         },
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "getActiveMerchandiseForHome",
+          "exportedName": "getAdminCatalogKits",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/order/page": {
           "moduleId": 2748,
           "async": true,
-          "exportedName": "getActiveMerchandiseForHome",
+          "exportedName": "getAdminCatalogKits",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/page": {
           "moduleId": 53429,
           "async": true,
-          "exportedName": "getActiveMerchandiseForHome",
+          "exportedName": "getAdminCatalogKits",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/page": {
           "moduleId": 67902,
           "async": true,
-          "exportedName": "getActiveMerchandiseForHome",
+          "exportedName": "getAdminCatalogKits",
           "filename": "src/actions/catalog.js"
         },
         "app/page": {
           "moduleId": 27075,
           "async": true,
-          "exportedName": "getActiveMerchandiseForHome",
+          "exportedName": "getAdminCatalogKits",
           "filename": "src/actions/catalog.js"
         }
       },
@@ -283,9 +112,9 @@
         "app/page": "rsc"
       },
       "filename": "src/actions/catalog.js",
-      "exportedName": "getActiveMerchandiseForHome"
+      "exportedName": "getAdminCatalogKits"
     },
-    "00dce9fc92931b6ebf51a733bdb0fd8941e9918a9c": {
+    "00a5a810a9892f318238535320a8c2897d096c8b6d": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
@@ -342,48 +171,48 @@
       "filename": "src/actions/catalog.js",
       "exportedName": "getActiveKitsForHome"
     },
-    "402b85314c57a064c68e6b10d09ad06a36e7ec651e": {
+    "00b3c54f5c643fd75c606cc6766eb3c0a3ed839a33": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
           "async": true,
-          "exportedName": "getKitDetailBySlug",
+          "exportedName": "getActiveMerchandiseForHome",
           "filename": "src/actions/catalog.js"
         },
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "getKitDetailBySlug",
+          "exportedName": "getActiveMerchandiseForHome",
           "filename": "src/actions/catalog.js"
         },
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "getKitDetailBySlug",
+          "exportedName": "getActiveMerchandiseForHome",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/order/page": {
           "moduleId": 2748,
           "async": true,
-          "exportedName": "getKitDetailBySlug",
+          "exportedName": "getActiveMerchandiseForHome",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/page": {
           "moduleId": 53429,
           "async": true,
-          "exportedName": "getKitDetailBySlug",
+          "exportedName": "getActiveMerchandiseForHome",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/page": {
           "moduleId": 67902,
           "async": true,
-          "exportedName": "getKitDetailBySlug",
+          "exportedName": "getActiveMerchandiseForHome",
           "filename": "src/actions/catalog.js"
         },
         "app/page": {
           "moduleId": 27075,
           "async": true,
-          "exportedName": "getKitDetailBySlug",
+          "exportedName": "getActiveMerchandiseForHome",
           "filename": "src/actions/catalog.js"
         }
       },
@@ -397,66 +226,123 @@
         "app/page": "rsc"
       },
       "filename": "src/actions/catalog.js",
-      "exportedName": "getKitDetailBySlug"
+      "exportedName": "getActiveMerchandiseForHome"
     },
-    "40dce8a34e7f9797fdc422f31ddb95afd87ff6b759": {
+    "00cbcb5cf404fc667566a4175783e1b68171ee0ece": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
           "async": true,
-          "exportedName": "requestCatalogDownloadAction",
+          "exportedName": "getAdminMerchandiseItems",
           "filename": "src/actions/catalog.js"
         },
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "requestCatalogDownloadAction",
+          "exportedName": "getAdminMerchandiseItems",
           "filename": "src/actions/catalog.js"
         },
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "requestCatalogDownloadAction",
+          "exportedName": "getAdminMerchandiseItems",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/order/page": {
           "moduleId": 2748,
           "async": true,
-          "exportedName": "requestCatalogDownloadAction",
+          "exportedName": "getAdminMerchandiseItems",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/page": {
           "moduleId": 53429,
           "async": true,
-          "exportedName": "requestCatalogDownloadAction",
+          "exportedName": "getAdminMerchandiseItems",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/page": {
           "moduleId": 67902,
           "async": true,
-          "exportedName": "requestCatalogDownloadAction",
+          "exportedName": "getAdminMerchandiseItems",
           "filename": "src/actions/catalog.js"
         },
         "app/page": {
           "moduleId": 27075,
           "async": true,
-          "exportedName": "requestCatalogDownloadAction",
+          "exportedName": "getAdminMerchandiseItems",
           "filename": "src/actions/catalog.js"
         }
       },
       "layer": {
         "app/(dashboard)/admin/catalog/page": "rsc",
         "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "action-browser",
+        "app/download-katalog/page": "rsc",
         "app/merchandise/[slug]/order/page": "rsc",
         "app/merchandise/[slug]/page": "rsc",
         "app/merchandise/page": "rsc",
         "app/page": "rsc"
       },
       "filename": "src/actions/catalog.js",
-      "exportedName": "requestCatalogDownloadAction"
+      "exportedName": "getAdminMerchandiseItems"
     },
-    "40f210cdc8b4d357d9b2b24dba383de3db6e9616a8": {
+    "00de3466b5ff18cbe9c04d4f4987fbc0da7fb7df69": {
+      "workers": {
+        "app/(dashboard)/admin/catalog/page": {
+          "moduleId": 55632,
+          "async": true,
+          "exportedName": "getAdminCatalogFiles",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "getAdminCatalogFiles",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "getAdminCatalogFiles",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/merchandise/[slug]/order/page": {
+          "moduleId": 2748,
+          "async": true,
+          "exportedName": "getAdminCatalogFiles",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/merchandise/[slug]/page": {
+          "moduleId": 53429,
+          "async": true,
+          "exportedName": "getAdminCatalogFiles",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/merchandise/page": {
+          "moduleId": 67902,
+          "async": true,
+          "exportedName": "getAdminCatalogFiles",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "getAdminCatalogFiles",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/catalog/page": "rsc",
+        "app/catalog/[slug]/page": "rsc",
+        "app/download-katalog/page": "rsc",
+        "app/merchandise/[slug]/order/page": "rsc",
+        "app/merchandise/[slug]/page": "rsc",
+        "app/merchandise/page": "rsc",
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/catalog.js",
+      "exportedName": "getAdminCatalogFiles"
+    },
+    "4068ff4f1981bccd96da4abc2020b64de2cd922c73": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
@@ -513,53 +399,53 @@
       "filename": "src/actions/catalog.js",
       "exportedName": "getMerchandiseDetailBySlug"
     },
-    "600943f960ba26e78e2c8f85b7ad0084931f3676e6": {
+    "40d87c1ebe0f23b16e0ae19d77107664119e16c74c": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
           "async": true,
-          "exportedName": "updateMerchandiseAction",
+          "exportedName": "getKitDetailBySlug",
           "filename": "src/actions/catalog.js"
         },
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "updateMerchandiseAction",
+          "exportedName": "getKitDetailBySlug",
           "filename": "src/actions/catalog.js"
         },
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "updateMerchandiseAction",
+          "exportedName": "getKitDetailBySlug",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/order/page": {
           "moduleId": 2748,
           "async": true,
-          "exportedName": "updateMerchandiseAction",
+          "exportedName": "getKitDetailBySlug",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/page": {
           "moduleId": 53429,
           "async": true,
-          "exportedName": "updateMerchandiseAction",
+          "exportedName": "getKitDetailBySlug",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/page": {
           "moduleId": 67902,
           "async": true,
-          "exportedName": "updateMerchandiseAction",
+          "exportedName": "getKitDetailBySlug",
           "filename": "src/actions/catalog.js"
         },
         "app/page": {
           "moduleId": 27075,
           "async": true,
-          "exportedName": "updateMerchandiseAction",
+          "exportedName": "getKitDetailBySlug",
           "filename": "src/actions/catalog.js"
         }
       },
       "layer": {
-        "app/(dashboard)/admin/catalog/page": "action-browser",
+        "app/(dashboard)/admin/catalog/page": "rsc",
         "app/catalog/[slug]/page": "rsc",
         "app/download-katalog/page": "rsc",
         "app/merchandise/[slug]/order/page": "rsc",
@@ -568,66 +454,66 @@
         "app/page": "rsc"
       },
       "filename": "src/actions/catalog.js",
-      "exportedName": "updateMerchandiseAction"
+      "exportedName": "getKitDetailBySlug"
     },
-    "600e941dc84c070419ef94d73b7d806aaa24d6e94e": {
+    "40f2ac31aeb4940bf78bdc2013c5ed8833f5c934cd": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
           "async": true,
-          "exportedName": "deleteKitAction",
+          "exportedName": "requestCatalogDownloadAction",
           "filename": "src/actions/catalog.js"
         },
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "deleteKitAction",
+          "exportedName": "requestCatalogDownloadAction",
           "filename": "src/actions/catalog.js"
         },
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "deleteKitAction",
+          "exportedName": "requestCatalogDownloadAction",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/order/page": {
           "moduleId": 2748,
           "async": true,
-          "exportedName": "deleteKitAction",
+          "exportedName": "requestCatalogDownloadAction",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/page": {
           "moduleId": 53429,
           "async": true,
-          "exportedName": "deleteKitAction",
+          "exportedName": "requestCatalogDownloadAction",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/page": {
           "moduleId": 67902,
           "async": true,
-          "exportedName": "deleteKitAction",
+          "exportedName": "requestCatalogDownloadAction",
           "filename": "src/actions/catalog.js"
         },
         "app/page": {
           "moduleId": 27075,
           "async": true,
-          "exportedName": "deleteKitAction",
+          "exportedName": "requestCatalogDownloadAction",
           "filename": "src/actions/catalog.js"
         }
       },
       "layer": {
-        "app/(dashboard)/admin/catalog/page": "action-browser",
+        "app/(dashboard)/admin/catalog/page": "rsc",
         "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
+        "app/download-katalog/page": "action-browser",
         "app/merchandise/[slug]/order/page": "rsc",
         "app/merchandise/[slug]/page": "rsc",
         "app/merchandise/page": "rsc",
         "app/page": "rsc"
       },
       "filename": "src/actions/catalog.js",
-      "exportedName": "deleteKitAction"
+      "exportedName": "requestCatalogDownloadAction"
     },
-    "602933e9bb6ef0f8104f4463b1ab677c4b65d9fa77": {
+    "6017024524824af757ee28b852fcd4a0e288f279cf": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
@@ -684,48 +570,48 @@
       "filename": "src/actions/catalog.js",
       "exportedName": "updateKitAction"
     },
-    "602dcdb04a738189d8a29ff82baaf411386eabd823": {
+    "60181f06f75c4ca4b1166c8e2045b77a847b68f0c4": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
           "async": true,
-          "exportedName": "uploadCatalogFileAction",
+          "exportedName": "updateMerchandiseAction",
           "filename": "src/actions/catalog.js"
         },
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "uploadCatalogFileAction",
+          "exportedName": "updateMerchandiseAction",
           "filename": "src/actions/catalog.js"
         },
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "uploadCatalogFileAction",
+          "exportedName": "updateMerchandiseAction",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/order/page": {
           "moduleId": 2748,
           "async": true,
-          "exportedName": "uploadCatalogFileAction",
+          "exportedName": "updateMerchandiseAction",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/page": {
           "moduleId": 53429,
           "async": true,
-          "exportedName": "uploadCatalogFileAction",
+          "exportedName": "updateMerchandiseAction",
           "filename": "src/actions/catalog.js"
         },
         "app/merchandise/page": {
           "moduleId": 67902,
           "async": true,
-          "exportedName": "uploadCatalogFileAction",
+          "exportedName": "updateMerchandiseAction",
           "filename": "src/actions/catalog.js"
         },
         "app/page": {
           "moduleId": 27075,
           "async": true,
-          "exportedName": "uploadCatalogFileAction",
+          "exportedName": "updateMerchandiseAction",
           "filename": "src/actions/catalog.js"
         }
       },
@@ -739,9 +625,9 @@
         "app/page": "rsc"
       },
       "filename": "src/actions/catalog.js",
-      "exportedName": "uploadCatalogFileAction"
+      "exportedName": "updateMerchandiseAction"
     },
-    "6066753f60c6fdd9e6d0963457a726ee38b455d704": {
+    "601f1f6e89762c61f9bb5e2f4acc9652bc8ba4c593": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
@@ -798,7 +684,64 @@
       "filename": "src/actions/catalog.js",
       "exportedName": "createMerchandiseAction"
     },
-    "606d895086d731b0f6794a03cdc90b1215211299c8": {
+    "602c263ff7231fc21c419c508d4d62f1f26800ba39": {
+      "workers": {
+        "app/(dashboard)/admin/catalog/page": {
+          "moduleId": 55632,
+          "async": true,
+          "exportedName": "uploadCatalogFileAction",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "uploadCatalogFileAction",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "uploadCatalogFileAction",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/merchandise/[slug]/order/page": {
+          "moduleId": 2748,
+          "async": true,
+          "exportedName": "uploadCatalogFileAction",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/merchandise/[slug]/page": {
+          "moduleId": 53429,
+          "async": true,
+          "exportedName": "uploadCatalogFileAction",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/merchandise/page": {
+          "moduleId": 67902,
+          "async": true,
+          "exportedName": "uploadCatalogFileAction",
+          "filename": "src/actions/catalog.js"
+        },
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "uploadCatalogFileAction",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/catalog/page": "action-browser",
+        "app/catalog/[slug]/page": "rsc",
+        "app/download-katalog/page": "rsc",
+        "app/merchandise/[slug]/order/page": "rsc",
+        "app/merchandise/[slug]/page": "rsc",
+        "app/merchandise/page": "rsc",
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/catalog.js",
+      "exportedName": "uploadCatalogFileAction"
+    },
+    "602d9bc1241e60c823cefde378b60b6364ede8202d": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
@@ -855,7 +798,7 @@
       "filename": "src/actions/catalog.js",
       "exportedName": "createKitAction"
     },
-    "60e1f53b3352eda5f196057d19b6d6ff8a508c21d9": {
+    "6086aac55bd10378735c812f6d50a833cec4d795e1": {
       "workers": {
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
@@ -912,134 +855,64 @@
       "filename": "src/actions/catalog.js",
       "exportedName": "deleteMerchandiseAction"
     },
-    "00374a34c5f5c845e04d4af81d5d15f084e302c5e7": {
+    "60eb9fcf23e67ada6153575ab51fffa758c6d957db": {
       "workers": {
-        "app/(dashboard)/admin/analytic/page": {
-          "moduleId": 57424,
-          "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
-        },
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
           "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/dashboard/page": {
-          "moduleId": 54874,
-          "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/setting/page": {
-          "moduleId": 86532,
-          "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/user/dashboard/page": {
-          "moduleId": 76976,
-          "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/activate/page": {
-          "moduleId": 40282,
-          "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/page": {
-          "moduleId": 74728,
-          "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/register/page": {
-          "moduleId": 44606,
-          "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
+          "exportedName": "deleteKitAction",
+          "filename": "src/actions/catalog.js"
         },
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
+          "exportedName": "deleteKitAction",
+          "filename": "src/actions/catalog.js"
         },
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
+          "exportedName": "deleteKitAction",
+          "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/order/page": {
           "moduleId": 2748,
           "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
+          "exportedName": "deleteKitAction",
+          "filename": "src/actions/catalog.js"
         },
         "app/merchandise/[slug]/page": {
           "moduleId": 53429,
           "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
+          "exportedName": "deleteKitAction",
+          "filename": "src/actions/catalog.js"
         },
         "app/merchandise/page": {
           "moduleId": 67902,
           "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
+          "exportedName": "deleteKitAction",
+          "filename": "src/actions/catalog.js"
         },
         "app/page": {
           "moduleId": 27075,
           "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
+          "exportedName": "deleteKitAction",
+          "filename": "src/actions/catalog.js"
         }
       },
       "layer": {
-        "app/(dashboard)/admin/analytic/page": "rsc",
-        "app/(dashboard)/admin/catalog/page": "rsc",
-        "app/(dashboard)/admin/dashboard/page": "rsc",
-        "app/(dashboard)/admin/order/page": "rsc",
-        "app/(dashboard)/admin/profile/page": "rsc",
-        "app/(dashboard)/admin/setting/page": "rsc",
-        "app/(dashboard)/user/dashboard/page": "rsc",
-        "app/auth/activate/page": "rsc",
-        "app/auth/page": "rsc",
-        "app/auth/register/page": "rsc",
+        "app/(dashboard)/admin/catalog/page": "action-browser",
         "app/catalog/[slug]/page": "rsc",
         "app/download-katalog/page": "rsc",
         "app/merchandise/[slug]/order/page": "rsc",
         "app/merchandise/[slug]/page": "rsc",
         "app/merchandise/page": "rsc",
-        "app/order-status/page": "rsc",
         "app/page": "rsc"
       },
-      "filename": "src/actions/auth.js",
-      "exportedName": "getCurrentUser"
+      "filename": "src/actions/catalog.js",
+      "exportedName": "deleteKitAction"
     },
-    "00cfd8c18e0bee416f2b90c270ec0aecf8a77a8756": {
+    "0059725dfb467e990d73c3517d408beff55c8573e5": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -1166,7 +1039,7 @@
       "filename": "src/actions/auth.js",
       "exportedName": "logoutAction"
     },
-    "00d0a795c85998cddef16d710964c2a93d4896e4e4": {
+    "009e01cc1a3e5e85f0b80919d21fa5ab474c14d342": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -1293,7 +1166,134 @@
       "filename": "src/actions/auth.js",
       "exportedName": "requireUser"
     },
-    "00f1b948a65ae54a2439ac10b5e7a347cd197cd827": {
+    "00b4eec0c1d351bcd4515ed91732092e485439e07c": {
+      "workers": {
+        "app/(dashboard)/admin/analytic/page": {
+          "moduleId": 57424,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/catalog/page": {
+          "moduleId": 55632,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/dashboard/page": {
+          "moduleId": 54874,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/setting/page": {
+          "moduleId": 86532,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/user/dashboard/page": {
+          "moduleId": 76976,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/activate/page": {
+          "moduleId": 40282,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/page": {
+          "moduleId": 74728,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/register/page": {
+          "moduleId": 44606,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/[slug]/order/page": {
+          "moduleId": 2748,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/[slug]/page": {
+          "moduleId": 53429,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/page": {
+          "moduleId": 67902,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        },
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/analytic/page": "rsc",
+        "app/(dashboard)/admin/catalog/page": "rsc",
+        "app/(dashboard)/admin/dashboard/page": "rsc",
+        "app/(dashboard)/admin/order/page": "rsc",
+        "app/(dashboard)/admin/profile/page": "rsc",
+        "app/(dashboard)/admin/setting/page": "rsc",
+        "app/(dashboard)/user/dashboard/page": "rsc",
+        "app/auth/activate/page": "rsc",
+        "app/auth/page": "rsc",
+        "app/auth/register/page": "rsc",
+        "app/catalog/[slug]/page": "rsc",
+        "app/download-katalog/page": "rsc",
+        "app/merchandise/[slug]/order/page": "rsc",
+        "app/merchandise/[slug]/page": "rsc",
+        "app/merchandise/page": "rsc",
+        "app/order-status/page": "rsc",
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/auth.js",
+      "exportedName": "getCurrentUser"
+    },
+    "00f668e9c2f3fccfc252df7e6016c4ff08ba39a3a5": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -1420,7 +1420,7 @@
       "filename": "src/actions/auth.js",
       "exportedName": "getAdminProfileData"
     },
-    "401975be364d8fb0cbc52ac921ec77c07d9c6d4d29": {
+    "401c976f0728f757e0c91f1b1e6f0c857a11d1d5bd": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -1547,7 +1547,7 @@
       "filename": "src/actions/auth.js",
       "exportedName": "requireRole"
     },
-    "407dab6b3c5c11b5841faeb93c71c3075a1745cd3f": {
+    "4035714d493ae1fc4abdf186340e4ee9a3e7a23770": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -1674,395 +1674,7 @@
       "filename": "src/actions/auth.js",
       "exportedName": "activateAccountByToken"
     },
-    "60696ae9df9f267560a8c4f5dd5636a660a973868c": {
-      "workers": {
-        "app/(dashboard)/admin/analytic/page": {
-          "moduleId": 57424,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/catalog/page": {
-          "moduleId": 55632,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/dashboard/page": {
-          "moduleId": 54874,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/setting/page": {
-          "moduleId": 86532,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/user/dashboard/page": {
-          "moduleId": 76976,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/activate/page": {
-          "moduleId": 40282,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/page": {
-          "moduleId": 74728,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/register/page": {
-          "moduleId": 44606,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/merchandise/[slug]/order/page": {
-          "moduleId": 2748,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/merchandise/[slug]/page": {
-          "moduleId": 53429,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/merchandise/page": {
-          "moduleId": 67902,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/analytic/page": "rsc",
-        "app/(dashboard)/admin/catalog/page": "rsc",
-        "app/(dashboard)/admin/dashboard/page": "rsc",
-        "app/(dashboard)/admin/order/page": "rsc",
-        "app/(dashboard)/admin/profile/page": "action-browser",
-        "app/(dashboard)/admin/setting/page": "rsc",
-        "app/(dashboard)/user/dashboard/page": "rsc",
-        "app/auth/activate/page": "rsc",
-        "app/auth/page": "rsc",
-        "app/auth/register/page": "rsc",
-        "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
-        "app/merchandise/[slug]/order/page": "rsc",
-        "app/merchandise/[slug]/page": "rsc",
-        "app/merchandise/page": "rsc",
-        "app/order-status/page": "rsc",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/auth.js",
-      "exportedName": "updateAdminProfileAction"
-    },
-    "60785c35690484b4331f5188cd58705f1cfb08af24": {
-      "workers": {
-        "app/(dashboard)/admin/analytic/page": {
-          "moduleId": 57424,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/catalog/page": {
-          "moduleId": 55632,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/dashboard/page": {
-          "moduleId": 54874,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/setting/page": {
-          "moduleId": 86532,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/user/dashboard/page": {
-          "moduleId": 76976,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/activate/page": {
-          "moduleId": 40282,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/page": {
-          "moduleId": 74728,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/register/page": {
-          "moduleId": 44606,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/merchandise/[slug]/order/page": {
-          "moduleId": 2748,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/merchandise/[slug]/page": {
-          "moduleId": 53429,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/merchandise/page": {
-          "moduleId": 67902,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/analytic/page": "rsc",
-        "app/(dashboard)/admin/catalog/page": "rsc",
-        "app/(dashboard)/admin/dashboard/page": "rsc",
-        "app/(dashboard)/admin/order/page": "rsc",
-        "app/(dashboard)/admin/profile/page": "rsc",
-        "app/(dashboard)/admin/setting/page": "rsc",
-        "app/(dashboard)/user/dashboard/page": "rsc",
-        "app/auth/activate/page": "rsc",
-        "app/auth/page": "rsc",
-        "app/auth/register/page": "rsc",
-        "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
-        "app/merchandise/[slug]/order/page": "rsc",
-        "app/merchandise/[slug]/page": "rsc",
-        "app/merchandise/page": "rsc",
-        "app/order-status/page": "rsc",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/auth.js",
-      "exportedName": "registerAction"
-    },
-    "60c24d624fed7c2142d472b32546fc6512a66a3f53": {
-      "workers": {
-        "app/(dashboard)/admin/analytic/page": {
-          "moduleId": 57424,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/catalog/page": {
-          "moduleId": 55632,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/dashboard/page": {
-          "moduleId": 54874,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/admin/setting/page": {
-          "moduleId": 86532,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/(dashboard)/user/dashboard/page": {
-          "moduleId": 76976,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/activate/page": {
-          "moduleId": 40282,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/forgot-password/page": {
-          "moduleId": 33085,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/page": {
-          "moduleId": 74728,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/auth/register/page": {
-          "moduleId": 44606,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/merchandise/[slug]/order/page": {
-          "moduleId": 2748,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/merchandise/[slug]/page": {
-          "moduleId": 53429,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/merchandise/page": {
-          "moduleId": 67902,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/analytic/page": "rsc",
-        "app/(dashboard)/admin/catalog/page": "rsc",
-        "app/(dashboard)/admin/dashboard/page": "rsc",
-        "app/(dashboard)/admin/order/page": "rsc",
-        "app/(dashboard)/admin/profile/page": "rsc",
-        "app/(dashboard)/admin/setting/page": "rsc",
-        "app/(dashboard)/user/dashboard/page": "rsc",
-        "app/auth/activate/page": "rsc",
-        "app/auth/forgot-password/page": "action-browser",
-        "app/auth/page": "rsc",
-        "app/auth/register/page": "rsc",
-        "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
-        "app/merchandise/[slug]/order/page": "rsc",
-        "app/merchandise/[slug]/page": "rsc",
-        "app/merchandise/page": "rsc",
-        "app/order-status/page": "rsc",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/auth.js",
-      "exportedName": "requestPasswordResetAction"
-    },
-    "60c57ccfb76ae3562492b0c265738c6dc9294c6da1": {
+    "6001a4a5e4f7bcdd18a77ce3a63d9adebe1a546fd0": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -2196,7 +1808,395 @@
       "filename": "src/actions/auth.js",
       "exportedName": "resetPasswordAction"
     },
-    "60fddefcc79f53b2aeb02b4bd410ad162bd37e7244": {
+    "6002795e6b2f7e5a2d0a082dd138551f412570deba": {
+      "workers": {
+        "app/(dashboard)/admin/analytic/page": {
+          "moduleId": 57424,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/catalog/page": {
+          "moduleId": 55632,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/dashboard/page": {
+          "moduleId": 54874,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/setting/page": {
+          "moduleId": 86532,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/user/dashboard/page": {
+          "moduleId": 76976,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/activate/page": {
+          "moduleId": 40282,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/forgot-password/page": {
+          "moduleId": 33085,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/page": {
+          "moduleId": 74728,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/register/page": {
+          "moduleId": 44606,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/[slug]/order/page": {
+          "moduleId": 2748,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/[slug]/page": {
+          "moduleId": 53429,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/page": {
+          "moduleId": 67902,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/analytic/page": "rsc",
+        "app/(dashboard)/admin/catalog/page": "rsc",
+        "app/(dashboard)/admin/dashboard/page": "rsc",
+        "app/(dashboard)/admin/order/page": "rsc",
+        "app/(dashboard)/admin/profile/page": "rsc",
+        "app/(dashboard)/admin/setting/page": "rsc",
+        "app/(dashboard)/user/dashboard/page": "rsc",
+        "app/auth/activate/page": "rsc",
+        "app/auth/forgot-password/page": "action-browser",
+        "app/auth/page": "rsc",
+        "app/auth/register/page": "rsc",
+        "app/catalog/[slug]/page": "rsc",
+        "app/download-katalog/page": "rsc",
+        "app/merchandise/[slug]/order/page": "rsc",
+        "app/merchandise/[slug]/page": "rsc",
+        "app/merchandise/page": "rsc",
+        "app/order-status/page": "rsc",
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/auth.js",
+      "exportedName": "requestPasswordResetAction"
+    },
+    "60361e2f702ecc0dee7722fd46ace47d6961b2b96a": {
+      "workers": {
+        "app/(dashboard)/admin/analytic/page": {
+          "moduleId": 57424,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/catalog/page": {
+          "moduleId": 55632,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/dashboard/page": {
+          "moduleId": 54874,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/setting/page": {
+          "moduleId": 86532,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/user/dashboard/page": {
+          "moduleId": 76976,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/activate/page": {
+          "moduleId": 40282,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/page": {
+          "moduleId": 74728,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/register/page": {
+          "moduleId": 44606,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/[slug]/order/page": {
+          "moduleId": 2748,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/[slug]/page": {
+          "moduleId": 53429,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/page": {
+          "moduleId": 67902,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/analytic/page": "rsc",
+        "app/(dashboard)/admin/catalog/page": "rsc",
+        "app/(dashboard)/admin/dashboard/page": "rsc",
+        "app/(dashboard)/admin/order/page": "rsc",
+        "app/(dashboard)/admin/profile/page": "rsc",
+        "app/(dashboard)/admin/setting/page": "rsc",
+        "app/(dashboard)/user/dashboard/page": "rsc",
+        "app/auth/activate/page": "rsc",
+        "app/auth/page": "rsc",
+        "app/auth/register/page": "rsc",
+        "app/catalog/[slug]/page": "rsc",
+        "app/download-katalog/page": "rsc",
+        "app/merchandise/[slug]/order/page": "rsc",
+        "app/merchandise/[slug]/page": "rsc",
+        "app/merchandise/page": "rsc",
+        "app/order-status/page": "rsc",
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/auth.js",
+      "exportedName": "registerAction"
+    },
+    "6073d23a7ac570005799a40e64b91632c9f1ce3b50": {
+      "workers": {
+        "app/(dashboard)/admin/analytic/page": {
+          "moduleId": 57424,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/catalog/page": {
+          "moduleId": 55632,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/dashboard/page": {
+          "moduleId": 54874,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/admin/setting/page": {
+          "moduleId": 86532,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/(dashboard)/user/dashboard/page": {
+          "moduleId": 76976,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/activate/page": {
+          "moduleId": 40282,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/page": {
+          "moduleId": 74728,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/auth/register/page": {
+          "moduleId": 44606,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/[slug]/order/page": {
+          "moduleId": 2748,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/[slug]/page": {
+          "moduleId": 53429,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/merchandise/page": {
+          "moduleId": 67902,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        },
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/analytic/page": "rsc",
+        "app/(dashboard)/admin/catalog/page": "rsc",
+        "app/(dashboard)/admin/dashboard/page": "rsc",
+        "app/(dashboard)/admin/order/page": "rsc",
+        "app/(dashboard)/admin/profile/page": "action-browser",
+        "app/(dashboard)/admin/setting/page": "rsc",
+        "app/(dashboard)/user/dashboard/page": "rsc",
+        "app/auth/activate/page": "rsc",
+        "app/auth/page": "rsc",
+        "app/auth/register/page": "rsc",
+        "app/catalog/[slug]/page": "rsc",
+        "app/download-katalog/page": "rsc",
+        "app/merchandise/[slug]/order/page": "rsc",
+        "app/merchandise/[slug]/page": "rsc",
+        "app/merchandise/page": "rsc",
+        "app/order-status/page": "rsc",
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/auth.js",
+      "exportedName": "updateAdminProfileAction"
+    },
+    "607407960579eb45ec4087ac2c0eee6a76926ed794": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -2323,22 +2323,7 @@
       "filename": "src/actions/auth.js",
       "exportedName": "loginAction"
     },
-    "0070a03ab5b30a2449132480e51335475f9c002a61": {
-      "workers": {
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "getAdminFaqs",
-          "filename": "src/actions/faq.js"
-        }
-      },
-      "layer": {
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/faq.js",
-      "exportedName": "getAdminFaqs"
-    },
-    "007ffb0f7b0e8e1c841f0ede230319584ce2b07aab": {
+    "0086d594d87363cf3766da5714515aa9cb384e0f9b": {
       "workers": {
         "app/page": {
           "moduleId": 27075,
@@ -2353,7 +2338,22 @@
       "filename": "src/actions/faq.js",
       "exportedName": "getActiveFaqs"
     },
-    "40f834af36943e492f27179a07af3d03f623a49296": {
+    "00cf5f57369cda547bb9a10d61ada9f5b1521b4f74": {
+      "workers": {
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "getAdminFaqs",
+          "filename": "src/actions/faq.js"
+        }
+      },
+      "layer": {
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/faq.js",
+      "exportedName": "getAdminFaqs"
+    },
+    "407b06af12dd6626b1f4bec544367e4a0e60c70880": {
       "workers": {
         "app/(dashboard)/admin/setting/page": {
           "moduleId": 86532,
@@ -2375,7 +2375,7 @@
       "filename": "src/actions/faq.js",
       "exportedName": "reorderFaqsAction"
     },
-    "601b54697d2fff020258528e7248ea20fa34be51be": {
+    "605b6e6457a4409dc78767719427ced9acb3d14d01": {
       "workers": {
         "app/(dashboard)/admin/setting/page": {
           "moduleId": 86532,
@@ -2397,7 +2397,7 @@
       "filename": "src/actions/faq.js",
       "exportedName": "addFaqAction"
     },
-    "6066eced19215b1b4734a2e0f4f2fedb7eb0bd0dae": {
+    "605bdb91809d51e458d9623b1b915f94fcc528183c": {
       "workers": {
         "app/(dashboard)/admin/setting/page": {
           "moduleId": 86532,
@@ -2419,7 +2419,7 @@
       "filename": "src/actions/faq.js",
       "exportedName": "updateFaqAction"
     },
-    "60fc4aa13231290c1ceb7aefe19da29c920234dbd3": {
+    "60d693e7a21b7c286fb1c14175895278cc41321f38": {
       "workers": {
         "app/(dashboard)/admin/setting/page": {
           "moduleId": 86532,
@@ -2441,219 +2441,7 @@
       "filename": "src/actions/faq.js",
       "exportedName": "deleteFaqAction"
     },
-    "00959c7e8f1b0d3b3f4854ba0a9d89b4eba543999e": {
-      "workers": {
-        "app/(dashboard)/admin/analytic/page": {
-          "moduleId": 57424,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/catalog/page": {
-          "moduleId": 55632,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/dashboard/page": {
-          "moduleId": 54874,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/setting/page": {
-          "moduleId": 86532,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/[slug]/order/page": {
-          "moduleId": 2748,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/[slug]/page": {
-          "moduleId": 53429,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/page": {
-          "moduleId": 67902,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/analytic/page": "rsc",
-        "app/(dashboard)/admin/catalog/page": "rsc",
-        "app/(dashboard)/admin/dashboard/page": "rsc",
-        "app/(dashboard)/admin/order/page": "rsc",
-        "app/(dashboard)/admin/profile/page": "rsc",
-        "app/(dashboard)/admin/setting/page": "rsc",
-        "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
-        "app/merchandise/[slug]/order/page": "rsc",
-        "app/merchandise/[slug]/page": "rsc",
-        "app/merchandise/page": "rsc",
-        "app/order-status/page": "rsc",
-        "app/order/page": "rsc",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/setting.js",
-      "exportedName": "getWebsiteBranding"
-    },
-    "009ad6b49fdcca246769060584030432f3dede3075": {
-      "workers": {
-        "app/(dashboard)/admin/analytic/page": {
-          "moduleId": 57424,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/catalog/page": {
-          "moduleId": 55632,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/dashboard/page": {
-          "moduleId": 54874,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/setting/page": {
-          "moduleId": 86532,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/[slug]/order/page": {
-          "moduleId": 2748,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/[slug]/page": {
-          "moduleId": 53429,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/page": {
-          "moduleId": 67902,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "getAdminSettingsData",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/analytic/page": "rsc",
-        "app/(dashboard)/admin/catalog/page": "rsc",
-        "app/(dashboard)/admin/dashboard/page": "rsc",
-        "app/(dashboard)/admin/order/page": "rsc",
-        "app/(dashboard)/admin/profile/page": "rsc",
-        "app/(dashboard)/admin/setting/page": "rsc",
-        "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
-        "app/merchandise/[slug]/order/page": "rsc",
-        "app/merchandise/[slug]/page": "rsc",
-        "app/merchandise/page": "rsc",
-        "app/order-status/page": "rsc",
-        "app/order/page": "rsc",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/setting.js",
-      "exportedName": "getAdminSettingsData"
-    },
-    "00a413c30bc6ba285412954ede1567e1918f3a4260": {
+    "002e6a22597031f8262fc5ca815d8e90bf3dbfe78f": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -2759,90 +2547,90 @@
       "filename": "src/actions/setting.js",
       "exportedName": "getTrustedLogos"
     },
-    "600b8fc3cc3edf306b3ed8a28c593c643eddccd536": {
+    "00332fe3340d364fbbc18e45d7322114bc55e2f954": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/(dashboard)/admin/dashboard/page": {
           "moduleId": 54874,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/(dashboard)/admin/order/page": {
           "moduleId": 41221,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/(dashboard)/admin/setting/page": {
           "moduleId": 86532,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/merchandise/[slug]/order/page": {
           "moduleId": 2748,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/merchandise/[slug]/page": {
           "moduleId": 53429,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/merchandise/page": {
           "moduleId": 67902,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/order-status/page": {
           "moduleId": 20253,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/order/page": {
           "moduleId": 22142,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         },
         "app/page": {
           "moduleId": 27075,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         }
       },
@@ -2852,7 +2640,7 @@
         "app/(dashboard)/admin/dashboard/page": "rsc",
         "app/(dashboard)/admin/order/page": "rsc",
         "app/(dashboard)/admin/profile/page": "rsc",
-        "app/(dashboard)/admin/setting/page": "action-browser",
+        "app/(dashboard)/admin/setting/page": "rsc",
         "app/catalog/[slug]/page": "rsc",
         "app/download-katalog/page": "rsc",
         "app/merchandise/[slug]/order/page": "rsc",
@@ -2863,92 +2651,92 @@
         "app/page": "rsc"
       },
       "filename": "src/actions/setting.js",
-      "exportedName": "addTrustedLogoAction"
+      "exportedName": "getWebsiteBranding"
     },
-    "600f6d6fdfa1cd8fb4c71197a2dbc5ae5852bd4cc7": {
+    "00cce3e472bbf87f28dccd7a25da74253eeace7aa6": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/(dashboard)/admin/catalog/page": {
           "moduleId": 55632,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/(dashboard)/admin/dashboard/page": {
           "moduleId": 54874,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/(dashboard)/admin/order/page": {
           "moduleId": 41221,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/(dashboard)/admin/setting/page": {
           "moduleId": 86532,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/catalog/[slug]/page": {
           "moduleId": 32697,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/merchandise/[slug]/order/page": {
           "moduleId": 2748,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/merchandise/[slug]/page": {
           "moduleId": 53429,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/merchandise/page": {
           "moduleId": 67902,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/order-status/page": {
           "moduleId": 20253,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/order/page": {
           "moduleId": 22142,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         },
         "app/page": {
           "moduleId": 27075,
           "async": true,
-          "exportedName": "updateWebsiteConfigAction",
+          "exportedName": "getAdminSettingsData",
           "filename": "src/actions/setting.js"
         }
       },
@@ -2958,7 +2746,7 @@
         "app/(dashboard)/admin/dashboard/page": "rsc",
         "app/(dashboard)/admin/order/page": "rsc",
         "app/(dashboard)/admin/profile/page": "rsc",
-        "app/(dashboard)/admin/setting/page": "action-browser",
+        "app/(dashboard)/admin/setting/page": "rsc",
         "app/catalog/[slug]/page": "rsc",
         "app/download-katalog/page": "rsc",
         "app/merchandise/[slug]/order/page": "rsc",
@@ -2969,221 +2757,9 @@
         "app/page": "rsc"
       },
       "filename": "src/actions/setting.js",
-      "exportedName": "updateWebsiteConfigAction"
+      "exportedName": "getAdminSettingsData"
     },
-    "6037253b8d0d1f2364491fcbb59f51e1c1e5e8578a": {
-      "workers": {
-        "app/(dashboard)/admin/analytic/page": {
-          "moduleId": 57424,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/catalog/page": {
-          "moduleId": 55632,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/dashboard/page": {
-          "moduleId": 54874,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/setting/page": {
-          "moduleId": 86532,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/[slug]/order/page": {
-          "moduleId": 2748,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/[slug]/page": {
-          "moduleId": 53429,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/page": {
-          "moduleId": 67902,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "updateTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/analytic/page": "rsc",
-        "app/(dashboard)/admin/catalog/page": "rsc",
-        "app/(dashboard)/admin/dashboard/page": "rsc",
-        "app/(dashboard)/admin/order/page": "rsc",
-        "app/(dashboard)/admin/profile/page": "rsc",
-        "app/(dashboard)/admin/setting/page": "action-browser",
-        "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
-        "app/merchandise/[slug]/order/page": "rsc",
-        "app/merchandise/[slug]/page": "rsc",
-        "app/merchandise/page": "rsc",
-        "app/order-status/page": "rsc",
-        "app/order/page": "rsc",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/setting.js",
-      "exportedName": "updateTrustedLogoAction"
-    },
-    "606097c085bec330a22f016ecfdba4bd1f0b280366": {
-      "workers": {
-        "app/(dashboard)/admin/analytic/page": {
-          "moduleId": 57424,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/catalog/page": {
-          "moduleId": 55632,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/dashboard/page": {
-          "moduleId": 54874,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/(dashboard)/admin/setting/page": {
-          "moduleId": 86532,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/[slug]/order/page": {
-          "moduleId": 2748,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/[slug]/page": {
-          "moduleId": 53429,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/merchandise/page": {
-          "moduleId": 67902,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/analytic/page": "rsc",
-        "app/(dashboard)/admin/catalog/page": "rsc",
-        "app/(dashboard)/admin/dashboard/page": "rsc",
-        "app/(dashboard)/admin/order/page": "rsc",
-        "app/(dashboard)/admin/profile/page": "rsc",
-        "app/(dashboard)/admin/setting/page": "action-browser",
-        "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
-        "app/merchandise/[slug]/order/page": "rsc",
-        "app/merchandise/[slug]/page": "rsc",
-        "app/merchandise/page": "rsc",
-        "app/order-status/page": "rsc",
-        "app/order/page": "rsc",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/setting.js",
-      "exportedName": "updateApiIntegrationAction"
-    },
-    "606bbba9c0cc5db522c48c5d43bc6b697aa135b264": {
+    "600bbc8c78f0ea80602db8e2e8cca84f2fcef4cf08": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -3289,7 +2865,113 @@
       "filename": "src/actions/setting.js",
       "exportedName": "deleteTrustedLogoAction"
     },
-    "6074f566844aea4fb3e1df8b032d19c90a57a4c8d5": {
+    "6024c2ecbd9feae5156b37b25c46d17123dedf97aa": {
+      "workers": {
+        "app/(dashboard)/admin/analytic/page": {
+          "moduleId": 57424,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/catalog/page": {
+          "moduleId": 55632,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/dashboard/page": {
+          "moduleId": 54874,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/setting/page": {
+          "moduleId": 86532,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/[slug]/order/page": {
+          "moduleId": 2748,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/[slug]/page": {
+          "moduleId": 53429,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/page": {
+          "moduleId": 67902,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "updateTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/analytic/page": "rsc",
+        "app/(dashboard)/admin/catalog/page": "rsc",
+        "app/(dashboard)/admin/dashboard/page": "rsc",
+        "app/(dashboard)/admin/order/page": "rsc",
+        "app/(dashboard)/admin/profile/page": "rsc",
+        "app/(dashboard)/admin/setting/page": "action-browser",
+        "app/catalog/[slug]/page": "rsc",
+        "app/download-katalog/page": "rsc",
+        "app/merchandise/[slug]/order/page": "rsc",
+        "app/merchandise/[slug]/page": "rsc",
+        "app/merchandise/page": "rsc",
+        "app/order-status/page": "rsc",
+        "app/order/page": "rsc",
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/setting.js",
+      "exportedName": "updateTrustedLogoAction"
+    },
+    "6028d71f0b62f2f16acc13447bf63f7f6d5772e444": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -3395,7 +3077,7 @@
       "filename": "src/actions/setting.js",
       "exportedName": "updateSmtpConfigAction"
     },
-    "60ac236a121c2ace30b3cef9dbe0d954b1a10deb6d": {
+    "602a86c4e98d2fce7e8dc7cd901cceb7452b347c6e": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -3501,22 +3183,325 @@
       "filename": "src/actions/setting.js",
       "exportedName": "updateSeoMetadataAction"
     },
-    "007c1411f4b6001bb18f817c0d35ecc1c6121e0c74": {
+    "60566c8f867348c5af2cb17aad2ec0950d81974e0a": {
       "workers": {
+        "app/(dashboard)/admin/analytic/page": {
+          "moduleId": 57424,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/catalog/page": {
+          "moduleId": 55632,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/dashboard/page": {
+          "moduleId": 54874,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/setting/page": {
+          "moduleId": 86532,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/[slug]/order/page": {
+          "moduleId": 2748,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/[slug]/page": {
+          "moduleId": 53429,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/page": {
+          "moduleId": 67902,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        },
         "app/page": {
           "moduleId": 27075,
           "async": true,
-          "exportedName": "getAdminTestimonials",
-          "filename": "src/actions/testimonial.js"
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
         }
       },
       "layer": {
+        "app/(dashboard)/admin/analytic/page": "rsc",
+        "app/(dashboard)/admin/catalog/page": "rsc",
+        "app/(dashboard)/admin/dashboard/page": "rsc",
+        "app/(dashboard)/admin/order/page": "rsc",
+        "app/(dashboard)/admin/profile/page": "rsc",
+        "app/(dashboard)/admin/setting/page": "action-browser",
+        "app/catalog/[slug]/page": "rsc",
+        "app/download-katalog/page": "rsc",
+        "app/merchandise/[slug]/order/page": "rsc",
+        "app/merchandise/[slug]/page": "rsc",
+        "app/merchandise/page": "rsc",
+        "app/order-status/page": "rsc",
+        "app/order/page": "rsc",
         "app/page": "rsc"
       },
-      "filename": "src/actions/testimonial.js",
-      "exportedName": "getAdminTestimonials"
+      "filename": "src/actions/setting.js",
+      "exportedName": "updateWebsiteConfigAction"
     },
-    "008472e967df40cb3997058d35c5302308898790c8": {
+    "606c09bf695be7298eb698c0d006b784a538f67465": {
+      "workers": {
+        "app/(dashboard)/admin/analytic/page": {
+          "moduleId": 57424,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/catalog/page": {
+          "moduleId": 55632,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/dashboard/page": {
+          "moduleId": 54874,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/setting/page": {
+          "moduleId": 86532,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/[slug]/order/page": {
+          "moduleId": 2748,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/[slug]/page": {
+          "moduleId": 53429,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/page": {
+          "moduleId": 67902,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/analytic/page": "rsc",
+        "app/(dashboard)/admin/catalog/page": "rsc",
+        "app/(dashboard)/admin/dashboard/page": "rsc",
+        "app/(dashboard)/admin/order/page": "rsc",
+        "app/(dashboard)/admin/profile/page": "rsc",
+        "app/(dashboard)/admin/setting/page": "action-browser",
+        "app/catalog/[slug]/page": "rsc",
+        "app/download-katalog/page": "rsc",
+        "app/merchandise/[slug]/order/page": "rsc",
+        "app/merchandise/[slug]/page": "rsc",
+        "app/merchandise/page": "rsc",
+        "app/order-status/page": "rsc",
+        "app/order/page": "rsc",
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/setting.js",
+      "exportedName": "updateApiIntegrationAction"
+    },
+    "607a7d5b77ce65c55bd628ec7593d1d8c16f7bf0ec": {
+      "workers": {
+        "app/(dashboard)/admin/analytic/page": {
+          "moduleId": 57424,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/catalog/page": {
+          "moduleId": 55632,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/dashboard/page": {
+          "moduleId": 54874,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/(dashboard)/admin/setting/page": {
+          "moduleId": 86532,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/[slug]/order/page": {
+          "moduleId": 2748,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/[slug]/page": {
+          "moduleId": 53429,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/merchandise/page": {
+          "moduleId": 67902,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        },
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/analytic/page": "rsc",
+        "app/(dashboard)/admin/catalog/page": "rsc",
+        "app/(dashboard)/admin/dashboard/page": "rsc",
+        "app/(dashboard)/admin/order/page": "rsc",
+        "app/(dashboard)/admin/profile/page": "rsc",
+        "app/(dashboard)/admin/setting/page": "action-browser",
+        "app/catalog/[slug]/page": "rsc",
+        "app/download-katalog/page": "rsc",
+        "app/merchandise/[slug]/order/page": "rsc",
+        "app/merchandise/[slug]/page": "rsc",
+        "app/merchandise/page": "rsc",
+        "app/order-status/page": "rsc",
+        "app/order/page": "rsc",
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/setting.js",
+      "exportedName": "addTrustedLogoAction"
+    },
+    "000ed5f8f6e77660f663eb7ff4a253df094316f84e": {
       "workers": {
         "app/page": {
           "moduleId": 27075,
@@ -3531,7 +3516,22 @@
       "filename": "src/actions/testimonial.js",
       "exportedName": "getActiveTestimonials"
     },
-    "40c6c4cbf0817d801ab2958bdb46cbd0c80d126141": {
+    "001515cb8de19ed64147f2b6ac6740804594469f40": {
+      "workers": {
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "getAdminTestimonials",
+          "filename": "src/actions/testimonial.js"
+        }
+      },
+      "layer": {
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/testimonial.js",
+      "exportedName": "getAdminTestimonials"
+    },
+    "40c100e06b0ed49601c55f68bc2bdcab55307cf0a1": {
       "workers": {
         "app/(dashboard)/admin/setting/page": {
           "moduleId": 86532,
@@ -3553,51 +3553,7 @@
       "filename": "src/actions/testimonial.js",
       "exportedName": "reorderTestimonialsAction"
     },
-    "607a0f94abd4693b55eb083085f6ab2f1f2bb1e00f": {
-      "workers": {
-        "app/(dashboard)/admin/setting/page": {
-          "moduleId": 86532,
-          "async": true,
-          "exportedName": "deleteTestimonialAction",
-          "filename": "src/actions/testimonial.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "deleteTestimonialAction",
-          "filename": "src/actions/testimonial.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/setting/page": "action-browser",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/testimonial.js",
-      "exportedName": "deleteTestimonialAction"
-    },
-    "609c4a43a9e13502e3cef4f7428a9232ddc57ba43f": {
-      "workers": {
-        "app/(dashboard)/admin/setting/page": {
-          "moduleId": 86532,
-          "async": true,
-          "exportedName": "updateTestimonialAction",
-          "filename": "src/actions/testimonial.js"
-        },
-        "app/page": {
-          "moduleId": 27075,
-          "async": true,
-          "exportedName": "updateTestimonialAction",
-          "filename": "src/actions/testimonial.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/setting/page": "action-browser",
-        "app/page": "rsc"
-      },
-      "filename": "src/actions/testimonial.js",
-      "exportedName": "updateTestimonialAction"
-    },
-    "60b930a6e1ece27cd7ae72c7c9094070f4b4a1c4e4": {
+    "6010314823aa8e5e6e15f7daa53ea1131110772d78": {
       "workers": {
         "app/(dashboard)/admin/setting/page": {
           "moduleId": 86532,
@@ -3619,57 +3575,51 @@
       "filename": "src/actions/testimonial.js",
       "exportedName": "addTestimonialAction"
     },
-    "409ac45bc2d75c6d03ff5f09ee7ba780cd1349802e": {
+    "607dccd12733fc5fd41c42fb6a9d384b52627e8841": {
       "workers": {
-        "app/(dashboard)/admin/analytic/page": {
-          "moduleId": 57424,
+        "app/(dashboard)/admin/setting/page": {
+          "moduleId": 86532,
           "async": true,
-          "exportedName": "trackVisitorPageView",
-          "filename": "src/actions/analytics.js"
-        },
-        "app/catalog/[slug]/page": {
-          "moduleId": 32697,
-          "async": true,
-          "exportedName": "trackVisitorPageView",
-          "filename": "src/actions/analytics.js"
-        },
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "trackVisitorPageView",
-          "filename": "src/actions/analytics.js"
-        },
-        "app/merchandise/[slug]/page": {
-          "moduleId": 53429,
-          "async": true,
-          "exportedName": "trackVisitorPageView",
-          "filename": "src/actions/analytics.js"
-        },
-        "app/merchandise/page": {
-          "moduleId": 67902,
-          "async": true,
-          "exportedName": "trackVisitorPageView",
-          "filename": "src/actions/analytics.js"
+          "exportedName": "updateTestimonialAction",
+          "filename": "src/actions/testimonial.js"
         },
         "app/page": {
           "moduleId": 27075,
           "async": true,
-          "exportedName": "trackVisitorPageView",
-          "filename": "src/actions/analytics.js"
+          "exportedName": "updateTestimonialAction",
+          "filename": "src/actions/testimonial.js"
         }
       },
       "layer": {
-        "app/(dashboard)/admin/analytic/page": "rsc",
-        "app/catalog/[slug]/page": "rsc",
-        "app/download-katalog/page": "rsc",
-        "app/merchandise/[slug]/page": "rsc",
-        "app/merchandise/page": "rsc",
+        "app/(dashboard)/admin/setting/page": "action-browser",
         "app/page": "rsc"
       },
-      "filename": "src/actions/analytics.js",
-      "exportedName": "trackVisitorPageView"
+      "filename": "src/actions/testimonial.js",
+      "exportedName": "updateTestimonialAction"
     },
-    "40a73d51ceb6354fac5a69d245995d61e0833765c8": {
+    "60ed5d4622098cc10da62684047dd52dc99684a2b2": {
+      "workers": {
+        "app/(dashboard)/admin/setting/page": {
+          "moduleId": 86532,
+          "async": true,
+          "exportedName": "deleteTestimonialAction",
+          "filename": "src/actions/testimonial.js"
+        },
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "deleteTestimonialAction",
+          "filename": "src/actions/testimonial.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/setting/page": "action-browser",
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/testimonial.js",
+      "exportedName": "deleteTestimonialAction"
+    },
+    "40220be82a6086fa5f97f96a9cf67dc0bbc13a1d5c": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -3719,7 +3669,57 @@
       "filename": "src/actions/analytics.js",
       "exportedName": "getAdminAnalyticsData"
     },
-    "603a8180418a2646851d1feb35f80b6e50e8722b7c": {
+    "408e328ff441146821ab07fd76fd075949f1048a70": {
+      "workers": {
+        "app/(dashboard)/admin/analytic/page": {
+          "moduleId": 57424,
+          "async": true,
+          "exportedName": "trackVisitorPageView",
+          "filename": "src/actions/analytics.js"
+        },
+        "app/catalog/[slug]/page": {
+          "moduleId": 32697,
+          "async": true,
+          "exportedName": "trackVisitorPageView",
+          "filename": "src/actions/analytics.js"
+        },
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "trackVisitorPageView",
+          "filename": "src/actions/analytics.js"
+        },
+        "app/merchandise/[slug]/page": {
+          "moduleId": 53429,
+          "async": true,
+          "exportedName": "trackVisitorPageView",
+          "filename": "src/actions/analytics.js"
+        },
+        "app/merchandise/page": {
+          "moduleId": 67902,
+          "async": true,
+          "exportedName": "trackVisitorPageView",
+          "filename": "src/actions/analytics.js"
+        },
+        "app/page": {
+          "moduleId": 27075,
+          "async": true,
+          "exportedName": "trackVisitorPageView",
+          "filename": "src/actions/analytics.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/analytic/page": "rsc",
+        "app/catalog/[slug]/page": "rsc",
+        "app/download-katalog/page": "rsc",
+        "app/merchandise/[slug]/page": "rsc",
+        "app/merchandise/page": "rsc",
+        "app/page": "rsc"
+      },
+      "filename": "src/actions/analytics.js",
+      "exportedName": "trackVisitorPageView"
+    },
+    "60f96d6a91b61c09921b6eee6ef4e1b5b300c0d597": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -3769,7 +3769,7 @@
       "filename": "src/actions/analytics.js",
       "exportedName": "deleteAdminLeadAction"
     },
-    "003e39e7fc5eb7cfe3530016f9ff050f7379a16602": {
+    "000e6722b29303e10de75f0b76fad3b800caf0bb4b": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -3819,7 +3819,7 @@
       "filename": "src/actions/dashboard.js",
       "exportedName": "getAdminDashboardData"
     },
-    "00463cb304450db0ac229305f3c6ddf51a0f799a42": {
+    "006b33d54ebeb4941a08c3aaf49523b7867eb5219d": {
       "workers": {
         "app/(dashboard)/admin/analytic/page": {
           "moduleId": 57424,
@@ -3869,7 +3869,7 @@
       "filename": "src/actions/dashboard.js",
       "exportedName": "getAdminNavItems"
     },
-    "004ef0fdee23f5bae725a76e9324bb4d95bf2de1cf": {
+    "0038b0b16a309c7ca983fdb6437247baa0600aff2e": {
       "workers": {
         "app/(dashboard)/admin/order/page": {
           "moduleId": 41221,
@@ -3891,51 +3891,7 @@
       "filename": "src/actions/order.js",
       "exportedName": "getAdminMerchandiseOrdersAction"
     },
-    "40090e79121e2483c327bb7dd3a557fec4ef64fbd4": {
-      "workers": {
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "processMidtransNotificationAction",
-          "filename": "src/actions/order.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "processMidtransNotificationAction",
-          "filename": "src/actions/order.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/order/page": "rsc",
-        "app/order-status/page": "rsc"
-      },
-      "filename": "src/actions/order.js",
-      "exportedName": "processMidtransNotificationAction"
-    },
-    "400f5ab1a259e4ed3909f1d15f3d83eba230a6258c": {
-      "workers": {
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "updateAdminMerchandiseOrderStatusAction",
-          "filename": "src/actions/order.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "updateAdminMerchandiseOrderStatusAction",
-          "filename": "src/actions/order.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/order/page": "action-browser",
-        "app/order-status/page": "rsc"
-      },
-      "filename": "src/actions/order.js",
-      "exportedName": "updateAdminMerchandiseOrderStatusAction"
-    },
-    "40250252ec1038113bb182940d4018ba498c22b8b4": {
+    "400d12cb66082b7df131090ce3863e6eb7c048c869": {
       "workers": {
         "app/(dashboard)/admin/order/page": {
           "moduleId": 41221,
@@ -3964,18 +3920,18 @@
       "filename": "src/actions/order.js",
       "exportedName": "trackPublicMerchandiseOrderShipmentAction"
     },
-    "40299475093be07f19711849e9ea48fc7123caa52e": {
+    "400fc8c67de79e9870a5e432735d536ec6b67183af": {
       "workers": {
         "app/(dashboard)/admin/order/page": {
           "moduleId": 41221,
           "async": true,
-          "exportedName": "createMerchandiseOrderDraftAction",
+          "exportedName": "getMerchandiseOrderPaymentStatusAction",
           "filename": "src/actions/order.js"
         },
         "app/order-status/page": {
           "moduleId": 20253,
           "async": true,
-          "exportedName": "createMerchandiseOrderDraftAction",
+          "exportedName": "getMerchandiseOrderPaymentStatusAction",
           "filename": "src/actions/order.js"
         }
       },
@@ -3984,49 +3940,20 @@
         "app/order-status/page": "rsc"
       },
       "filename": "src/actions/order.js",
-      "exportedName": "createMerchandiseOrderDraftAction"
+      "exportedName": "getMerchandiseOrderPaymentStatusAction"
     },
-    "403f9268d515fc84953fe7f0045a92b1280878162a": {
+    "401e396408cbc6ed58632cf4a713395137e112bfa1": {
       "workers": {
         "app/(dashboard)/admin/order/page": {
           "moduleId": 41221,
           "async": true,
-          "exportedName": "createMerchandiseOrderCheckoutAction",
-          "filename": "src/actions/order.js"
-        },
-        "app/merchandise/[slug]/order/page": {
-          "moduleId": 2748,
-          "async": true,
-          "exportedName": "createMerchandiseOrderCheckoutAction",
+          "exportedName": "deleteAdminMerchandiseOrderAction",
           "filename": "src/actions/order.js"
         },
         "app/order-status/page": {
           "moduleId": 20253,
           "async": true,
-          "exportedName": "createMerchandiseOrderCheckoutAction",
-          "filename": "src/actions/order.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/order/page": "rsc",
-        "app/merchandise/[slug]/order/page": "action-browser",
-        "app/order-status/page": "rsc"
-      },
-      "filename": "src/actions/order.js",
-      "exportedName": "createMerchandiseOrderCheckoutAction"
-    },
-    "404d37679b3285497c30d7851b42547bfc4d4bbc7a": {
-      "workers": {
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "updateAdminMerchandiseOrderTrackingNumberAction",
-          "filename": "src/actions/order.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "updateAdminMerchandiseOrderTrackingNumberAction",
+          "exportedName": "deleteAdminMerchandiseOrderAction",
           "filename": "src/actions/order.js"
         }
       },
@@ -4035,38 +3962,9 @@
         "app/order-status/page": "rsc"
       },
       "filename": "src/actions/order.js",
-      "exportedName": "updateAdminMerchandiseOrderTrackingNumberAction"
+      "exportedName": "deleteAdminMerchandiseOrderAction"
     },
-    "407419a917f1b2dc512c4896ee5cda70bfa46ba1dc": {
-      "workers": {
-        "app/(dashboard)/admin/order/page": {
-          "moduleId": 41221,
-          "async": true,
-          "exportedName": "getPublicOrderStatusByWhatsappAction",
-          "filename": "src/actions/order.js"
-        },
-        "app/order-status/page": {
-          "moduleId": 20253,
-          "async": true,
-          "exportedName": "getPublicOrderStatusByWhatsappAction",
-          "filename": "src/actions/order.js"
-        },
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "getPublicOrderStatusByWhatsappAction",
-          "filename": "src/actions/order.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/order/page": "rsc",
-        "app/order-status/page": "rsc",
-        "app/order/page": "action-browser"
-      },
-      "filename": "src/actions/order.js",
-      "exportedName": "getPublicOrderStatusByWhatsappAction"
-    },
-    "4085cbab45b590d42559d1f1a660f1e735c6188d44": {
+    "4030c48302728300956194c387fc68d5a79846f810": {
       "workers": {
         "app/(dashboard)/admin/order/page": {
           "moduleId": 41221,
@@ -4095,18 +3993,18 @@
       "filename": "src/actions/order.js",
       "exportedName": "findCustomerLastShippingAddressAction"
     },
-    "40cb7d6a2aa697f6340ffb8c58f989702c0d3a265a": {
+    "403d7c515f8e87c2ffd85d0d60714bb5ff19bb4dab": {
       "workers": {
         "app/(dashboard)/admin/order/page": {
           "moduleId": 41221,
           "async": true,
-          "exportedName": "deleteAdminMerchandiseOrderAction",
+          "exportedName": "updateAdminMerchandiseOrderStatusAction",
           "filename": "src/actions/order.js"
         },
         "app/order-status/page": {
           "moduleId": 20253,
           "async": true,
-          "exportedName": "deleteAdminMerchandiseOrderAction",
+          "exportedName": "updateAdminMerchandiseOrderStatusAction",
           "filename": "src/actions/order.js"
         }
       },
@@ -4115,9 +4013,60 @@
         "app/order-status/page": "rsc"
       },
       "filename": "src/actions/order.js",
-      "exportedName": "deleteAdminMerchandiseOrderAction"
+      "exportedName": "updateAdminMerchandiseOrderStatusAction"
     },
-    "40d13ab8964d88e76f649207e1469740b2f3a373fc": {
+    "404015706510bab403310797cf77dcc9de66959f2a": {
+      "workers": {
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "processMidtransNotificationAction",
+          "filename": "src/actions/order.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "processMidtransNotificationAction",
+          "filename": "src/actions/order.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/order/page": "rsc",
+        "app/order-status/page": "rsc"
+      },
+      "filename": "src/actions/order.js",
+      "exportedName": "processMidtransNotificationAction"
+    },
+    "4058c0bbf226b9cefe99e8f1536bfd12955ddf1a01": {
+      "workers": {
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "getPublicOrderStatusByWhatsappAction",
+          "filename": "src/actions/order.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "getPublicOrderStatusByWhatsappAction",
+          "filename": "src/actions/order.js"
+        },
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "getPublicOrderStatusByWhatsappAction",
+          "filename": "src/actions/order.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/order/page": "rsc",
+        "app/order-status/page": "rsc",
+        "app/order/page": "action-browser"
+      },
+      "filename": "src/actions/order.js",
+      "exportedName": "getPublicOrderStatusByWhatsappAction"
+    },
+    "40775369ab10eec535289a654752579c6ace1863c7": {
       "workers": {
         "app/(dashboard)/admin/order/page": {
           "moduleId": 41221,
@@ -4139,18 +4088,69 @@
       "filename": "src/actions/order.js",
       "exportedName": "trackAdminMerchandiseOrderShipmentAction"
     },
-    "40d49fedfbafeca828641cc8586941cda361aa9506": {
+    "40847108cf420fd09307df4cf63011baf01d76b1fe": {
       "workers": {
         "app/(dashboard)/admin/order/page": {
           "moduleId": 41221,
           "async": true,
-          "exportedName": "getMerchandiseOrderPaymentStatusAction",
+          "exportedName": "updateAdminMerchandiseOrderTrackingNumberAction",
           "filename": "src/actions/order.js"
         },
         "app/order-status/page": {
           "moduleId": 20253,
           "async": true,
-          "exportedName": "getMerchandiseOrderPaymentStatusAction",
+          "exportedName": "updateAdminMerchandiseOrderTrackingNumberAction",
+          "filename": "src/actions/order.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/order/page": "action-browser",
+        "app/order-status/page": "rsc"
+      },
+      "filename": "src/actions/order.js",
+      "exportedName": "updateAdminMerchandiseOrderTrackingNumberAction"
+    },
+    "40a305db7724447a4d7979a93ed825f3c6f43c8bec": {
+      "workers": {
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "createMerchandiseOrderCheckoutAction",
+          "filename": "src/actions/order.js"
+        },
+        "app/merchandise/[slug]/order/page": {
+          "moduleId": 2748,
+          "async": true,
+          "exportedName": "createMerchandiseOrderCheckoutAction",
+          "filename": "src/actions/order.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "createMerchandiseOrderCheckoutAction",
+          "filename": "src/actions/order.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/order/page": "rsc",
+        "app/merchandise/[slug]/order/page": "action-browser",
+        "app/order-status/page": "rsc"
+      },
+      "filename": "src/actions/order.js",
+      "exportedName": "createMerchandiseOrderCheckoutAction"
+    },
+    "40b85540632ace7b14d0d2c52efce551c185784a3a": {
+      "workers": {
+        "app/(dashboard)/admin/order/page": {
+          "moduleId": 41221,
+          "async": true,
+          "exportedName": "createMerchandiseOrderDraftAction",
+          "filename": "src/actions/order.js"
+        },
+        "app/order-status/page": {
+          "moduleId": 20253,
+          "async": true,
+          "exportedName": "createMerchandiseOrderDraftAction",
           "filename": "src/actions/order.js"
         }
       },
@@ -4159,9 +4159,9 @@
         "app/order-status/page": "rsc"
       },
       "filename": "src/actions/order.js",
-      "exportedName": "getMerchandiseOrderPaymentStatusAction"
+      "exportedName": "createMerchandiseOrderDraftAction"
     },
-    "402c817dd9d954371c75b88bba78f49bf8a1986c3f": {
+    "4063e245f182bc715c48c1fcb3c92cf50c5a22f24e": {
       "workers": {
         "app/(dashboard)/admin/setting/page": {
           "moduleId": 86532,
@@ -4176,7 +4176,7 @@
       "filename": "src/actions/shipping.js",
       "exportedName": "fetchRajaOngkirLocationsAction"
     },
-    "40264143357f0d854ff21d1049a845add6d7828829": {
+    "40d88bef27bd25613742393e642ca75be09df884eb": {
       "workers": {
         "app/merchandise/[slug]/page": {
           "moduleId": 53429,
@@ -4191,7 +4191,7 @@
       "filename": "src/actions/contact.js",
       "exportedName": "submitWhatsappLeadAction"
     },
-    "40cc8cd7a3a41c73b942732cdbb5dc436edf0e212a": {
+    "4079cf14f02497766dd836207188364f14b94545b2": {
       "workers": {
         "app/merchandise/[slug]/order/page": {
           "moduleId": 2748,
@@ -4206,7 +4206,7 @@
       "filename": "src/actions/shipping.js",
       "exportedName": "calculateOrderShippingAction"
     },
-    "409256dd82ff179c8272e741fc6bdcd17d7e8abd74": {
+    "40de28a4d1d40a4c73f2fb363bd706bc06fb2d1ee4": {
       "workers": {
         "app/merchandise/[slug]/order/page": {
           "moduleId": 2748,
@@ -4223,5 +4223,5 @@
     }
   },
   "edge": {},
-  "encryptionKey": "alZAZgf9uIlfdswaHbbtxPm1fYUEf/J3JQjFaTVlolI="
+  "encryptionKey": "tT9Wf5BLXibGy9SpzOAxb3+3pfqtx4BpSkprsPgbtlQ="
 }
