@@ -62,7 +62,11 @@ jobs:
           # Copy all standalone files including hidden entries like ".next"
           cp -a "${STANDALONE_DIR}/." release/
           cp -r "${STATIC_DIR}" release/.next/static
-          cp -r public release/public
+          if [ -d "release/public" ]; then
+            cp -a public/. release/public/
+          else
+            cp -a public release/public
+          fi
 
       - name: Publish runtime branch
         uses: peaceiris/actions-gh-pages@v4

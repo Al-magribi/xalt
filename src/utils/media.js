@@ -14,7 +14,9 @@ export function resolveAssetUrl(value, fallback = "") {
   }
 
   const normalized = raw.replace(/\\/g, "/");
-  if (normalized.startsWith("/")) return normalized;
+  if (/^\/?public\//i.test(normalized)) {
+    return `/${normalized.replace(/^\/?public\//i, "")}`;
+  }
 
   const publicSegment = "/public/";
   const publicSegmentIndex = normalized
@@ -31,6 +33,8 @@ export function resolveAssetUrl(value, fallback = "") {
   if (/^uploads\//i.test(normalized)) {
     return `/${normalized}`;
   }
+
+  if (normalized.startsWith("/")) return normalized;
 
   return `/${normalized.replace(/^\.?\//, "")}`;
 }
