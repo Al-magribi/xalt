@@ -1,66 +1,6 @@
 {
   "node": {
-    "001e0ba6e66ea45214babe178b28cd244f17a6719b": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getActiveCatalogFile",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "getActiveCatalogFile",
-      "filename": "src/actions/catalog.js"
-    },
-    "004afc51aa44c9e7c237b8cf4c0159ea5be6b3a338": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getAdminCatalogKits",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "getAdminCatalogKits",
-      "filename": "src/actions/catalog.js"
-    },
-    "00a5a810a9892f318238535320a8c2897d096c8b6d": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getActiveKitsForHome",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "getActiveKitsForHome",
-      "filename": "src/actions/catalog.js"
-    },
-    "00b3c54f5c643fd75c606cc6766eb3c0a3ed839a33": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getActiveMerchandiseForHome",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "getActiveMerchandiseForHome",
-      "filename": "src/actions/catalog.js"
-    },
-    "00cbcb5cf404fc667566a4175783e1b68171ee0ece": {
+    "003f9afe5dbfc650c3035bc9576977bb47ed24917a": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -75,7 +15,67 @@
       "exportedName": "getAdminMerchandiseItems",
       "filename": "src/actions/catalog.js"
     },
-    "00de3466b5ff18cbe9c04d4f4987fbc0da7fb7df69": {
+    "005f5351f70dc747f8e94df083178c73ee88931303": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "getActiveCatalogFile",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "getActiveCatalogFile",
+      "filename": "src/actions/catalog.js"
+    },
+    "0083c7c13f0d11c9acbd22cbc3a19228464f2058ae": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "getActiveMerchandiseForHome",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "getActiveMerchandiseForHome",
+      "filename": "src/actions/catalog.js"
+    },
+    "00911fd31daa46ae24ba58020bba62d6a235ca7ad3": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "getAdminCatalogKits",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "getAdminCatalogKits",
+      "filename": "src/actions/catalog.js"
+    },
+    "00df750785e61c0240adc1c5ab6ae1fa91962cc9de": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "getActiveKitsForHome",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "getActiveKitsForHome",
+      "filename": "src/actions/catalog.js"
+    },
+    "00f715a4a62f0ce085256b4ae939cb1dd020d40e1a": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -90,22 +90,7 @@
       "exportedName": "getAdminCatalogFiles",
       "filename": "src/actions/catalog.js"
     },
-    "4068ff4f1981bccd96da4abc2020b64de2cd922c73": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getMerchandiseDetailBySlug",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "getMerchandiseDetailBySlug",
-      "filename": "src/actions/catalog.js"
-    },
-    "40d87c1ebe0f23b16e0ae19d77107664119e16c74c": {
+    "400819116921095795ba885ef6341fa5c0e5132f75": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -120,7 +105,7 @@
       "exportedName": "getKitDetailBySlug",
       "filename": "src/actions/catalog.js"
     },
-    "40f2ac31aeb4940bf78bdc2013c5ed8833f5c934cd": {
+    "40263cbf4a7c972723e6c3efcdda6c87cc792b9771": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -135,97 +120,22 @@
       "exportedName": "requestCatalogDownloadAction",
       "filename": "src/actions/catalog.js"
     },
-    "6017024524824af757ee28b852fcd4a0e288f279cf": {
+    "4033df292abf6e36e76ca5d4507eff56841ec8316c": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "updateKitAction",
+          "exportedName": "getMerchandiseDetailBySlug",
           "filename": "src/actions/catalog.js"
         }
       },
       "layer": {
         "app/download-katalog/page": "rsc"
       },
-      "exportedName": "updateKitAction",
+      "exportedName": "getMerchandiseDetailBySlug",
       "filename": "src/actions/catalog.js"
     },
-    "60181f06f75c4ca4b1166c8e2045b77a847b68f0c4": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "updateMerchandiseAction",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "updateMerchandiseAction",
-      "filename": "src/actions/catalog.js"
-    },
-    "601f1f6e89762c61f9bb5e2f4acc9652bc8ba4c593": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "createMerchandiseAction",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "createMerchandiseAction",
-      "filename": "src/actions/catalog.js"
-    },
-    "602c263ff7231fc21c419c508d4d62f1f26800ba39": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "uploadCatalogFileAction",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "uploadCatalogFileAction",
-      "filename": "src/actions/catalog.js"
-    },
-    "602d9bc1241e60c823cefde378b60b6364ede8202d": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "createKitAction",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "createKitAction",
-      "filename": "src/actions/catalog.js"
-    },
-    "6086aac55bd10378735c812f6d50a833cec4d795e1": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "deleteMerchandiseAction",
-          "filename": "src/actions/catalog.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "deleteMerchandiseAction",
-      "filename": "src/actions/catalog.js"
-    },
-    "60eb9fcf23e67ada6153575ab51fffa758c6d957db": {
+    "600b8259c8f9acf63dba2972025a92e0c7cee2a961": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -240,7 +150,97 @@
       "exportedName": "deleteKitAction",
       "filename": "src/actions/catalog.js"
     },
-    "0059725dfb467e990d73c3517d408beff55c8573e5": {
+    "60633987fd1eb29c7e060571b8380b275ec9a3da15": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "uploadCatalogFileAction",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "uploadCatalogFileAction",
+      "filename": "src/actions/catalog.js"
+    },
+    "607638ba45591ff01155f38253af53d0fad3dc7142": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "updateKitAction",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "updateKitAction",
+      "filename": "src/actions/catalog.js"
+    },
+    "609e3a693f6a4b553064d2cbffb8a93aa61d44f143": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "createMerchandiseAction",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "createMerchandiseAction",
+      "filename": "src/actions/catalog.js"
+    },
+    "60e0c04434ad15b64e5c600379aed90bb67011d083": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "updateMerchandiseAction",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "updateMerchandiseAction",
+      "filename": "src/actions/catalog.js"
+    },
+    "60e25164e0c7fc9d57e2d04369fc2aafa8a37806e9": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "deleteMerchandiseAction",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "deleteMerchandiseAction",
+      "filename": "src/actions/catalog.js"
+    },
+    "60f2f69e50e630e296c29e133f9cf391f3df8cc1d1": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "createKitAction",
+          "filename": "src/actions/catalog.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "createKitAction",
+      "filename": "src/actions/catalog.js"
+    },
+    "00192c79344eda5275e65e912b27c87b5b07cac150": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -255,7 +255,7 @@
       "exportedName": "logoutAction",
       "filename": "src/actions/auth.js"
     },
-    "009e01cc1a3e5e85f0b80919d21fa5ab474c14d342": {
+    "00c2baa753947c4ad48971716aa2e191bd2b0046f0": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -270,22 +270,7 @@
       "exportedName": "requireUser",
       "filename": "src/actions/auth.js"
     },
-    "00b4eec0c1d351bcd4515ed91732092e485439e07c": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getCurrentUser",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "getCurrentUser",
-      "filename": "src/actions/auth.js"
-    },
-    "00f668e9c2f3fccfc252df7e6016c4ff08ba39a3a5": {
+    "00cef5e0c91a8b14c638146ec9bcebf0633ed5fe8b": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -300,7 +285,22 @@
       "exportedName": "getAdminProfileData",
       "filename": "src/actions/auth.js"
     },
-    "401c976f0728f757e0c91f1b1e6f0c857a11d1d5bd": {
+    "00e26b22151c0510c9d5aa6a48564c10c2237532b0": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "getCurrentUser",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "getCurrentUser",
+      "filename": "src/actions/auth.js"
+    },
+    "4037f0346ccfff2b76bf91e3fca334f1b80d16932e": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -315,7 +315,7 @@
       "exportedName": "requireRole",
       "filename": "src/actions/auth.js"
     },
-    "4035714d493ae1fc4abdf186340e4ee9a3e7a23770": {
+    "405a6d026fa5498bad175066eed7f2f1847841bdb7": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -330,37 +330,7 @@
       "exportedName": "activateAccountByToken",
       "filename": "src/actions/auth.js"
     },
-    "6001a4a5e4f7bcdd18a77ce3a63d9adebe1a546fd0": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "resetPasswordAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "resetPasswordAction",
-      "filename": "src/actions/auth.js"
-    },
-    "6002795e6b2f7e5a2d0a082dd138551f412570deba": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "requestPasswordResetAction",
-      "filename": "src/actions/auth.js"
-    },
-    "60361e2f702ecc0dee7722fd46ace47d6961b2b96a": {
+    "601a76404d341e84c35c718e8499861834e38d710e": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -375,7 +345,7 @@
       "exportedName": "registerAction",
       "filename": "src/actions/auth.js"
     },
-    "6073d23a7ac570005799a40e64b91632c9f1ce3b50": {
+    "606374cd92556bcd44f8a550976b5231c3e0d2a7ff": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -390,7 +360,7 @@
       "exportedName": "updateAdminProfileAction",
       "filename": "src/actions/auth.js"
     },
-    "607407960579eb45ec4087ac2c0eee6a76926ed794": {
+    "6072c17ca381464a4a4514ccdc5ad18de827608b43": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -405,22 +375,37 @@
       "exportedName": "loginAction",
       "filename": "src/actions/auth.js"
     },
-    "40220be82a6086fa5f97f96a9cf67dc0bbc13a1d5c": {
+    "60a12e1e7371f5ed4e03335413e8fa1e61d9eb24cc": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "getAdminAnalyticsData",
-          "filename": "src/actions/analytics.js"
+          "exportedName": "resetPasswordAction",
+          "filename": "src/actions/auth.js"
         }
       },
       "layer": {
         "app/download-katalog/page": "rsc"
       },
-      "exportedName": "getAdminAnalyticsData",
-      "filename": "src/actions/analytics.js"
+      "exportedName": "resetPasswordAction",
+      "filename": "src/actions/auth.js"
     },
-    "408e328ff441146821ab07fd76fd075949f1048a70": {
+    "60b09bd1fc43d2d389e0be51709a830ef2b4ea7611": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "requestPasswordResetAction",
+      "filename": "src/actions/auth.js"
+    },
+    "402d6b2f1fd9d788c9fc2a0d8404112680d152d0b8": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -435,7 +420,22 @@
       "exportedName": "trackVisitorPageView",
       "filename": "src/actions/analytics.js"
     },
-    "60f96d6a91b61c09921b6eee6ef4e1b5b300c0d597": {
+    "407bd88019747934d8e0e696e43a84f699f68121d3": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "getAdminAnalyticsData",
+          "filename": "src/actions/analytics.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "getAdminAnalyticsData",
+      "filename": "src/actions/analytics.js"
+    },
+    "6046cc0180e8be911314d0cf587364dc1daf1ca62a": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -450,22 +450,7 @@
       "exportedName": "deleteAdminLeadAction",
       "filename": "src/actions/analytics.js"
     },
-    "002e6a22597031f8262fc5ca815d8e90bf3dbfe78f": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "getTrustedLogos",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "getTrustedLogos",
-      "filename": "src/actions/setting.js"
-    },
-    "00332fe3340d364fbbc18e45d7322114bc55e2f954": {
+    "00320d6c56104a2ef16f8d2cb32e1fa50b9f4dce4c": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -480,7 +465,22 @@
       "exportedName": "getWebsiteBranding",
       "filename": "src/actions/setting.js"
     },
-    "00cce3e472bbf87f28dccd7a25da74253eeace7aa6": {
+    "004b61afc51d6167a264f80fd5521f90694a4fbd2a": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "getTrustedLogos",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "getTrustedLogos",
+      "filename": "src/actions/setting.js"
+    },
+    "00712b5343a46d4e7935560ef2d688262c49909710": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -495,22 +495,7 @@
       "exportedName": "getAdminSettingsData",
       "filename": "src/actions/setting.js"
     },
-    "600bbc8c78f0ea80602db8e2e8cca84f2fcef4cf08": {
-      "workers": {
-        "app/download-katalog/page": {
-          "moduleId": 4924,
-          "async": true,
-          "exportedName": "deleteTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/download-katalog/page": "rsc"
-      },
-      "exportedName": "deleteTrustedLogoAction",
-      "filename": "src/actions/setting.js"
-    },
-    "6024c2ecbd9feae5156b37b25c46d17123dedf97aa": {
+    "6007abebee9efe86f3691463133813b48923650a9d": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -525,7 +510,22 @@
       "exportedName": "updateTrustedLogoAction",
       "filename": "src/actions/setting.js"
     },
-    "6028d71f0b62f2f16acc13447bf63f7f6d5772e444": {
+    "6044649cee3db43df3e2465afa25e02d239bba6e72": {
+      "workers": {
+        "app/download-katalog/page": {
+          "moduleId": 4924,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/download-katalog/page": "rsc"
+      },
+      "exportedName": "addTrustedLogoAction",
+      "filename": "src/actions/setting.js"
+    },
+    "60502d34e1184dfbe39c2d8c7d6730daa048a74b4e": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -540,7 +540,7 @@
       "exportedName": "updateSmtpConfigAction",
       "filename": "src/actions/setting.js"
     },
-    "602a86c4e98d2fce7e8dc7cd901cceb7452b347c6e": {
+    "607ffe6b6526dca1bdcd1d2377025fdcb6c53c81b7": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -555,7 +555,7 @@
       "exportedName": "updateSeoMetadataAction",
       "filename": "src/actions/setting.js"
     },
-    "60566c8f867348c5af2cb17aad2ec0950d81974e0a": {
+    "60974c9c99ce01ad50f640e16e34e27945ecbc52f2": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -570,7 +570,7 @@
       "exportedName": "updateWebsiteConfigAction",
       "filename": "src/actions/setting.js"
     },
-    "606c09bf695be7298eb698c0d006b784a538f67465": {
+    "60acb543b1767ab82089df93c939022828b7007ce6": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
@@ -585,19 +585,19 @@
       "exportedName": "updateApiIntegrationAction",
       "filename": "src/actions/setting.js"
     },
-    "607a7d5b77ce65c55bd628ec7593d1d8c16f7bf0ec": {
+    "60e039a1f8e45767f0daaee33066a312069f6d2622": {
       "workers": {
         "app/download-katalog/page": {
           "moduleId": 4924,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "deleteTrustedLogoAction",
           "filename": "src/actions/setting.js"
         }
       },
       "layer": {
         "app/download-katalog/page": "rsc"
       },
-      "exportedName": "addTrustedLogoAction",
+      "exportedName": "deleteTrustedLogoAction",
       "filename": "src/actions/setting.js"
     }
   },

@@ -1,21 +1,6 @@
 {
   "node": {
-    "002e6a22597031f8262fc5ca815d8e90bf3dbfe78f": {
-      "workers": {
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "getTrustedLogos",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/order/page": "rsc"
-      },
-      "exportedName": "getTrustedLogos",
-      "filename": "src/actions/setting.js"
-    },
-    "00332fe3340d364fbbc18e45d7322114bc55e2f954": {
+    "00320d6c56104a2ef16f8d2cb32e1fa50b9f4dce4c": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
@@ -30,7 +15,22 @@
       "exportedName": "getWebsiteBranding",
       "filename": "src/actions/setting.js"
     },
-    "00cce3e472bbf87f28dccd7a25da74253eeace7aa6": {
+    "004b61afc51d6167a264f80fd5521f90694a4fbd2a": {
+      "workers": {
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "getTrustedLogos",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/order/page": "rsc"
+      },
+      "exportedName": "getTrustedLogos",
+      "filename": "src/actions/setting.js"
+    },
+    "00712b5343a46d4e7935560ef2d688262c49909710": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
@@ -45,22 +45,7 @@
       "exportedName": "getAdminSettingsData",
       "filename": "src/actions/setting.js"
     },
-    "600bbc8c78f0ea80602db8e2e8cca84f2fcef4cf08": {
-      "workers": {
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "deleteTrustedLogoAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/order/page": "rsc"
-      },
-      "exportedName": "deleteTrustedLogoAction",
-      "filename": "src/actions/setting.js"
-    },
-    "6024c2ecbd9feae5156b37b25c46d17123dedf97aa": {
+    "6007abebee9efe86f3691463133813b48923650a9d": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
@@ -75,67 +60,7 @@
       "exportedName": "updateTrustedLogoAction",
       "filename": "src/actions/setting.js"
     },
-    "6028d71f0b62f2f16acc13447bf63f7f6d5772e444": {
-      "workers": {
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "updateSmtpConfigAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/order/page": "rsc"
-      },
-      "exportedName": "updateSmtpConfigAction",
-      "filename": "src/actions/setting.js"
-    },
-    "602a86c4e98d2fce7e8dc7cd901cceb7452b347c6e": {
-      "workers": {
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "updateSeoMetadataAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/order/page": "rsc"
-      },
-      "exportedName": "updateSeoMetadataAction",
-      "filename": "src/actions/setting.js"
-    },
-    "60566c8f867348c5af2cb17aad2ec0950d81974e0a": {
-      "workers": {
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "updateWebsiteConfigAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/order/page": "rsc"
-      },
-      "exportedName": "updateWebsiteConfigAction",
-      "filename": "src/actions/setting.js"
-    },
-    "606c09bf695be7298eb698c0d006b784a538f67465": {
-      "workers": {
-        "app/order/page": {
-          "moduleId": 22142,
-          "async": true,
-          "exportedName": "updateApiIntegrationAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/order/page": "rsc"
-      },
-      "exportedName": "updateApiIntegrationAction",
-      "filename": "src/actions/setting.js"
-    },
-    "607a7d5b77ce65c55bd628ec7593d1d8c16f7bf0ec": {
+    "6044649cee3db43df3e2465afa25e02d239bba6e72": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
@@ -150,7 +75,82 @@
       "exportedName": "addTrustedLogoAction",
       "filename": "src/actions/setting.js"
     },
-    "4058c0bbf226b9cefe99e8f1536bfd12955ddf1a01": {
+    "60502d34e1184dfbe39c2d8c7d6730daa048a74b4e": {
+      "workers": {
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "updateSmtpConfigAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/order/page": "rsc"
+      },
+      "exportedName": "updateSmtpConfigAction",
+      "filename": "src/actions/setting.js"
+    },
+    "607ffe6b6526dca1bdcd1d2377025fdcb6c53c81b7": {
+      "workers": {
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "updateSeoMetadataAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/order/page": "rsc"
+      },
+      "exportedName": "updateSeoMetadataAction",
+      "filename": "src/actions/setting.js"
+    },
+    "60974c9c99ce01ad50f640e16e34e27945ecbc52f2": {
+      "workers": {
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "updateWebsiteConfigAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/order/page": "rsc"
+      },
+      "exportedName": "updateWebsiteConfigAction",
+      "filename": "src/actions/setting.js"
+    },
+    "60acb543b1767ab82089df93c939022828b7007ce6": {
+      "workers": {
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "updateApiIntegrationAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/order/page": "rsc"
+      },
+      "exportedName": "updateApiIntegrationAction",
+      "filename": "src/actions/setting.js"
+    },
+    "60e039a1f8e45767f0daaee33066a312069f6d2622": {
+      "workers": {
+        "app/order/page": {
+          "moduleId": 22142,
+          "async": true,
+          "exportedName": "deleteTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/order/page": "rsc"
+      },
+      "exportedName": "deleteTrustedLogoAction",
+      "filename": "src/actions/setting.js"
+    },
+    "4059040d053b0c5b3b8e38d1985c3df3a63ce2417b": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
@@ -165,7 +165,7 @@
       "exportedName": "getPublicOrderStatusByWhatsappAction",
       "filename": "src/actions/order.js"
     },
-    "400d12cb66082b7df131090ce3863e6eb7c048c869": {
+    "4035e89163c9d846a4e03a05d7fe1fa367f893e683": {
       "workers": {
         "app/order/page": {
           "moduleId": 22142,
