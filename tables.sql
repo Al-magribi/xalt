@@ -1,5 +1,4 @@
-﻿-- Active: 1765890140017@@127.0.0.1@5432@xalt
-BEGIN;
+﻿BEGIN;
 
 CREATE SCHEMA IF NOT EXISTS content;
 CREATE SCHEMA IF NOT EXISTS sales;
@@ -645,6 +644,94 @@ CREATE TABLE IF NOT EXISTS settings.smtp_config (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+-- Normalisasi path local file/image agar tersimpan dengan prefix /public.
+-- Contoh:
+--   /uploads/settings/a.png -> /public/uploads/settings/a.png
+--   /logos/x.svg -> /public/logos/x.svg
+-- URL eksternal (http/https), data:, dan blob: tidak diubah.
+UPDATE content.kits
+SET hero_image_url = CASE
+  WHEN hero_image_url IS NULL OR BTRIM(hero_image_url) = '' THEN hero_image_url
+  WHEN hero_image_url ~* '^(https?:)?//' OR hero_image_url ~* '^(data|blob):' THEN hero_image_url
+  WHEN hero_image_url ~* '^/?public/' THEN '/public/' || regexp_replace(hero_image_url, '^/?public/?', '', 'i')
+  ELSE '/public/' || regexp_replace(hero_image_url, '^/+', '')
+END;
+
+UPDATE content.kit_gallery_images
+SET image_url = CASE
+  WHEN image_url IS NULL OR BTRIM(image_url) = '' THEN image_url
+  WHEN image_url ~* '^(https?:)?//' OR image_url ~* '^(data|blob):' THEN image_url
+  WHEN image_url ~* '^/?public/' THEN '/public/' || regexp_replace(image_url, '^/?public/?', '', 'i')
+  ELSE '/public/' || regexp_replace(image_url, '^/+', '')
+END;
+
+UPDATE content.merchandise_items
+SET image_url = CASE
+  WHEN image_url IS NULL OR BTRIM(image_url) = '' THEN image_url
+  WHEN image_url ~* '^(https?:)?//' OR image_url ~* '^(data|blob):' THEN image_url
+  WHEN image_url ~* '^/?public/' THEN '/public/' || regexp_replace(image_url, '^/?public/?', '', 'i')
+  ELSE '/public/' || regexp_replace(image_url, '^/+', '')
+END;
+
+UPDATE content.merchandise_gallery_images
+SET image_url = CASE
+  WHEN image_url IS NULL OR BTRIM(image_url) = '' THEN image_url
+  WHEN image_url ~* '^(https?:)?//' OR image_url ~* '^(data|blob):' THEN image_url
+  WHEN image_url ~* '^/?public/' THEN '/public/' || regexp_replace(image_url, '^/?public/?', '', 'i')
+  ELSE '/public/' || regexp_replace(image_url, '^/+', '')
+END;
+
+UPDATE content.trusted_logos
+SET logo_url = CASE
+  WHEN logo_url IS NULL OR BTRIM(logo_url) = '' THEN logo_url
+  WHEN logo_url ~* '^(https?:)?//' OR logo_url ~* '^(data|blob):' THEN logo_url
+  WHEN logo_url ~* '^/?public/' THEN '/public/' || regexp_replace(logo_url, '^/?public/?', '', 'i')
+  ELSE '/public/' || regexp_replace(logo_url, '^/+', '')
+END;
+
+UPDATE content.catalog_files
+SET file_url = CASE
+  WHEN file_url IS NULL OR BTRIM(file_url) = '' THEN file_url
+  WHEN file_url ~* '^(https?:)?//' OR file_url ~* '^(data|blob):' THEN file_url
+  WHEN file_url ~* '^/?public/' THEN '/public/' || regexp_replace(file_url, '^/?public/?', '', 'i')
+  ELSE '/public/' || regexp_replace(file_url, '^/+', '')
+END;
+
+UPDATE auth.users
+SET avatar_url = CASE
+  WHEN avatar_url IS NULL OR BTRIM(avatar_url) = '' THEN avatar_url
+  WHEN avatar_url ~* '^(https?:)?//' OR avatar_url ~* '^(data|blob):' THEN avatar_url
+  WHEN avatar_url ~* '^/?public/' THEN '/public/' || regexp_replace(avatar_url, '^/?public/?', '', 'i')
+  ELSE '/public/' || regexp_replace(avatar_url, '^/+', '')
+END;
+
+UPDATE settings.website_config
+SET
+  logo_url = CASE
+    WHEN logo_url IS NULL OR BTRIM(logo_url) = '' THEN logo_url
+    WHEN logo_url ~* '^(https?:)?//' OR logo_url ~* '^(data|blob):' THEN logo_url
+    WHEN logo_url ~* '^/?public/' THEN '/public/' || regexp_replace(logo_url, '^/?public/?', '', 'i')
+    ELSE '/public/' || regexp_replace(logo_url, '^/+', '')
+  END,
+  logo_dark_url = CASE
+    WHEN logo_dark_url IS NULL OR BTRIM(logo_dark_url) = '' THEN logo_dark_url
+    WHEN logo_dark_url ~* '^(https?:)?//' OR logo_dark_url ~* '^(data|blob):' THEN logo_dark_url
+    WHEN logo_dark_url ~* '^/?public/' THEN '/public/' || regexp_replace(logo_dark_url, '^/?public/?', '', 'i')
+    ELSE '/public/' || regexp_replace(logo_dark_url, '^/+', '')
+  END,
+  favicon_url = CASE
+    WHEN favicon_url IS NULL OR BTRIM(favicon_url) = '' THEN favicon_url
+    WHEN favicon_url ~* '^(https?:)?//' OR favicon_url ~* '^(data|blob):' THEN favicon_url
+    WHEN favicon_url ~* '^/?public/' THEN '/public/' || regexp_replace(favicon_url, '^/?public/?', '', 'i')
+    ELSE '/public/' || regexp_replace(favicon_url, '^/+', '')
+  END,
+  hero_image_url = CASE
+    WHEN hero_image_url IS NULL OR BTRIM(hero_image_url) = '' THEN hero_image_url
+    WHEN hero_image_url ~* '^(https?:)?//' OR hero_image_url ~* '^(data|blob):' THEN hero_image_url
+    WHEN hero_image_url ~* '^/?public/' THEN '/public/' || regexp_replace(hero_image_url, '^/?public/?', '', 'i')
+    ELSE '/public/' || regexp_replace(hero_image_url, '^/+', '')
+  END;
+
 CREATE INDEX IF NOT EXISTS idx_kits_is_active ON content.kits(is_active);
 CREATE INDEX IF NOT EXISTS idx_kits_updated_at ON content.kits(updated_at DESC);
 
@@ -843,10 +930,10 @@ INSERT INTO content.trusted_logos (brand_name, logo_url, sort_order, is_active)
 SELECT v.brand_name, v.logo_url, v.sort_order, TRUE
 FROM (
   VALUES
-    ('Nexora', '/logos/nexora.svg', 1),
-    ('Bluebank', '/logos/bluebank.svg', 2),
-    ('Ventura', '/logos/ventura.svg', 3),
-    ('Urbanova', '/logos/urbanova.svg', 4)
+    ('Nexora', '/public/logos/nexora.svg', 1),
+    ('Bluebank', '/public/logos/bluebank.svg', 2),
+    ('Ventura', '/public/logos/ventura.svg', 3),
+    ('Urbanova', '/public/logos/urbanova.svg', 4)
 ) AS v(brand_name, logo_url, sort_order)
 WHERE NOT EXISTS (
   SELECT 1
@@ -1095,9 +1182,9 @@ VALUES (
   'X-ALT',
   'Solusi Merchandise Kit untuk Brand dan Event',
   'https://xaltcorp.com',
-  '/logos/xalt-logo-light.svg',
-  '/logos/xalt-logo-dark.svg',
-  '/favicon.ico',
+  '/public/logos/xalt-logo-light.svg',
+  '/public/logos/xalt-logo-dark.svg',
+  '/public/favicon.ico',
   'Corporate Merchandise',
   'X-ALT adalah partner end-to-end untuk Startup Kit, Bank Kit, Event Kit, dan Eco Merchandise Kit dengan standar produksi enterprise.',
   'Dipakai tim procurement, HR, marketing, dan event di perusahaan berkembang hingga enterprise.',

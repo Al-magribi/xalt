@@ -5,9 +5,11 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { revalidatePath } from "next/cache";
 import { query } from "@/config/db";
+import { resolveAssetUrl } from "@/utils/media";
 
 const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024;
-const PUBLIC_SETTINGS_UPLOAD_PREFIX = "/uploads/settings/";
+const PUBLIC_SETTINGS_UPLOAD_PREFIX = "/public/uploads/settings/";
+const LEGACY_SETTINGS_UPLOAD_PREFIX = "/uploads/settings/";
 const SETTINGS_UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "settings");
 
 function normalizeArray(value) {
@@ -32,12 +34,12 @@ function mapWebsiteConfig(row) {
     id: Number(row.id),
     site_name: row.site_name || "",
     site_tagline: row.site_tagline || "",
-    logo_url: row.logo_url || "",
-    favicon_url: row.favicon_url || "",
+    logo_url: resolveAssetUrl(row.logo_url),
+    favicon_url: resolveAssetUrl(row.favicon_url),
     hero_title: row.hero_title || "",
     hero_description: row.hero_description || "",
     hero_note: row.hero_note || "",
-    hero_image_url: row.hero_image_url || "",
+    hero_image_url: resolveAssetUrl(row.hero_image_url),
     hero_badge_title: row.hero_badge_title || "",
     hero_badge_text: row.hero_badge_text || "",
     default_language: row.default_language || "id",
@@ -116,7 +118,7 @@ function mapTrustedLogo(row) {
   return {
     id: Number(row.id),
     brand_name: row.brand_name || "",
-    logo_url: row.logo_url || "",
+    logo_url: resolveAssetUrl(row.logo_url),
     sort_order: Number(row.sort_order || 0),
     is_active: Boolean(row.is_active),
   };
@@ -172,12 +174,18 @@ function toSafeExt(fileName = "") {
 }
 
 function isLocalUploadUrl(url) {
-  return typeof url === "string" && url.startsWith(PUBLIC_SETTINGS_UPLOAD_PREFIX);
+  if (typeof url !== "string") return false;
+  return (
+    url.startsWith(PUBLIC_SETTINGS_UPLOAD_PREFIX) ||
+    url.startsWith(LEGACY_SETTINGS_UPLOAD_PREFIX)
+  );
 }
 
 function toLocalFilePath(url) {
   if (!isLocalUploadUrl(url)) return null;
-  const relative = url.replace(/^\//, "");
+  const relative = url
+    .replace(/^\/public\//i, "")
+    .replace(/^\//, "");
   return path.join(process.cwd(), "public", relative);
 }
 
@@ -250,13 +258,13 @@ export async function getWebsiteBranding() {
   return {
     site_name: row.site_name || "X-ALT",
     app_url: row.app_url || "",
-    logo_url: row.logo_url || "",
-    favicon_url: row.favicon_url || "",
+    logo_url: resolveAssetUrl(row.logo_url),
+    favicon_url: resolveAssetUrl(row.favicon_url),
     site_tagline: row.site_tagline || "",
     hero_title: row.hero_title || "",
     hero_description: row.hero_description || "",
     hero_note: row.hero_note || "",
-    hero_image_url: row.hero_image_url || "",
+    hero_image_url: resolveAssetUrl(row.hero_image_url),
     hero_badge_title: row.hero_badge_title || "",
     hero_badge_text: row.hero_badge_text || "",
     whatsapp_number: row.whatsapp_number || "",

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { logoutAction } from "@/actions/auth";
 import { FiChevronRight, FiGrid, FiLayout, FiLogOut, FiX } from "react-icons/fi";
+import { resolveAssetUrl } from "@/utils/media";
 
 function normalizeHref(href) {
   if (!href) return "/admin/dashboard";
@@ -32,10 +33,10 @@ function getInitials(nameOrEmail) {
 export default function AdminSidebar({ user, menuItems, websiteConfig, isOpen, onClose }) {
   const pathname = usePathname();
   const name = user?.full_name || user?.email || "Admin";
-  const avatarUrl = user?.avatar_url || "";
+  const avatarUrl = resolveAssetUrl(user?.avatar_url);
   const avatarInitials = getInitials(name);
   const siteName = websiteConfig?.site_name || "X-ALT";
-  const faviconUrl = websiteConfig?.favicon_url || "";
+  const faviconUrl = resolveAssetUrl(websiteConfig?.favicon_url);
   const siteTagline = websiteConfig?.site_tagline || "Management Console";
 
   return (

@@ -5,13 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { navItems } from "./homeData";
+import { resolveAssetUrl } from "@/utils/media";
 
 export default function HomeHeader({ websiteConfig }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const siteName = websiteConfig?.site_name || "X-ALT";
-  const faviconUrl = websiteConfig?.favicon_url || "";
+  const faviconUrl = resolveAssetUrl(websiteConfig?.favicon_url);
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
   const getNavHref = (href) => (isHomePage ? href : `/${href}`);

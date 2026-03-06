@@ -24,7 +24,8 @@ const SESSION_DAYS_REMEMBER = 30;
 const RESET_TOKEN_HOURS = 1;
 const ACTIVATION_TOKEN_HOURS = 24;
 const MAX_AVATAR_SIZE_BYTES = 2 * 1024 * 1024;
-const PROFILE_UPLOAD_PREFIX = "/uploads/profile/";
+const PROFILE_UPLOAD_PREFIX = "/public/uploads/profile/";
+const LEGACY_PROFILE_UPLOAD_PREFIX = "/uploads/profile/";
 const PROFILE_UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "profile");
 
 const DUMMY_HASH =
@@ -45,12 +46,18 @@ function toSafeExt(fileName = "") {
 }
 
 function isLocalAvatarUrl(url) {
-  return typeof url === "string" && url.startsWith(PROFILE_UPLOAD_PREFIX);
+  if (typeof url !== "string") return false;
+  return (
+    url.startsWith(PROFILE_UPLOAD_PREFIX) ||
+    url.startsWith(LEGACY_PROFILE_UPLOAD_PREFIX)
+  );
 }
 
 function toLocalAvatarPath(url) {
   if (!isLocalAvatarUrl(url)) return null;
-  const relative = url.replace(/^\//, "");
+  const relative = url
+    .replace(/^\/public\//i, "")
+    .replace(/^\//, "");
   return path.join(process.cwd(), "public", relative);
 }
 

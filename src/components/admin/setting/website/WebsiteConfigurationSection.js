@@ -3,6 +3,7 @@
 import { Input, Textarea } from "../ui";
 import FileUploadCard from "./FileUploadCard";
 import PreviewImage from "./PreviewImage";
+import { resolveAssetUrl } from "@/utils/media";
 
 export default function WebsiteConfigurationSection({
   config,
@@ -15,8 +16,8 @@ export default function WebsiteConfigurationSection({
   onChangeFaviconFile,
   onResetFaviconFile,
 }) {
-  const logoSrc = logoPreview || config.logo_url;
-  const faviconSrc = faviconPreview || config.favicon_url;
+  const logoSrc = logoPreview || resolveAssetUrl(config.logo_url);
+  const faviconSrc = faviconPreview || resolveAssetUrl(config.favicon_url);
 
   return (
     <div className='space-y-4 rounded-xl border border-slate-200 bg-white p-4'>

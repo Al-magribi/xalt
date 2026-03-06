@@ -8,22 +8,26 @@ import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { requireRole } from "@/actions/auth";
 import { query, withTransaction } from "@/config/db";
+import { resolveAssetUrl } from "@/utils/media";
 
 const require = createRequire(import.meta.url);
 let geoipModule = null;
 let geoipUnavailable = false;
 
 const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024;
-const PUBLIC_KIT_UPLOAD_PREFIX = "/uploads/kits/";
+const PUBLIC_KIT_UPLOAD_PREFIX = "/public/uploads/kits/";
+const LEGACY_KIT_UPLOAD_PREFIX = "/uploads/kits/";
 const KIT_UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "kits");
-const PUBLIC_MERCH_UPLOAD_PREFIX = "/uploads/merchandise/";
+const PUBLIC_MERCH_UPLOAD_PREFIX = "/public/uploads/merchandise/";
+const LEGACY_MERCH_UPLOAD_PREFIX = "/uploads/merchandise/";
 const MERCH_UPLOAD_DIR = path.join(
   process.cwd(),
   "public",
   "uploads",
   "merchandise",
 );
-const PUBLIC_CATALOG_UPLOAD_PREFIX = "/uploads/catalog/";
+const PUBLIC_CATALOG_UPLOAD_PREFIX = "/public/uploads/catalog/";
+const LEGACY_CATALOG_UPLOAD_PREFIX = "/uploads/catalog/";
 const CATALOG_UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "catalog");
 
 function toSlug(value) {
@@ -65,14 +69,19 @@ function isLocalUploadUrl(url) {
   if (typeof url !== "string") return false;
   return (
     url.startsWith(PUBLIC_KIT_UPLOAD_PREFIX) ||
+    url.startsWith(LEGACY_KIT_UPLOAD_PREFIX) ||
     url.startsWith(PUBLIC_MERCH_UPLOAD_PREFIX) ||
-    url.startsWith(PUBLIC_CATALOG_UPLOAD_PREFIX)
+    url.startsWith(LEGACY_MERCH_UPLOAD_PREFIX) ||
+    url.startsWith(PUBLIC_CATALOG_UPLOAD_PREFIX) ||
+    url.startsWith(LEGACY_CATALOG_UPLOAD_PREFIX)
   );
 }
 
 function toLocalFilePath(url) {
   if (!isLocalUploadUrl(url)) return null;
-  const relative = url.replace(/^\//, "");
+  const relative = url
+    .replace(/^\/public\//i, "")
+    .replace(/^\//, "");
   return path.join(process.cwd(), "public", relative);
 }
 
@@ -159,7 +168,7 @@ async function saveCatalogPdfFile(file) {
 function normalizeGalleryRows(rows) {
   return rows.map((row) => ({
     id: Number(row.id),
-    image_url: row.image_url,
+    image_url: resolveAssetUrl(row.image_url),
     sort_order: Number(row.sort_order || 0),
   }));
 }
@@ -170,8 +179,10 @@ function mapKitForPublic(row) {
     slug: row.slug,
     title: row.title,
     description: row.description,
-    image: row.hero_image_url,
-    gallery: Array.isArray(row.gallery) ? row.gallery : [],
+    image: resolveAssetUrl(row.hero_image_url),
+    gallery: Array.isArray(row.gallery)
+      ? row.gallery.map((item) => resolveAssetUrl(item))
+      : [],
   };
 }
 
@@ -181,7 +192,7 @@ function mapKitForAdmin(row) {
     slug: row.slug,
     title: row.title,
     description: row.description,
-    hero_image_url: row.hero_image_url,
+    hero_image_url: resolveAssetUrl(row.hero_image_url),
     is_active: Boolean(row.is_active),
     created_at: row.created_at,
     updated_at: row.updated_at,
@@ -202,7 +213,7 @@ function mapMerchandiseForAdmin(row) {
     size_options: normalizeStringList(row.size_options),
     material_options: normalizeStringList(row.material_options),
     currency: row.currency,
-    image_url: row.image_url,
+    image_url: resolveAssetUrl(row.image_url),
     gallery,
     is_active: Boolean(row.is_active),
     created_at: row.created_at,
@@ -223,8 +234,8 @@ function mapMerchandiseForHome(row) {
     size_options: normalizeStringList(row.size_options),
     material_options: normalizeStringList(row.material_options),
     currency: row.currency,
-    image: row.image_url,
-    images: [row.image_url, ...gallery].filter(Boolean),
+    image: resolveAssetUrl(row.image_url),
+    images: [resolveAssetUrl(row.image_url), ...gallery.map((item) => resolveAssetUrl(item))].filter(Boolean),
   };
 }
 
@@ -232,7 +243,7 @@ function mapCatalogFileForAdmin(row) {
   return {
     id: Number(row.id),
     title: row.title,
-    file_url: row.file_url,
+    file_url: resolveAssetUrl(row.file_url),
     file_name: row.file_name,
     mime_type: row.mime_type,
     is_active: Boolean(row.is_active),

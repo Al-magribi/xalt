@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Manrope, Sora } from "next/font/google";
 import { query } from "@/config/db";
 import MetaPixel from "@/components/analytics/MetaPixel";
+import { resolveAssetUrl } from "@/utils/media";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ export async function generateMetadata() {
 
     if (row.site_name) siteName = row.site_name;
     if (row.site_tagline) siteTagline = row.site_tagline;
-    if (row.favicon_url) faviconUrl = row.favicon_url;
+    if (row.favicon_url) faviconUrl = resolveAssetUrl(row.favicon_url, "/favicon.ico");
   } catch {
     // Use fallback metadata when database is unavailable.
   }
