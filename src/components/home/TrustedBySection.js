@@ -1,7 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import AppImage from "@/components/ui/AppImage";
+import { resolveAssetUrl } from "@/utils/media";
+
 function LogoMarqueeRow({ logos, reverse = false, duration = 28 }) {
   if (!Array.isArray(logos) || logos.length === 0) return null;
   const loopedLogos = [...logos, ...logos];
@@ -22,8 +24,8 @@ function LogoMarqueeRow({ logos, reverse = false, duration = 28 }) {
             key={`${logo.name}-${index}`}
             className='flex h-24 w-56 shrink-0 flex-col items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-3'
           >
-            <Image
-              src={logo.src}
+            <AppImage
+              src={resolveAssetUrl(logo.src)}
               alt={`${logo.name} logo`}
               width={180}
               height={64}

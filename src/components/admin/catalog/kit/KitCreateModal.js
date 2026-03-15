@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { FiCheckCircle, FiPlusCircle, FiX, FiXCircle } from "react-icons/fi";
 import { createKitAction } from "@/actions/catalog";
+import AppImage from "@/components/ui/AppImage";
 
 const INITIAL_FORM_STATE = { ok: false, message: "" };
 
@@ -162,7 +162,7 @@ export default function KitCreateModal() {
                   {heroPreview && (
                     <div className='mt-2 overflow-hidden rounded-lg border border-slate-200 bg-slate-100'>
                       <div className='relative aspect-[16/8]'>
-                        <Image src={heroPreview} alt='Hero preview' fill className='object-cover' sizes='(max-width: 1024px) 100vw, 40vw' />
+                        <AppImage src={heroPreview} alt='Hero preview' fill className='object-cover' sizes='(max-width: 1024px) 100vw, 40vw' />
                       </div>
                     </div>
                   )}
@@ -198,7 +198,7 @@ export default function KitCreateModal() {
                           key={`${src}-${index}`}
                           className='relative aspect-[4/3] overflow-hidden rounded-md border border-slate-200 bg-slate-100'
                         >
-                          <Image
+                          <AppImage
                             src={src}
                             alt={`Preview gallery ${index + 1}`}
                             fill

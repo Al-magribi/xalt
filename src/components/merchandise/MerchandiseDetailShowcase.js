@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useMemo, useState } from "react";
 import {
   FiChevronLeft,
@@ -8,6 +7,7 @@ import {
   FiFileText,
   FiInfo,
 } from "react-icons/fi";
+import AppImage from "@/components/ui/AppImage";
 import WhatsappLeadModalButton from "@/components/merchandise/WhatsappLeadModalButton";
 
 function splitDescriptionParagraphs(text) {
@@ -49,7 +49,7 @@ export default function MerchandiseDetailShowcase({
         <div className='space-y-3'>
           <div className='relative overflow-hidden rounded-2xl bg-white'>
             <div className='relative h-[280px] overflow-hidden rounded-2xl sm:h-[360px] md:h-[440px] lg:h-[480px]'>
-              <Image
+              <AppImage
                 src={activeImage}
                 alt={`${product.title} ${activeImageIndex + 1}`}
                 fill
@@ -95,7 +95,7 @@ export default function MerchandiseDetailShowcase({
                   }`}
                   aria-label={`Pilih gambar ${index + 1}`}
                 >
-                  <Image
+                  <AppImage
                     src={imageUrl}
                     alt={`${product.title} thumbnail ${index + 1}`}
                     fill

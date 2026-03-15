@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { trackVisitorPageView } from "@/actions/analytics";
@@ -6,6 +5,7 @@ import { getKitDetailBySlug } from "@/actions/catalog";
 import { getWebsiteBranding } from "@/actions/setting";
 import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
+import AppImage from "@/components/ui/AppImage";
 
 export const dynamic = "force-dynamic";
 
@@ -113,7 +113,7 @@ export default async function CatalogDetailPage({ params, searchParams }) {
           </div>
 
           <div className='relative h-64 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 sm:h-72 md:h-80 lg:h-96 lg:rounded-3xl'>
-            <Image
+            <AppImage
               src={kit.image}
               alt={kit.title}
               fill
@@ -139,7 +139,7 @@ export default async function CatalogDetailPage({ params, searchParams }) {
                 key={image}
                 className='relative aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100'
               >
-                <Image
+                <AppImage
                   src={image}
                   alt={`${kit.title} gambar ${index + 1}`}
                   fill

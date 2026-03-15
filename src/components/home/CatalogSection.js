@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import AppImage from "@/components/ui/AppImage";
 import { container, item } from "./sharedMotion";
 
 export default function CatalogSection({ kits = [] }) {
@@ -31,7 +31,7 @@ export default function CatalogSection({ kits = [] }) {
               className='group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm'
             >
               <div className='relative h-75 bg-slate-100'>
-                <Image
+                <AppImage
                   src={kit.image}
                   alt={kit.title}
                   fill

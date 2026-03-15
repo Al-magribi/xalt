@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import AppImage from "@/components/ui/AppImage";
 import { container, item } from "./sharedMotion";
 
 export default function MerchandiseSection({ items = [] }) {
@@ -21,7 +21,7 @@ export default function MerchandiseSection({ items = [] }) {
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 className='relative h-72 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100'
               >
-                <Image
+                <AppImage
                   src={entry.image}
                   alt={entry.title}
                   fill

@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
+import AppImage from "@/components/ui/AppImage";
 
 function formatMoney(value, currency) {
   return new Intl.NumberFormat("id-ID", {
@@ -34,7 +34,7 @@ export default function Merchandise({ items = [] }) {
             >
               <Link href={`/merchandise/${itemData.slug}`} className='block'>
                 <div className='relative h-76 bg-slate-100'>
-                  <Image
+                  <AppImage
                     src={itemData.image}
                     alt={itemData.title}
                     fill

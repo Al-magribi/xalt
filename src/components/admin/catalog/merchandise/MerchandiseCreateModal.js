@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { FiCheckCircle, FiXCircle } from "react-icons/fi";
 import { createMerchandiseAction } from "@/actions/catalog";
+import AppImage from "@/components/ui/AppImage";
 
 const INITIAL_FORM_STATE = { ok: false, message: "" };
 
@@ -190,7 +190,7 @@ export default function MerchandiseCreateModal() {
                           key={`${src}-${index}`}
                           className='relative aspect-square overflow-hidden rounded-md border border-slate-200 bg-slate-50'
                         >
-                          <Image
+                          <AppImage
                             src={src}
                             alt={`Preview gambar merchandise ${index + 1}`}
                             fill

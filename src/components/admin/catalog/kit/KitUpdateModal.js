@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { FiCheckCircle, FiEdit2, FiX, FiXCircle } from "react-icons/fi";
 import { updateKitAction } from "@/actions/catalog";
+import AppImage from "@/components/ui/AppImage";
 
 const INITIAL_FORM_STATE = { ok: false, message: "" };
 
@@ -162,7 +162,7 @@ export default function KitUpdateModal({ kit }) {
                   />
                   <div className='mt-2 overflow-hidden rounded-lg border border-slate-200 bg-slate-100'>
                     <div className='relative aspect-[16/8]'>
-                      <Image
+                      <AppImage
                         src={heroPreview || kit.hero_image_url}
                         alt={`${kit.title} hero`}
                         fill
@@ -201,7 +201,7 @@ export default function KitUpdateModal({ kit }) {
                           key={`${src}-${index}`}
                           className='relative aspect-[4/3] overflow-hidden rounded-md border border-slate-200 bg-slate-100'
                         >
-                          <Image
+                          <AppImage
                             src={src}
                             alt={`Preview gambar baru ${index + 1}`}
                             fill
@@ -227,7 +227,7 @@ export default function KitUpdateModal({ kit }) {
                       {kit.gallery.map((image) => (
                         <label key={image.id} className='space-y-1 rounded-md p-1 text-xs text-slate-600 hover:bg-slate-50'>
                           <div className='relative aspect-[4/3] overflow-hidden rounded-md border border-slate-200 bg-slate-100'>
-                            <Image
+                            <AppImage
                               src={image.image_url}
                               alt={`${kit.title} gallery ${image.id}`}
                               fill

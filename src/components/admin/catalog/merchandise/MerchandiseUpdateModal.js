@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { FiCheckCircle, FiChevronDown, FiChevronUp, FiXCircle } from "react-icons/fi";
 import { updateMerchandiseAction } from "@/actions/catalog";
+import AppImage from "@/components/ui/AppImage";
 
 const INITIAL_FORM_STATE = { ok: false, message: "" };
 
@@ -245,7 +245,7 @@ export default function MerchandiseUpdateModal({
                 </div>
 
                 <div className='relative h-54 overflow-hidden rounded-lg border border-slate-200 bg-slate-100 md:h-64'>
-                  <Image
+                  <AppImage
                     src={primaryImagePreview || item.image_url}
                     alt={item.title}
                     fill
@@ -284,7 +284,7 @@ export default function MerchandiseUpdateModal({
                           key={`${src}-${index}`}
                           className='relative aspect-[4/3] overflow-hidden rounded-md border border-slate-200 bg-slate-100'
                         >
-                          <Image
+                          <AppImage
                             src={src}
                             alt={`Preview gambar baru ${index + 1}`}
                             fill
@@ -305,7 +305,7 @@ export default function MerchandiseUpdateModal({
                       {item.gallery.map((image) => (
                         <label key={image.id} className='space-y-1 rounded-md p-1 text-xs text-slate-600 hover:bg-slate-50'>
                           <div className='relative aspect-[4/3] overflow-hidden rounded-md border border-slate-200 bg-slate-100'>
-                            <Image
+                            <AppImage
                               src={image.image_url}
                               alt={`${item.title} gallery ${image.id}`}
                               fill

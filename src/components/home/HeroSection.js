@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import AppImage from "@/components/ui/AppImage";
 import { container, item } from "./sharedMotion";
 
 export default function HeroSection({ websiteConfig }) {
@@ -67,7 +67,7 @@ export default function HeroSection({ websiteConfig }) {
           <div className='relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-2.5 shadow-xl sm:rounded-3xl sm:p-3'>
             <div className='relative h-[300px] w-full overflow-hidden rounded-xl sm:h-[380px] sm:rounded-2xl md:h-[420px] lg:h-[460px]'>
               {hero.imageUrl ? (
-                <Image
+                <AppImage
                   src={hero.imageUrl}
                   alt={hero.title || "Hero image"}
                   fill

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -13,6 +12,7 @@ import { getWebsiteBranding } from "@/actions/setting";
 import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 import MerchandiseDetailShowcase from "@/components/merchandise/MerchandiseDetailShowcase";
+import AppImage from "@/components/ui/AppImage";
 
 export const dynamic = "force-dynamic";
 
@@ -136,7 +136,7 @@ export default async function MerchandiseDetailPage({ params, searchParams }) {
               >
                 <Link href={`/merchandise/${item.slug}`} className='block'>
                   <div className='relative aspect-[5/4] bg-slate-100'>
-                    <Image
+                    <AppImage
                       src={item.image}
                       alt={item.title}
                       fill

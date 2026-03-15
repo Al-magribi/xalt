@@ -15,19 +15,19 @@ let geoipModule = null;
 let geoipUnavailable = false;
 
 const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024;
-const PUBLIC_KIT_UPLOAD_PREFIX = "/public/uploads/kits/";
-const LEGACY_KIT_UPLOAD_PREFIX = "/uploads/kits/";
+const KIT_UPLOAD_PREFIX = "/uploads/kits/";
+const LEGACY_KIT_UPLOAD_PREFIX = "/public/uploads/kits/";
 const KIT_UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "kits");
-const PUBLIC_MERCH_UPLOAD_PREFIX = "/public/uploads/merchandise/";
-const LEGACY_MERCH_UPLOAD_PREFIX = "/uploads/merchandise/";
+const MERCH_UPLOAD_PREFIX = "/uploads/merchandise/";
+const LEGACY_MERCH_UPLOAD_PREFIX = "/public/uploads/merchandise/";
 const MERCH_UPLOAD_DIR = path.join(
   process.cwd(),
   "public",
   "uploads",
   "merchandise",
 );
-const PUBLIC_CATALOG_UPLOAD_PREFIX = "/public/uploads/catalog/";
-const LEGACY_CATALOG_UPLOAD_PREFIX = "/uploads/catalog/";
+const CATALOG_UPLOAD_PREFIX = "/uploads/catalog/";
+const LEGACY_CATALOG_UPLOAD_PREFIX = "/public/uploads/catalog/";
 const CATALOG_UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "catalog");
 
 function toSlug(value) {
@@ -68,11 +68,11 @@ function toSafeExt(fileName = "") {
 function isLocalUploadUrl(url) {
   if (typeof url !== "string") return false;
   return (
-    url.startsWith(PUBLIC_KIT_UPLOAD_PREFIX) ||
+    url.startsWith(KIT_UPLOAD_PREFIX) ||
     url.startsWith(LEGACY_KIT_UPLOAD_PREFIX) ||
-    url.startsWith(PUBLIC_MERCH_UPLOAD_PREFIX) ||
+    url.startsWith(MERCH_UPLOAD_PREFIX) ||
     url.startsWith(LEGACY_MERCH_UPLOAD_PREFIX) ||
-    url.startsWith(PUBLIC_CATALOG_UPLOAD_PREFIX) ||
+    url.startsWith(CATALOG_UPLOAD_PREFIX) ||
     url.startsWith(LEGACY_CATALOG_UPLOAD_PREFIX)
   );
 }
@@ -121,7 +121,7 @@ async function saveImageFile(file) {
   const buffer = Buffer.from(await file.arrayBuffer());
 
   await fs.writeFile(filePath, buffer);
-  return `${PUBLIC_KIT_UPLOAD_PREFIX}${fileName}`;
+  return `${KIT_UPLOAD_PREFIX}${fileName}`;
 }
 
 async function saveMerchImageFile(file) {
@@ -141,7 +141,7 @@ async function saveMerchImageFile(file) {
   const buffer = Buffer.from(await file.arrayBuffer());
 
   await fs.writeFile(filePath, buffer);
-  return `${PUBLIC_MERCH_UPLOAD_PREFIX}${fileName}`;
+  return `${MERCH_UPLOAD_PREFIX}${fileName}`;
 }
 
 async function saveCatalogPdfFile(file) {
@@ -162,7 +162,7 @@ async function saveCatalogPdfFile(file) {
   const buffer = Buffer.from(await file.arrayBuffer());
 
   await fs.writeFile(filePath, buffer);
-  return `${PUBLIC_CATALOG_UPLOAD_PREFIX}${safeName}`;
+  return `${CATALOG_UPLOAD_PREFIX}${safeName}`;
 }
 
 function normalizeGalleryRows(rows) {

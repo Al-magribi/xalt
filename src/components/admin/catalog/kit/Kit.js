@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 import { FiCheckCircle, FiXCircle } from "react-icons/fi";
 import { deleteKitAction } from "@/actions/catalog";
 import KitCreateModal from "@/components/admin/catalog/kit/KitCreateModal";
 import KitUpdateModal from "@/components/admin/catalog/kit/KitUpdateModal";
+import AppImage from "@/components/ui/AppImage";
 
 const INITIAL_FORM_STATE = { ok: false, message: "" };
 const FALLBACK_IMAGE_SRC = "/placeholder-image.svg";
@@ -132,7 +132,7 @@ export default function Kit({ kits = [] }) {
                 <div className='flex flex-col gap-3 border-b border-slate-200 p-3 sm:flex-row sm:items-start sm:justify-between'>
                   <div className='flex items-start gap-3'>
                     <div className='relative h-16 w-20 overflow-hidden rounded-md border border-slate-200 bg-slate-100'>
-                      <Image
+                      <AppImage
                         src={getSafeImageSrc(kit.hero_image_url)}
                         alt={kit.title}
                         fill

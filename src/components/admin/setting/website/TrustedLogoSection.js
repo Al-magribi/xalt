@@ -7,6 +7,7 @@ import {
   deleteTrustedLogoAction,
   updateTrustedLogoAction,
 } from "@/actions/setting";
+import { resolveAssetUrl } from "@/utils/media";
 import { FormFeedback, INITIAL_STATE, Input, SubmitButton } from "../ui";
 import FileUploadCard from "./FileUploadCard";
 import PreviewImage from "./PreviewImage";
@@ -35,7 +36,7 @@ function TrustedLogoItemCard({ logo }) {
     router.refresh();
   }, [updateState?.ok, deleteState?.ok, router]);
 
-  const previewSrc = preview || logo.logo_url;
+  const previewSrc = preview || resolveAssetUrl(logo.logo_url);
 
   return (
     <div className='rounded-xl border border-slate-200 bg-slate-50 p-3'>

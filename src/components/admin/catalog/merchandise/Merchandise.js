@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useActionState, useEffect, useMemo, useState } from "react";
 import { useFormStatus } from "react-dom";
 import {
@@ -16,6 +15,7 @@ import {
 import { deleteMerchandiseAction } from "@/actions/catalog";
 import MerchandiseCreateModal from "@/components/admin/catalog/merchandise/MerchandiseCreateModal";
 import MerchandiseUpdateModal from "@/components/admin/catalog/merchandise/MerchandiseUpdateModal";
+import AppImage from "@/components/ui/AppImage";
 
 const INITIAL_FORM_STATE = { ok: false, message: "" };
 const FALLBACK_IMAGE_SRC = "/placeholder-image.svg";
@@ -266,7 +266,7 @@ export default function Merchandise({
                 >
                   <div className='flex items-start gap-3 border-b border-slate-200 p-3'>
                     <div className='relative h-20 w-20 shrink-0 overflow-hidden rounded-md border border-slate-200 bg-slate-100'>
-                      <Image
+                      <AppImage
                         src={getSafeImageSrc(item.image_url)}
                         alt={item.title}
                         fill

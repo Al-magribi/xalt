@@ -8,8 +8,8 @@ import { query } from "@/config/db";
 import { resolveAssetUrl } from "@/utils/media";
 
 const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024;
-const PUBLIC_SETTINGS_UPLOAD_PREFIX = "/public/uploads/settings/";
-const LEGACY_SETTINGS_UPLOAD_PREFIX = "/uploads/settings/";
+const SETTINGS_UPLOAD_PREFIX = "/uploads/settings/";
+const LEGACY_SETTINGS_UPLOAD_PREFIX = "/public/uploads/settings/";
 const SETTINGS_UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "settings");
 
 function normalizeArray(value) {
@@ -176,7 +176,7 @@ function toSafeExt(fileName = "") {
 function isLocalUploadUrl(url) {
   if (typeof url !== "string") return false;
   return (
-    url.startsWith(PUBLIC_SETTINGS_UPLOAD_PREFIX) ||
+    url.startsWith(SETTINGS_UPLOAD_PREFIX) ||
     url.startsWith(LEGACY_SETTINGS_UPLOAD_PREFIX)
   );
 }
@@ -219,7 +219,7 @@ async function saveSettingImageFile(file) {
   const buffer = Buffer.from(await file.arrayBuffer());
 
   await fs.writeFile(filePath, buffer);
-  return `${PUBLIC_SETTINGS_UPLOAD_PREFIX}${fileName}`;
+  return `${SETTINGS_UPLOAD_PREFIX}${fileName}`;
 }
 
 function revalidateSettingPaths() {
