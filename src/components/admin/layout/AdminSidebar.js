@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { logoutAction } from "@/actions/auth";
 import { FiChevronRight, FiGrid, FiLayout, FiLogOut, FiX } from "react-icons/fi";
+import AdminAvatar from "@/components/admin/layout/AdminAvatar";
 import { resolveAssetUrl } from "@/utils/media";
 
 function normalizeHref(href) {
@@ -19,22 +20,10 @@ function isActivePath(pathname, href) {
   return href !== "/" && pathname.startsWith(`${href}/`);
 }
 
-function getInitials(nameOrEmail) {
-  const text = String(nameOrEmail || "").trim();
-  if (!text) return "AD";
-
-  const words = text.split(/\s+/).filter(Boolean);
-  if (words.length >= 2) {
-    return `${words[0][0]}${words[1][0]}`.toUpperCase();
-  }
-  return text.slice(0, 2).toUpperCase();
-}
-
 export default function AdminSidebar({ user, menuItems, websiteConfig, isOpen, onClose }) {
   const pathname = usePathname();
   const name = user?.full_name || user?.email || "Admin";
   const avatarUrl = resolveAssetUrl(user?.avatar_url);
-  const avatarInitials = getInitials(name);
   const siteName = websiteConfig?.site_name || "X-ALT";
   const faviconUrl = resolveAssetUrl(websiteConfig?.favicon_url);
   const siteTagline = websiteConfig?.site_tagline || "Management Console";
@@ -83,13 +72,13 @@ export default function AdminSidebar({ user, menuItems, websiteConfig, isOpen, o
 
         <div className='mb-5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-3'>
           <div className='flex items-center gap-3'>
-            <div className='inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-white text-xs font-bold text-slate-700 shadow-sm'>
-              {avatarUrl ? (
-                <img src={avatarUrl} alt={`${name} avatar`} className='h-full w-full object-cover' />
-              ) : (
-                <span>{avatarInitials}</span>
-              )}
-            </div>
+            <AdminAvatar
+              src={avatarUrl}
+              name={name}
+              sizeClass='h-11 w-11'
+              textClass='text-xs'
+              imageClass='object-cover'
+            />
             <div className='min-w-0'>
               <p className='text-[11px] uppercase tracking-wide text-slate-500'>Signed in as</p>
               <p className='mt-0.5 truncate text-sm font-semibold text-slate-900'>{name}</p>

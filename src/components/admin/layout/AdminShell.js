@@ -2,25 +2,14 @@
 
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
+import AdminAvatar from "@/components/admin/layout/AdminAvatar";
 import AdminSidebar from "@/components/admin/layout/AdminSidebar";
-
-function getInitials(nameOrEmail) {
-  const text = String(nameOrEmail || "").trim();
-  if (!text) return "AD";
-
-  const words = text.split(/\s+/).filter(Boolean);
-  if (words.length >= 2) {
-    return `${words[0][0]}${words[1][0]}`.toUpperCase();
-  }
-  return text.slice(0, 2).toUpperCase();
-}
 
 export default function AdminShell({ user, menuItems, websiteConfig, title = "Admin", children }) {
   const [isOpen, setIsOpen] = useState(false);
   const name = user?.full_name || user?.email || "Admin";
   const roleLabel = (user?.role || "admin").toUpperCase();
   const avatarUrl = user?.avatar_url || "";
-  const avatarInitials = getInitials(name);
 
   return (
     <div className='min-h-screen bg-slate-100'>
@@ -45,13 +34,13 @@ export default function AdminShell({ user, menuItems, websiteConfig, title = "Ad
 
               <div className='flex items-center gap-3'>
                 <div className='hidden items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 lg:flex'>
-                  <div className='inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-white text-xs font-bold text-slate-700 shadow-sm'>
-                    {avatarUrl ? (
-                      <img src={avatarUrl} alt={`${name} avatar`} className='h-full w-full object-cover' />
-                    ) : (
-                      <span>{avatarInitials}</span>
-                    )}
-                  </div>
+                  <AdminAvatar
+                    src={avatarUrl}
+                    name={name}
+                    sizeClass='h-10 w-10'
+                    textClass='text-xs'
+                    imageClass='object-cover'
+                  />
                   <div className='min-w-0'>
                     <p className='truncate text-sm font-semibold text-slate-900'>{name}</p>
                     <p className='text-xs uppercase tracking-wide text-slate-500'>{roleLabel}</p>
