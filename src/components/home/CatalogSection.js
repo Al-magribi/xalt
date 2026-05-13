@@ -5,6 +5,13 @@ import { motion } from "framer-motion";
 import AppImage from "@/components/ui/AppImage";
 import { container, item } from "./sharedMotion";
 
+const FALLBACK_IMAGE_SRC = "/placeholder-image.svg";
+
+function getSafeImageSrc(value) {
+  if (typeof value === "string" && value.trim()) return value;
+  return FALLBACK_IMAGE_SRC;
+}
+
 export default function CatalogSection({ kits = [] }) {
   return (
     <section id='katalog' className='mx-auto max-w-7xl px-6 pb-20 md:px-10'>
@@ -32,7 +39,7 @@ export default function CatalogSection({ kits = [] }) {
             >
               <div className='relative h-75 bg-slate-100'>
                 <AppImage
-                  src={kit.image}
+                  src={getSafeImageSrc(kit.image)}
                   alt={kit.title}
                   fill
                   className='object-cover transition duration-300 group-hover:scale-105'

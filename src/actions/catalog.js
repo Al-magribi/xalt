@@ -1,7 +1,6 @@
 "use server";
 
 import crypto from "node:crypto";
-import fs from "node:fs/promises";
 import { createRequire } from "node:module";
 import path from "node:path";
 import { revalidatePath } from "next/cache";
@@ -9,6 +8,11 @@ import { headers } from "next/headers";
 import { requireRole } from "@/actions/auth";
 import { query, withTransaction } from "@/config/db";
 import { resolveAssetUrl } from "@/utils/media";
+import {
+  deleteUploadsByUrl,
+  isLocalUploadUrl as isStoredUploadUrl,
+  writeUploadFile,
+} from "@/utils/upload-storage";
 
 const require = createRequire(import.meta.url);
 let geoipModule = null;
@@ -17,18 +21,10 @@ let geoipUnavailable = false;
 const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024;
 const KIT_UPLOAD_PREFIX = "/uploads/kits/";
 const LEGACY_KIT_UPLOAD_PREFIX = "/public/uploads/kits/";
-const KIT_UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "kits");
 const MERCH_UPLOAD_PREFIX = "/uploads/merchandise/";
 const LEGACY_MERCH_UPLOAD_PREFIX = "/public/uploads/merchandise/";
-const MERCH_UPLOAD_DIR = path.join(
-  process.cwd(),
-  "public",
-  "uploads",
-  "merchandise",
-);
 const CATALOG_UPLOAD_PREFIX = "/uploads/catalog/";
 const LEGACY_CATALOG_UPLOAD_PREFIX = "/public/uploads/catalog/";
-const CATALOG_UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "catalog");
 
 function toSlug(value) {
   return String(value || "")
@@ -65,37 +61,21 @@ function toSafeExt(fileName = "") {
   return ext.replace(/[^.a-z0-9]/g, "") || ".jpg";
 }
 
-function isLocalUploadUrl(url) {
-  if (typeof url !== "string") return false;
+function isManagedCatalogUploadUrl(url) {
   return (
-    url.startsWith(KIT_UPLOAD_PREFIX) ||
-    url.startsWith(LEGACY_KIT_UPLOAD_PREFIX) ||
-    url.startsWith(MERCH_UPLOAD_PREFIX) ||
-    url.startsWith(LEGACY_MERCH_UPLOAD_PREFIX) ||
-    url.startsWith(CATALOG_UPLOAD_PREFIX) ||
-    url.startsWith(LEGACY_CATALOG_UPLOAD_PREFIX)
+    isStoredUploadUrl(url) &&
+    (url.startsWith(KIT_UPLOAD_PREFIX) ||
+      url.startsWith(LEGACY_KIT_UPLOAD_PREFIX) ||
+      url.startsWith(MERCH_UPLOAD_PREFIX) ||
+      url.startsWith(LEGACY_MERCH_UPLOAD_PREFIX) ||
+      url.startsWith(CATALOG_UPLOAD_PREFIX) ||
+      url.startsWith(LEGACY_CATALOG_UPLOAD_PREFIX))
   );
 }
 
-function toLocalFilePath(url) {
-  if (!isLocalUploadUrl(url)) return null;
-  const relative = url
-    .replace(/^\/public\//i, "")
-    .replace(/^\//, "");
-  return path.join(process.cwd(), "public", relative);
-}
-
 async function deleteFileIfExists(url) {
-  const filePath = toLocalFilePath(url);
-  if (!filePath) return;
-
-  try {
-    await fs.unlink(filePath);
-  } catch (error) {
-    if (error?.code !== "ENOENT") {
-      throw error;
-    }
-  }
+  if (!isManagedCatalogUploadUrl(url)) return;
+  await deleteUploadsByUrl([url]);
 }
 
 async function deleteFilesBestEffort(urls) {
@@ -113,15 +93,11 @@ async function saveImageFile(file) {
     throw new Error("Ukuran file melebihi 10MB.");
   }
 
-  await fs.mkdir(KIT_UPLOAD_DIR, { recursive: true });
-
   const ext = toSafeExt(file.name);
   const fileName = `${Date.now()}-${crypto.randomUUID()}${ext}`;
-  const filePath = path.join(KIT_UPLOAD_DIR, fileName);
   const buffer = Buffer.from(await file.arrayBuffer());
 
-  await fs.writeFile(filePath, buffer);
-  return `${KIT_UPLOAD_PREFIX}${fileName}`;
+  return writeUploadFile("kits", fileName, buffer);
 }
 
 async function saveMerchImageFile(file) {
@@ -133,15 +109,11 @@ async function saveMerchImageFile(file) {
     throw new Error("Ukuran file melebihi 10MB.");
   }
 
-  await fs.mkdir(MERCH_UPLOAD_DIR, { recursive: true });
-
   const ext = toSafeExt(file.name);
   const fileName = `${Date.now()}-${crypto.randomUUID()}${ext}`;
-  const filePath = path.join(MERCH_UPLOAD_DIR, fileName);
   const buffer = Buffer.from(await file.arrayBuffer());
 
-  await fs.writeFile(filePath, buffer);
-  return `${MERCH_UPLOAD_PREFIX}${fileName}`;
+  return writeUploadFile("merchandise", fileName, buffer);
 }
 
 async function saveCatalogPdfFile(file) {
@@ -155,14 +127,10 @@ async function saveCatalogPdfFile(file) {
     throw new Error("File katalog harus berformat PDF.");
   }
 
-  await fs.mkdir(CATALOG_UPLOAD_DIR, { recursive: true });
-
   const safeName = `${Date.now()}-${crypto.randomUUID()}.pdf`;
-  const filePath = path.join(CATALOG_UPLOAD_DIR, safeName);
   const buffer = Buffer.from(await file.arrayBuffer());
 
-  await fs.writeFile(filePath, buffer);
-  return `${CATALOG_UPLOAD_PREFIX}${safeName}`;
+  return writeUploadFile("catalog", safeName, buffer);
 }
 
 function normalizeGalleryRows(rows) {

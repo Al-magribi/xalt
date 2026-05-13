@@ -7,6 +7,12 @@ import { updateMerchandiseAction } from "@/actions/catalog";
 import AppImage from "@/components/ui/AppImage";
 
 const INITIAL_FORM_STATE = { ok: false, message: "" };
+const FALLBACK_IMAGE_SRC = "/placeholder-image.svg";
+
+function getSafeImageSrc(value) {
+  if (typeof value === "string" && value.trim()) return value;
+  return FALLBACK_IMAGE_SRC;
+}
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -246,7 +252,7 @@ export default function MerchandiseUpdateModal({
 
                 <div className='relative h-54 overflow-hidden rounded-lg border border-slate-200 bg-slate-100 md:h-64'>
                   <AppImage
-                    src={primaryImagePreview || item.image_url}
+                    src={primaryImagePreview || getSafeImageSrc(item.image_url)}
                     alt={item.title}
                     fill
                     sizes='(max-width: 1024px) 100vw, 28vw'
@@ -306,7 +312,7 @@ export default function MerchandiseUpdateModal({
                         <label key={image.id} className='space-y-1 rounded-md p-1 text-xs text-slate-600 hover:bg-slate-50'>
                           <div className='relative aspect-[4/3] overflow-hidden rounded-md border border-slate-200 bg-slate-100'>
                             <AppImage
-                              src={image.image_url}
+                              src={getSafeImageSrc(image.image_url)}
                               alt={`${item.title} gallery ${image.id}`}
                               fill
                               sizes='(max-width: 640px) 50vw, 20vw'

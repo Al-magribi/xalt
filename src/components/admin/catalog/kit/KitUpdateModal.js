@@ -7,6 +7,12 @@ import { updateKitAction } from "@/actions/catalog";
 import AppImage from "@/components/ui/AppImage";
 
 const INITIAL_FORM_STATE = { ok: false, message: "" };
+const FALLBACK_IMAGE_SRC = "/placeholder-image.svg";
+
+function getSafeImageSrc(value) {
+  if (typeof value === "string" && value.trim()) return value;
+  return FALLBACK_IMAGE_SRC;
+}
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -163,7 +169,7 @@ export default function KitUpdateModal({ kit }) {
                   <div className='mt-2 overflow-hidden rounded-lg border border-slate-200 bg-slate-100'>
                     <div className='relative aspect-[16/8]'>
                       <AppImage
-                        src={heroPreview || kit.hero_image_url}
+                        src={heroPreview || getSafeImageSrc(kit.hero_image_url)}
                         alt={`${kit.title} hero`}
                         fill
                         sizes='(max-width: 1024px) 100vw, 40vw'
@@ -228,7 +234,7 @@ export default function KitUpdateModal({ kit }) {
                         <label key={image.id} className='space-y-1 rounded-md p-1 text-xs text-slate-600 hover:bg-slate-50'>
                           <div className='relative aspect-[4/3] overflow-hidden rounded-md border border-slate-200 bg-slate-100'>
                             <AppImage
-                              src={image.image_url}
+                              src={getSafeImageSrc(image.image_url)}
                               alt={`${kit.title} gallery ${image.id}`}
                               fill
                               sizes='(max-width: 640px) 50vw, 20vw'
