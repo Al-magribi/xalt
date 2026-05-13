@@ -44,6 +44,14 @@
         "nxtPslug": "nxtPslug"
       },
       "namedRegex": "^/merchandise/(?<nxtPslug>[^/]+?)/order(?:/)?$"
+    },
+    {
+      "page": "/uploads/[...path]",
+      "regex": "^/uploads/(.+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPpath": "nxtPpath"
+      },
+      "namedRegex": "^/uploads/(?<nxtPpath>.+?)(?:/)?$"
     }
   ],
   "staticRoutes": [

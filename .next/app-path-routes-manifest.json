@@ -22,5 +22,6 @@
   "/merchandise/page": "/merchandise",
   "/order-status/page": "/order-status",
   "/order/page": "/order",
-  "/page": "/"
+  "/page": "/",
+  "/uploads/[...path]/route": "/uploads/[...path]"
 }
