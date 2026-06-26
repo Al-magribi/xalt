@@ -20,9 +20,9 @@ export default function AdminAvatar({
   name,
   altLabel = "avatar",
   sizeClass = "h-10 w-10",
-  roundedClass = "rounded-full",
+  roundedClass = "rounded-xl",
   textClass = "text-xs",
-  imageClass = "object-cover",
+  imageClass = "object-contain",
 }) {
   const normalizedSrc = useMemo(
     () => (typeof src === "string" ? resolveAssetUrl(src) : ""),
@@ -37,13 +37,13 @@ export default function AdminAvatar({
 
   return (
     <div
-      className={`inline-flex ${sizeClass} items-center justify-center overflow-hidden border border-slate-200 bg-white font-bold text-slate-700 shadow-sm ${roundedClass} ${textClass}`}
+      className={`inline-flex shrink-0 ${sizeClass} items-center justify-center overflow-hidden border border-slate-200 bg-white p-1.5 font-bold text-slate-700 shadow-sm ${roundedClass} ${textClass}`}
     >
       {normalizedSrc && !hasError ? (
         <img
           src={normalizedSrc}
           alt={`${name} ${altLabel}`}
-          className={`h-full w-full ${imageClass}`}
+          className={`max-h-full max-w-full ${imageClass}`}
           onError={() => setHasError(true)}
         />
       ) : (

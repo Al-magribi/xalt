@@ -109,6 +109,20 @@ export default function Kit({ kits = [] }) {
           </div>
           <KitCreateModal />
         </div>
+        <div className='mt-3 rounded-lg border border-blue-200 bg-blue-50/70 p-3 text-xs leading-5 text-slate-600'>
+          <p className='font-semibold text-slate-800'>Panduan ukuran gambar kit</p>
+          <ul className='mt-1 list-inside list-disc space-y-0.5'>
+            <li>
+              <span className='font-medium text-slate-700'>Hero image</span>: rasio 2:1
+              (landscape), rekomendasi 1920×960 px atau 1600×800 px.
+            </li>
+            <li>
+              <span className='font-medium text-slate-700'>Galeri kit</span>: rasio 4:3,
+              rekomendasi 1200×900 px.
+            </li>
+            <li>Format JPG/WebP. Letakkan teks dan elemen penting di tengah, jauhi tepi gambar.</li>
+          </ul>
+        </div>
       </article>
 
       <article className='space-y-3 rounded-xl border border-slate-200 bg-white p-4'>

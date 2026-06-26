@@ -236,6 +236,9 @@ export default function MerchandiseUpdateModal({
                   <label className='mb-1 block text-sm font-semibold text-slate-700'>
                     Ganti Gambar Utama (opsional)
                   </label>
+                  <p className='mb-2 text-xs text-slate-500'>
+                    Rasio 2:1 (contoh 1920×960 px). Gambar akan ditampilkan utuh tanpa terpotong.
+                  </p>
                   <input
                     type='file'
                     name='primaryImage'
@@ -250,13 +253,13 @@ export default function MerchandiseUpdateModal({
                   />
                 </div>
 
-                <div className='relative h-54 overflow-hidden rounded-lg border border-slate-200 bg-slate-100 md:h-64'>
+                <div className='relative aspect-[2/1] overflow-hidden rounded-lg border border-slate-200 bg-slate-100'>
                   <AppImage
                     src={primaryImagePreview || getSafeImageSrc(item.image_url)}
                     alt={item.title}
                     fill
                     sizes='(max-width: 1024px) 100vw, 28vw'
-                    className='object-cover'
+                    className='object-contain'
                   />
                 </div>
 

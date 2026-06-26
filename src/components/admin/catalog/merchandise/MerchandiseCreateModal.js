@@ -162,6 +162,10 @@ export default function MerchandiseCreateModal() {
               <div className='space-y-4'>
                 <div>
                   <label className='mb-1 block text-sm font-semibold text-slate-700'>Gambar Produk</label>
+                  <p className='mb-2 text-xs text-slate-500'>
+                    Gambar utama rasio 2:1 (contoh 1920×960 px). Galeri tambahan rasio 4:3
+                    (contoh 1200×900 px). Gambar pertama menjadi gambar utama.
+                  </p>
                   <input
                     type='file'
                     name='images'
@@ -188,14 +192,14 @@ export default function MerchandiseCreateModal() {
                       {imagePreviews.map((src, index) => (
                         <div
                           key={`${src}-${index}`}
-                          className='relative aspect-square overflow-hidden rounded-md border border-slate-200 bg-slate-50'
+                          className='relative aspect-[2/1] overflow-hidden rounded-md border border-slate-200 bg-slate-50'
                         >
                           <AppImage
                             src={src}
                             alt={`Preview gambar merchandise ${index + 1}`}
                             fill
                             sizes='(max-width: 1024px) 40vw, 15vw'
-                            className='object-cover'
+                            className='object-contain'
                           />
                         </div>
                       ))}

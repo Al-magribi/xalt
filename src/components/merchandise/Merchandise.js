@@ -33,12 +33,12 @@ export default function Merchandise({ items = [] }) {
               className='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md'
             >
               <Link href={`/merchandise/${itemData.slug}`} className='block'>
-                <div className='relative h-76 bg-slate-100'>
+                <div className='relative aspect-[2/1] w-full bg-slate-100'>
                   <AppImage
                     src={itemData.image}
                     alt={itemData.title}
                     fill
-                    className='object-cover'
+                    className='object-contain'
                     sizes='(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw'
                   />
                 </div>

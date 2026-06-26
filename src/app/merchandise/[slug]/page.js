@@ -135,12 +135,12 @@ export default async function MerchandiseDetailPage({ params, searchParams }) {
                 className='w-full overflow-hidden rounded-xl border border-slate-200 bg-white'
               >
                 <Link href={`/merchandise/${item.slug}`} className='block'>
-                  <div className='relative aspect-[5/4] bg-slate-100'>
+                  <div className='relative aspect-[2/1] bg-slate-100'>
                     <AppImage
                       src={item.image}
                       alt={item.title}
                       fill
-                      className='object-cover'
+                      className='object-contain'
                       sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px'
                     />
                   </div>

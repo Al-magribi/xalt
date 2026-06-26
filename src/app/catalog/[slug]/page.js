@@ -112,12 +112,12 @@ export default async function CatalogDetailPage({ params, searchParams }) {
             ) : null}
           </div>
 
-          <div className='relative h-64 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 sm:h-72 md:h-80 lg:h-96 lg:rounded-3xl'>
+          <div className='relative aspect-[2/1] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 lg:rounded-3xl'>
             <AppImage
               src={kit.image}
               alt={kit.title}
               fill
-              className='object-cover'
+              className='object-contain'
               sizes='(max-width: 1024px) 100vw, 40vw'
               priority
             />
@@ -144,7 +144,7 @@ export default async function CatalogDetailPage({ params, searchParams }) {
                   alt={`${kit.title} gambar ${index + 1}`}
                   fill
                   sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
-                  className='object-cover'
+                  className='object-contain'
                 />
               </div>
             ))}

@@ -26,13 +26,13 @@ export default function MerchandiseSection({ items = [] }) {
               <motion.article
                 variants={item}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className='relative h-72 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100'
+                className='relative aspect-[2/1] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100'
               >
                 <AppImage
                   src={getSafeImageSrc(entry.image)}
                   alt={entry.title}
                   fill
-                  className='object-cover transition duration-500 hover:scale-105'
+                  className='object-contain'
                   sizes='(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent' />

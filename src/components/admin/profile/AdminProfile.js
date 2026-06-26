@@ -9,6 +9,7 @@ import {
   SubmitButton,
   formatDateTime,
 } from "@/components/admin/setting/ui";
+import { resolveAssetUrl } from "@/utils/media";
 
 export default function AdminProfile({ profile }) {
   const [state, formAction] = useActionState(
@@ -104,12 +105,12 @@ export default function AdminProfile({ profile }) {
               Upload Avatar
             </span>
             <div className='mb-2 flex items-center gap-3'>
-              <div className='h-14 w-14 overflow-hidden rounded-full border border-slate-200 bg-slate-100'>
+              <div className='h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5'>
                 {avatarPreview || profile.avatar_url ? (
                   <img
-                    src={avatarPreview || profile.avatar_url}
+                    src={avatarPreview || resolveAssetUrl(profile.avatar_url)}
                     alt='Avatar admin'
-                    className='h-full w-full object-cover'
+                    className='max-h-full max-w-full object-contain'
                   />
                 ) : null}
               </div>

@@ -37,12 +37,12 @@ export default function CatalogSection({ kits = [] }) {
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
               className='group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm'
             >
-              <div className='relative h-75 bg-slate-100'>
+              <div className='relative aspect-[2/1] w-full bg-slate-100'>
                 <AppImage
                   src={getSafeImageSrc(kit.image)}
                   alt={kit.title}
                   fill
-                  className='object-cover transition duration-300 group-hover:scale-105'
+                  className='object-contain'
                   sizes='(max-width: 768px) 100vw, 50vw'
                 />
               </div>

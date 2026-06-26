@@ -48,7 +48,7 @@ export default function AdminSidebar({ user, menuItems, websiteConfig, isOpen, o
             <div className='inline-flex items-center gap-2'>
               <div className='inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm'>
                 {faviconUrl ? (
-                  <img src={faviconUrl} alt={`${siteName} icon`} className='h-full w-full object-cover' />
+                  <img src={faviconUrl} alt={`${siteName} icon`} className='h-full w-full object-contain p-1' />
                 ) : (
                   <span className='text-sm font-bold text-slate-700'>{siteName.charAt(0).toUpperCase()}</span>
                 )}
@@ -77,7 +77,6 @@ export default function AdminSidebar({ user, menuItems, websiteConfig, isOpen, o
               name={name}
               sizeClass='h-11 w-11'
               textClass='text-xs'
-              imageClass='object-cover'
             />
             <div className='min-w-0'>
               <p className='text-[11px] uppercase tracking-wide text-slate-500'>Signed in as</p>
