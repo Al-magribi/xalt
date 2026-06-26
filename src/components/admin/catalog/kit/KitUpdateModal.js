@@ -154,6 +154,9 @@ export default function KitUpdateModal({ kit }) {
                   <label className='mb-1 block text-sm font-semibold text-slate-700'>
                     Ganti Hero Image (opsional)
                   </label>
+                  <p className='mb-2 text-xs text-slate-500'>
+                    Rasio 2:1 (contoh 1920×960 px). Gambar akan ditampilkan utuh tanpa terpotong.
+                  </p>
                   <input
                     type='file'
                     name='heroImage'
@@ -173,7 +176,7 @@ export default function KitUpdateModal({ kit }) {
                         alt={`${kit.title} hero`}
                         fill
                         sizes='(max-width: 1024px) 100vw, 40vw'
-                        className='object-cover'
+                        className='object-contain'
                       />
                     </div>
                   </div>

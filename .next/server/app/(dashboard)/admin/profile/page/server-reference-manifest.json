@@ -1,6 +1,6 @@
 {
   "node": {
-    "000e1fc0e828d64deceab23f169028e6eb6bbcef51": {
+    "001eca86e8d9a15a3e6292fbcf1c2647bdb29353e1": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -15,22 +15,7 @@
       "exportedName": "logoutAction",
       "filename": "src/actions/auth.js"
     },
-    "001cbc38ed6b7538289a032a1fbb5448e8c046b10b": {
-      "workers": {
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "getAdminProfileData",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/profile/page": "rsc"
-      },
-      "exportedName": "getAdminProfileData",
-      "filename": "src/actions/auth.js"
-    },
-    "009196a1dc896b995f62390b67dd62a88db8ae2e50": {
+    "007efc72e3e015891cdb3ce2616d3014ba2a881b72": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -45,7 +30,7 @@
       "exportedName": "getCurrentUser",
       "filename": "src/actions/auth.js"
     },
-    "00ae57bbfb751f356a93f42d8e1a1e95cd4e8b1774": {
+    "009033665fa1dd2ac9aa22e9e26dc4e0377549c2fd": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -60,7 +45,22 @@
       "exportedName": "requireUser",
       "filename": "src/actions/auth.js"
     },
-    "401687a9ef1c75002300d7c721ec6dc1509910bea1": {
+    "00961f70d653d0f56c276daf7259942e4778d62456": {
+      "workers": {
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "getAdminProfileData",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/profile/page": "rsc"
+      },
+      "exportedName": "getAdminProfileData",
+      "filename": "src/actions/auth.js"
+    },
+    "406e138ec195e9b3ac3deec868409a6bf828a64149": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -75,7 +75,7 @@
       "exportedName": "requireRole",
       "filename": "src/actions/auth.js"
     },
-    "404c2382fbf8d57601a6c4fd217c461b0a347cb793": {
+    "40f30831e43a3bcfa002c6e5d0b6e5c9808d830103": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -90,22 +90,7 @@
       "exportedName": "activateAccountByToken",
       "filename": "src/actions/auth.js"
     },
-    "604bc93ffebd417f3b4510d74b5e4e441b33934ad1": {
-      "workers": {
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/profile/page": "action-browser"
-      },
-      "exportedName": "updateAdminProfileAction",
-      "filename": "src/actions/auth.js"
-    },
-    "605dd0d500a41a7ebf5f354376319a09ccdacb1ac0": {
+    "6005551f7c20b01d35bc1a7bf4dfeb32c0bce29b05": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -120,37 +105,7 @@
       "exportedName": "resetPasswordAction",
       "filename": "src/actions/auth.js"
     },
-    "60d75246e1a18b6fa005dff0baaf68bf7737beb6b2": {
-      "workers": {
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "registerAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/profile/page": "rsc"
-      },
-      "exportedName": "registerAction",
-      "filename": "src/actions/auth.js"
-    },
-    "60eae53fe113c4ea6dbb8c595dbdb08eec0d322070": {
-      "workers": {
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/profile/page": "rsc"
-      },
-      "exportedName": "requestPasswordResetAction",
-      "filename": "src/actions/auth.js"
-    },
-    "60f01da19125c41979067d6cc594c3782356f9c465": {
+    "6021f612d85cd85970d1100fd3aa03029298005e0b": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -165,22 +120,52 @@
       "exportedName": "loginAction",
       "filename": "src/actions/auth.js"
     },
-    "00019636ed52b289e3bae38c713fe4e74b64a67bfc": {
+    "60529d14b1631b083e2206ef20124c4fcb124099e5": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
           "async": true,
-          "exportedName": "getAdminNavItems",
-          "filename": "src/actions/dashboard.js"
+          "exportedName": "registerAction",
+          "filename": "src/actions/auth.js"
         }
       },
       "layer": {
         "app/(dashboard)/admin/profile/page": "rsc"
       },
-      "exportedName": "getAdminNavItems",
-      "filename": "src/actions/dashboard.js"
+      "exportedName": "registerAction",
+      "filename": "src/actions/auth.js"
     },
-    "0004a402c8ce0ba8fc095129426f9878ec6e5fd503": {
+    "607553357be6ca0233d4dc6f49290fbdeae18998b3": {
+      "workers": {
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/profile/page": "action-browser"
+      },
+      "exportedName": "updateAdminProfileAction",
+      "filename": "src/actions/auth.js"
+    },
+    "6080c640dde55cfd70c38cb255e6467366e47ffce6": {
+      "workers": {
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/profile/page": "rsc"
+      },
+      "exportedName": "requestPasswordResetAction",
+      "filename": "src/actions/auth.js"
+    },
+    "000de24441464fdd8705e180194e5b876d8b30303a": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -195,22 +180,22 @@
       "exportedName": "getAdminDashboardData",
       "filename": "src/actions/dashboard.js"
     },
-    "006b75970f91e002b18e1c18796ed41ab5fecc3c1d": {
+    "0090fa83b61feb91a4e9d937783094585fc1282268": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
           "async": true,
-          "exportedName": "getWebsiteBranding",
-          "filename": "src/actions/setting.js"
+          "exportedName": "getAdminNavItems",
+          "filename": "src/actions/dashboard.js"
         }
       },
       "layer": {
         "app/(dashboard)/admin/profile/page": "rsc"
       },
-      "exportedName": "getWebsiteBranding",
-      "filename": "src/actions/setting.js"
+      "exportedName": "getAdminNavItems",
+      "filename": "src/actions/dashboard.js"
     },
-    "008b06012fd2f23fa95551aa7e895df5095d920880": {
+    "0021d7d8d0e554f76ffa084d5417e7ed35a344f789": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -225,7 +210,7 @@
       "exportedName": "getAdminSettingsData",
       "filename": "src/actions/setting.js"
     },
-    "00ad3fbb4e7e9c94d1cae700966bf65de2c3f6c729": {
+    "00d2c4c45379d3dac4dff68cc896bf8636c502aec9": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -240,22 +225,22 @@
       "exportedName": "getTrustedLogos",
       "filename": "src/actions/setting.js"
     },
-    "602c580fed69a77d2a0699a3b8228c7f25773a68b8": {
+    "00d7b6f5e7326330ed9bfc0acb7867b5b421b9ac7d": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
           "async": true,
-          "exportedName": "updateSeoMetadataAction",
+          "exportedName": "getWebsiteBranding",
           "filename": "src/actions/setting.js"
         }
       },
       "layer": {
         "app/(dashboard)/admin/profile/page": "rsc"
       },
-      "exportedName": "updateSeoMetadataAction",
+      "exportedName": "getWebsiteBranding",
       "filename": "src/actions/setting.js"
     },
-    "60446a38059d60ca80db2b55acde611c77e9578a82": {
+    "601a93b8b718c236abfded4292211d717642bb902b": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -270,37 +255,22 @@
       "exportedName": "updateApiIntegrationAction",
       "filename": "src/actions/setting.js"
     },
-    "60564347ff5d00e6777b01c8b4f2161bee0a546499": {
+    "60266b4abf1c799f2578ab7204dbef277de3c5fd93": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
           "async": true,
-          "exportedName": "updateSmtpConfigAction",
+          "exportedName": "updateSeoMetadataAction",
           "filename": "src/actions/setting.js"
         }
       },
       "layer": {
         "app/(dashboard)/admin/profile/page": "rsc"
       },
-      "exportedName": "updateSmtpConfigAction",
+      "exportedName": "updateSeoMetadataAction",
       "filename": "src/actions/setting.js"
     },
-    "608076eb09e3996127228899fdcc081dd5d2fa633c": {
-      "workers": {
-        "app/(dashboard)/admin/profile/page": {
-          "moduleId": 74808,
-          "async": true,
-          "exportedName": "updateWebsiteConfigAction",
-          "filename": "src/actions/setting.js"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/admin/profile/page": "rsc"
-      },
-      "exportedName": "updateWebsiteConfigAction",
-      "filename": "src/actions/setting.js"
-    },
-    "60b310a436016be3cdf83850a08d6f2b7f286e5222": {
+    "605a7b6a5cddcf2c0f624cf01b838fd19ed712d10c": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -315,7 +285,22 @@
       "exportedName": "updateTrustedLogoAction",
       "filename": "src/actions/setting.js"
     },
-    "60dc6d6285ae68f31e3a8dbad44dfbf181913e93bc": {
+    "605c61df5ca4df47ae8375dd291b2c73d65fff67db": {
+      "workers": {
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "addTrustedLogoAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/profile/page": "rsc"
+      },
+      "exportedName": "addTrustedLogoAction",
+      "filename": "src/actions/setting.js"
+    },
+    "60c6fe261bbd7b0d252644a54053b07721028de6c2": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
@@ -330,19 +315,34 @@
       "exportedName": "deleteTrustedLogoAction",
       "filename": "src/actions/setting.js"
     },
-    "60eddd900d32b1f92bc0bedc5f8126aaf4781752f3": {
+    "60e51e11f74096ca80a4a0a0c95ccf9d8864426249": {
       "workers": {
         "app/(dashboard)/admin/profile/page": {
           "moduleId": 74808,
           "async": true,
-          "exportedName": "addTrustedLogoAction",
+          "exportedName": "updateWebsiteConfigAction",
           "filename": "src/actions/setting.js"
         }
       },
       "layer": {
         "app/(dashboard)/admin/profile/page": "rsc"
       },
-      "exportedName": "addTrustedLogoAction",
+      "exportedName": "updateWebsiteConfigAction",
+      "filename": "src/actions/setting.js"
+    },
+    "60eb48960905b63fe10f80ef7995179f8a6542695b": {
+      "workers": {
+        "app/(dashboard)/admin/profile/page": {
+          "moduleId": 74808,
+          "async": true,
+          "exportedName": "updateSmtpConfigAction",
+          "filename": "src/actions/setting.js"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admin/profile/page": "rsc"
+      },
+      "exportedName": "updateSmtpConfigAction",
       "filename": "src/actions/setting.js"
     }
   },

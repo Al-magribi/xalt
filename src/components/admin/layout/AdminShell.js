@@ -5,11 +5,13 @@ import { FiMenu } from "react-icons/fi";
 import AdminAvatar from "@/components/admin/layout/AdminAvatar";
 import AdminSidebar from "@/components/admin/layout/AdminSidebar";
 
+import { resolveAssetUrl } from "@/utils/media";
+
 export default function AdminShell({ user, menuItems, websiteConfig, title = "Admin", children }) {
   const [isOpen, setIsOpen] = useState(false);
   const name = user?.full_name || user?.email || "Admin";
   const roleLabel = (user?.role || "admin").toUpperCase();
-  const avatarUrl = user?.avatar_url || "";
+  const avatarUrl = resolveAssetUrl(user?.avatar_url);
 
   return (
     <div className='min-h-screen bg-slate-100'>
@@ -39,7 +41,6 @@ export default function AdminShell({ user, menuItems, websiteConfig, title = "Ad
                     name={name}
                     sizeClass='h-10 w-10'
                     textClass='text-xs'
-                    imageClass='object-cover'
                   />
                   <div className='min-w-0'>
                     <p className='truncate text-sm font-semibold text-slate-900'>{name}</p>

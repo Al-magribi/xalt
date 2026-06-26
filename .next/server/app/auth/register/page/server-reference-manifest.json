@@ -1,6 +1,6 @@
 {
   "node": {
-    "60d75246e1a18b6fa005dff0baaf68bf7737beb6b2": {
+    "60529d14b1631b083e2206ef20124c4fcb124099e5": {
       "workers": {
         "app/auth/register/page": {
           "moduleId": 44606,
@@ -15,7 +15,7 @@
       "exportedName": "registerAction",
       "filename": "src/actions/auth.js"
     },
-    "000e1fc0e828d64deceab23f169028e6eb6bbcef51": {
+    "001eca86e8d9a15a3e6292fbcf1c2647bdb29353e1": {
       "workers": {
         "app/auth/register/page": {
           "moduleId": 44606,
@@ -30,22 +30,7 @@
       "exportedName": "logoutAction",
       "filename": "src/actions/auth.js"
     },
-    "001cbc38ed6b7538289a032a1fbb5448e8c046b10b": {
-      "workers": {
-        "app/auth/register/page": {
-          "moduleId": 44606,
-          "async": true,
-          "exportedName": "getAdminProfileData",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/auth/register/page": "rsc"
-      },
-      "exportedName": "getAdminProfileData",
-      "filename": "src/actions/auth.js"
-    },
-    "009196a1dc896b995f62390b67dd62a88db8ae2e50": {
+    "007efc72e3e015891cdb3ce2616d3014ba2a881b72": {
       "workers": {
         "app/auth/register/page": {
           "moduleId": 44606,
@@ -60,7 +45,7 @@
       "exportedName": "getCurrentUser",
       "filename": "src/actions/auth.js"
     },
-    "00ae57bbfb751f356a93f42d8e1a1e95cd4e8b1774": {
+    "009033665fa1dd2ac9aa22e9e26dc4e0377549c2fd": {
       "workers": {
         "app/auth/register/page": {
           "moduleId": 44606,
@@ -75,7 +60,22 @@
       "exportedName": "requireUser",
       "filename": "src/actions/auth.js"
     },
-    "401687a9ef1c75002300d7c721ec6dc1509910bea1": {
+    "00961f70d653d0f56c276daf7259942e4778d62456": {
+      "workers": {
+        "app/auth/register/page": {
+          "moduleId": 44606,
+          "async": true,
+          "exportedName": "getAdminProfileData",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/auth/register/page": "rsc"
+      },
+      "exportedName": "getAdminProfileData",
+      "filename": "src/actions/auth.js"
+    },
+    "406e138ec195e9b3ac3deec868409a6bf828a64149": {
       "workers": {
         "app/auth/register/page": {
           "moduleId": 44606,
@@ -90,7 +90,7 @@
       "exportedName": "requireRole",
       "filename": "src/actions/auth.js"
     },
-    "404c2382fbf8d57601a6c4fd217c461b0a347cb793": {
+    "40f30831e43a3bcfa002c6e5d0b6e5c9808d830103": {
       "workers": {
         "app/auth/register/page": {
           "moduleId": 44606,
@@ -105,22 +105,7 @@
       "exportedName": "activateAccountByToken",
       "filename": "src/actions/auth.js"
     },
-    "604bc93ffebd417f3b4510d74b5e4e441b33934ad1": {
-      "workers": {
-        "app/auth/register/page": {
-          "moduleId": 44606,
-          "async": true,
-          "exportedName": "updateAdminProfileAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/auth/register/page": "rsc"
-      },
-      "exportedName": "updateAdminProfileAction",
-      "filename": "src/actions/auth.js"
-    },
-    "605dd0d500a41a7ebf5f354376319a09ccdacb1ac0": {
+    "6005551f7c20b01d35bc1a7bf4dfeb32c0bce29b05": {
       "workers": {
         "app/auth/register/page": {
           "moduleId": 44606,
@@ -135,22 +120,7 @@
       "exportedName": "resetPasswordAction",
       "filename": "src/actions/auth.js"
     },
-    "60eae53fe113c4ea6dbb8c595dbdb08eec0d322070": {
-      "workers": {
-        "app/auth/register/page": {
-          "moduleId": 44606,
-          "async": true,
-          "exportedName": "requestPasswordResetAction",
-          "filename": "src/actions/auth.js"
-        }
-      },
-      "layer": {
-        "app/auth/register/page": "rsc"
-      },
-      "exportedName": "requestPasswordResetAction",
-      "filename": "src/actions/auth.js"
-    },
-    "60f01da19125c41979067d6cc594c3782356f9c465": {
+    "6021f612d85cd85970d1100fd3aa03029298005e0b": {
       "workers": {
         "app/auth/register/page": {
           "moduleId": 44606,
@@ -163,6 +133,36 @@
         "app/auth/register/page": "rsc"
       },
       "exportedName": "loginAction",
+      "filename": "src/actions/auth.js"
+    },
+    "607553357be6ca0233d4dc6f49290fbdeae18998b3": {
+      "workers": {
+        "app/auth/register/page": {
+          "moduleId": 44606,
+          "async": true,
+          "exportedName": "updateAdminProfileAction",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/auth/register/page": "rsc"
+      },
+      "exportedName": "updateAdminProfileAction",
+      "filename": "src/actions/auth.js"
+    },
+    "6080c640dde55cfd70c38cb255e6467366e47ffce6": {
+      "workers": {
+        "app/auth/register/page": {
+          "moduleId": 44606,
+          "async": true,
+          "exportedName": "requestPasswordResetAction",
+          "filename": "src/actions/auth.js"
+        }
+      },
+      "layer": {
+        "app/auth/register/page": "rsc"
+      },
+      "exportedName": "requestPasswordResetAction",
       "filename": "src/actions/auth.js"
     }
   },

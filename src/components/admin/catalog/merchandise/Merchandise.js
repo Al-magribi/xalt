@@ -183,6 +183,20 @@ export default function Merchandise({
               : "+ Merchandise"}
           </a>
         </div>
+        <div className='mt-3 rounded-lg border border-blue-200 bg-blue-50/70 p-3 text-xs leading-5 text-slate-600'>
+          <p className='font-semibold text-slate-800'>Panduan ukuran gambar merchandise</p>
+          <ul className='mt-1 list-inside list-disc space-y-0.5'>
+            <li>
+              <span className='font-medium text-slate-700'>Gambar utama</span>: rasio 2:1
+              (landscape), rekomendasi 1920×960 px atau 1600×800 px.
+            </li>
+            <li>
+              <span className='font-medium text-slate-700'>Galeri tambahan</span>: rasio 4:3,
+              rekomendasi 1200×900 px.
+            </li>
+            <li>Format JPG/WebP. Letakkan teks dan elemen penting di tengah, jauhi tepi gambar.</li>
+          </ul>
+        </div>
         {mode === "list" ? (
           <div className='mt-3 border-t border-slate-200 pt-3'>
             <h4 className='text-base font-semibold text-slate-900'>

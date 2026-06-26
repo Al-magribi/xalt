@@ -48,12 +48,12 @@ export default function MerchandiseDetailShowcase({
       <div className='grid gap-8 lg:grid-cols-[minmax(0,500px)_minmax(0,1fr)] lg:items-start xl:grid-cols-[minmax(0,540px)_minmax(0,1fr)]'>
         <div className='space-y-3'>
           <div className='relative overflow-hidden rounded-2xl bg-white'>
-            <div className='relative h-[280px] overflow-hidden rounded-2xl sm:h-[360px] md:h-[440px] lg:h-[480px]'>
+            <div className='relative aspect-[2/1] w-full overflow-hidden rounded-2xl bg-slate-50'>
               <AppImage
                 src={activeImage}
                 alt={`${product.title} ${activeImageIndex + 1}`}
                 fill
-                className='object-cover'
+                className='object-contain'
                 sizes='(max-width: 1024px) 100vw, 50vw'
                 priority
               />

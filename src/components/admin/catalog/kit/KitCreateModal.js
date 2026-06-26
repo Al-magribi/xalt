@@ -146,6 +146,9 @@ export default function KitCreateModal() {
               <div className='space-y-4'>
                 <div>
                   <label className='mb-1 block text-sm font-semibold text-slate-700'>Hero Image</label>
+                  <p className='mb-2 text-xs text-slate-500'>
+                    Rasio 2:1 (contoh 1920×960 px). Gambar akan ditampilkan utuh tanpa terpotong.
+                  </p>
                   <input
                     type='file'
                     name='heroImage'
@@ -162,7 +165,7 @@ export default function KitCreateModal() {
                   {heroPreview && (
                     <div className='mt-2 overflow-hidden rounded-lg border border-slate-200 bg-slate-100'>
                       <div className='relative aspect-[16/8]'>
-                        <AppImage src={heroPreview} alt='Hero preview' fill className='object-cover' sizes='(max-width: 1024px) 100vw, 40vw' />
+                        <AppImage src={heroPreview} alt='Hero preview' fill className='object-contain' sizes='(max-width: 1024px) 100vw, 40vw' />
                       </div>
                     </div>
                   )}
@@ -172,6 +175,9 @@ export default function KitCreateModal() {
                   <label className='mb-1 block text-sm font-semibold text-slate-700'>
                     Galeri Kit (bisa banyak)
                   </label>
+                  <p className='mb-2 text-xs text-slate-500'>
+                    Rasio 4:3 (contoh 1200×900 px).
+                  </p>
                   <input
                     type='file'
                     name='galleryImages'
