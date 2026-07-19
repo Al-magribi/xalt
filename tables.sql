@@ -76,7 +76,26 @@ ALTER TABLE content.merchandise_items
 ALTER TABLE content.merchandise_items
   ADD COLUMN IF NOT EXISTS material_options TEXT[] NOT NULL DEFAULT ARRAY[]::TEXT[];
 
+CREATE TABLE IF NOT EXISTS content.merchandise_categories (
+  id BIGSERIAL PRIMARY KEY,
+  slug TEXT NOT NULL UNIQUE,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL DEFAULT '',
+  image_url TEXT NOT NULL,
+  sort_order INT NOT NULL DEFAULT 0,
+  is_active BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
 
+ALTER TABLE content.merchandise_items
+  ADD COLUMN IF NOT EXISTS category_id BIGINT REFERENCES content.merchandise_categories(id) ON DELETE SET NULL;
+
+CREATE INDEX IF NOT EXISTS idx_merchandise_items_category_id
+  ON content.merchandise_items(category_id);
+
+CREATE INDEX IF NOT EXISTS idx_merchandise_categories_active_sort
+  ON content.merchandise_categories(is_active, sort_order ASC, id ASC);
 
 DO $$
 BEGIN
@@ -580,6 +599,9 @@ ALTER TABLE settings.website_config
 
 ALTER TABLE settings.website_config
   DROP COLUMN IF EXISTS hero_secondary_href;
+
+ALTER TABLE settings.website_config
+  ADD COLUMN IF NOT EXISTS og_image_url TEXT;
 
 CREATE TABLE IF NOT EXISTS settings.seo_metadata (
   id BIGSERIAL PRIMARY KEY,

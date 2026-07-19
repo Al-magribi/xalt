@@ -36,6 +36,7 @@ function mapWebsiteConfig(row) {
     site_tagline: row.site_tagline || "",
     logo_url: resolveAssetUrl(row.logo_url),
     favicon_url: resolveAssetUrl(row.favicon_url),
+    og_image_url: resolveAssetUrl(row.og_image_url),
     hero_title: row.hero_title || "",
     hero_description: row.hero_description || "",
     hero_note: row.hero_note || "",
@@ -238,6 +239,7 @@ export async function getWebsiteBranding() {
        app_url,
        logo_url,
        favicon_url,
+       og_image_url,
        site_tagline,
        hero_title,
        hero_description,
@@ -260,6 +262,7 @@ export async function getWebsiteBranding() {
     app_url: row.app_url || "",
     logo_url: resolveAssetUrl(row.logo_url),
     favicon_url: resolveAssetUrl(row.favicon_url),
+    og_image_url: resolveAssetUrl(row.og_image_url),
     site_tagline: row.site_tagline || "",
     hero_title: row.hero_title || "",
     hero_description: row.hero_description || "",
@@ -301,6 +304,7 @@ export async function getAdminSettingsData() {
            app_url,
            logo_url,
            favicon_url,
+           og_image_url,
            hero_title,
            hero_description,
            hero_note,
@@ -444,6 +448,7 @@ export async function updateWebsiteConfigAction(_prevState, formData) {
   const linkedinUrl = String(formData.get("linkedin_url") || "").trim();
   const logoFile = formData.get("logo_file");
   const faviconFile = formData.get("favicon_file");
+  const ogImageFile = formData.get("og_image_file");
 
   if (!siteName) {
     return { ok: false, message: "Site name wajib diisi." };
@@ -486,7 +491,7 @@ export async function updateWebsiteConfigAction(_prevState, formData) {
 
   try {
     const currentResult = await query(
-      `SELECT logo_url, favicon_url, hero_image_url
+      `SELECT logo_url, favicon_url, hero_image_url, og_image_url
        FROM settings.website_config
        WHERE id = 1
        LIMIT 1`,
@@ -496,6 +501,7 @@ export async function updateWebsiteConfigAction(_prevState, formData) {
     let nextLogoUrl = current.logo_url || null;
     let nextFaviconUrl = current.favicon_url || null;
     let nextHeroImageUrl = current.hero_image_url || null;
+    let nextOgImageUrl = current.og_image_url || null;
 
     if (logoFile instanceof File && logoFile.size > 0) {
       nextLogoUrl = await saveSettingImageFile(logoFile);
@@ -512,6 +518,11 @@ export async function updateWebsiteConfigAction(_prevState, formData) {
       uploadedUrls.push(nextHeroImageUrl);
     }
 
+    if (ogImageFile instanceof File && ogImageFile.size > 0) {
+      nextOgImageUrl = await saveSettingImageFile(ogImageFile);
+      uploadedUrls.push(nextOgImageUrl);
+    }
+
     await query(
       `UPDATE settings.website_config
        SET site_name = $1,
@@ -519,18 +530,19 @@ export async function updateWebsiteConfigAction(_prevState, formData) {
            app_url = $3,
            logo_url = $4,
            favicon_url = $5,
-           hero_title = $6,
-           hero_description = $7,
-           hero_note = $8,
-           hero_image_url = $9,
-           hero_badge_title = $10,
-           hero_badge_text = $11,
-           default_language = $12,
-           support_email = $13,
-           support_phone = $14,
-           whatsapp_number = $15,
-           instagram_url = $16,
-           linkedin_url = $17,
+           og_image_url = $6,
+           hero_title = $7,
+           hero_description = $8,
+           hero_note = $9,
+           hero_image_url = $10,
+           hero_badge_title = $11,
+           hero_badge_text = $12,
+           default_language = $13,
+           support_email = $14,
+           support_phone = $15,
+           whatsapp_number = $16,
+           instagram_url = $17,
+           linkedin_url = $18,
            updated_at = NOW()
        WHERE id = 1`,
       [
@@ -539,6 +551,7 @@ export async function updateWebsiteConfigAction(_prevState, formData) {
         appUrl || null,
         nextLogoUrl,
         nextFaviconUrl,
+        nextOgImageUrl,
         heroTitle || null,
         heroDescription || null,
         heroNote || null,
@@ -562,6 +575,20 @@ export async function updateWebsiteConfigAction(_prevState, formData) {
     }
     if (current.hero_image_url && nextHeroImageUrl !== current.hero_image_url) {
       await deleteFileIfExists(current.hero_image_url);
+    }
+    if (current.og_image_url && nextOgImageUrl !== current.og_image_url) {
+      await deleteFileIfExists(current.og_image_url);
+    }
+
+    if (nextOgImageUrl) {
+      await query(
+        `UPDATE settings.seo_metadata
+         SET og_image_url = $1,
+             twitter_image_url = COALESCE(twitter_image_url, $1),
+             updated_at = NOW()
+         WHERE page_key = 'home'`,
+        [nextOgImageUrl],
+      );
     }
 
     revalidateHomePaths();

@@ -67,18 +67,21 @@ export default function WebsiteSettingPanel({
   const [activeSubmenu, setActiveSubmenu] = useState("website-config");
   const [logoPreview, setLogoPreview] = useState("");
   const [faviconPreview, setFaviconPreview] = useState("");
+  const [ogImagePreview, setOgImagePreview] = useState("");
   const [heroPreview, setHeroPreview] = useState("");
   const [logoFile, setLogoFile] = useState(null);
   const [faviconFile, setFaviconFile] = useState(null);
+  const [ogImageFile, setOgImageFile] = useState(null);
   const [heroFile, setHeroFile] = useState(null);
 
   useEffect(() => {
     return () => {
       if (logoPreview) URL.revokeObjectURL(logoPreview);
       if (faviconPreview) URL.revokeObjectURL(faviconPreview);
+      if (ogImagePreview) URL.revokeObjectURL(ogImagePreview);
       if (heroPreview) URL.revokeObjectURL(heroPreview);
     };
-  }, [logoPreview, faviconPreview, heroPreview]);
+  }, [logoPreview, faviconPreview, ogImagePreview, heroPreview]);
 
   if (!config) {
     return (
@@ -147,8 +150,10 @@ export default function WebsiteSettingPanel({
             config={config}
             logoPreview={logoPreview}
             faviconPreview={faviconPreview}
+            ogImagePreview={ogImagePreview}
             logoFile={logoFile}
             faviconFile={faviconFile}
+            ogImageFile={ogImageFile}
             onChangeLogoFile={(file) => {
               if (logoPreview) URL.revokeObjectURL(logoPreview);
               setLogoFile(file);
@@ -176,6 +181,20 @@ export default function WebsiteSettingPanel({
               if (faviconPreview) URL.revokeObjectURL(faviconPreview);
               setFaviconFile(null);
               setFaviconPreview("");
+            }}
+            onChangeOgImageFile={(file) => {
+              if (ogImagePreview) URL.revokeObjectURL(ogImagePreview);
+              setOgImageFile(file);
+              if (!file) {
+                setOgImagePreview("");
+                return;
+              }
+              setOgImagePreview(URL.createObjectURL(file));
+            }}
+            onResetOgImageFile={() => {
+              if (ogImagePreview) URL.revokeObjectURL(ogImagePreview);
+              setOgImageFile(null);
+              setOgImagePreview("");
             }}
           />
         </div>

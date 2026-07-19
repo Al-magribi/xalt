@@ -23,6 +23,8 @@ const KIT_UPLOAD_PREFIX = "/uploads/kits/";
 const LEGACY_KIT_UPLOAD_PREFIX = "/public/uploads/kits/";
 const MERCH_UPLOAD_PREFIX = "/uploads/merchandise/";
 const LEGACY_MERCH_UPLOAD_PREFIX = "/public/uploads/merchandise/";
+const CATEGORY_UPLOAD_PREFIX = "/uploads/categories/";
+const LEGACY_CATEGORY_UPLOAD_PREFIX = "/public/uploads/categories/";
 const CATALOG_UPLOAD_PREFIX = "/uploads/catalog/";
 const LEGACY_CATALOG_UPLOAD_PREFIX = "/public/uploads/catalog/";
 
@@ -68,6 +70,8 @@ function isManagedCatalogUploadUrl(url) {
       url.startsWith(LEGACY_KIT_UPLOAD_PREFIX) ||
       url.startsWith(MERCH_UPLOAD_PREFIX) ||
       url.startsWith(LEGACY_MERCH_UPLOAD_PREFIX) ||
+      url.startsWith(CATEGORY_UPLOAD_PREFIX) ||
+      url.startsWith(LEGACY_CATEGORY_UPLOAD_PREFIX) ||
       url.startsWith(CATALOG_UPLOAD_PREFIX) ||
       url.startsWith(LEGACY_CATALOG_UPLOAD_PREFIX))
   );
@@ -114,6 +118,22 @@ async function saveMerchImageFile(file) {
   const buffer = Buffer.from(await file.arrayBuffer());
 
   return writeUploadFile("merchandise", fileName, buffer);
+}
+
+async function saveCategoryImageFile(file) {
+  if (!(file instanceof File) || file.size === 0) return null;
+  if (!file.type?.startsWith("image/")) {
+    throw new Error("File harus berupa gambar.");
+  }
+  if (file.size > MAX_FILE_SIZE_BYTES) {
+    throw new Error("Ukuran file melebihi 10MB.");
+  }
+
+  const ext = toSafeExt(file.name);
+  const fileName = `${Date.now()}-${crypto.randomUUID()}${ext}`;
+  const buffer = Buffer.from(await file.arrayBuffer());
+
+  return writeUploadFile("categories", fileName, buffer);
 }
 
 async function saveCatalogPdfFile(file) {
@@ -175,6 +195,9 @@ function mapMerchandiseForAdmin(row) {
     slug: row.slug,
     title: row.title,
     detail: row.detail,
+    category_id: row.category_id != null ? Number(row.category_id) : null,
+    category_title: row.category_title || "",
+    category_slug: row.category_slug || "",
     price_amount: Number(row.price_amount || 0),
     min_order: Number(row.min_order || 1),
     weight_gram: Number(row.weight_gram || 0),
@@ -196,6 +219,9 @@ function mapMerchandiseForHome(row) {
     slug: row.slug,
     title: row.title,
     description: row.detail,
+    category_id: row.category_id != null ? Number(row.category_id) : null,
+    category_title: row.category_title || "",
+    category_slug: row.category_slug || "",
     price_amount: Number(row.price_amount || 0),
     min_order: Number(row.min_order || 1),
     weight_gram: Number(row.weight_gram || 0),
@@ -204,6 +230,33 @@ function mapMerchandiseForHome(row) {
     currency: row.currency,
     image: resolveAssetUrl(row.image_url),
     images: [resolveAssetUrl(row.image_url), ...gallery.map((item) => resolveAssetUrl(item))].filter(Boolean),
+  };
+}
+
+function mapCategoryForAdmin(row) {
+  return {
+    id: Number(row.id),
+    slug: row.slug,
+    title: row.title,
+    description: row.description || "",
+    image_url: resolveAssetUrl(row.image_url),
+    sort_order: Number(row.sort_order || 0),
+    is_active: Boolean(row.is_active),
+    product_count: Number(row.product_count || 0),
+    created_at: row.created_at,
+    updated_at: row.updated_at,
+  };
+}
+
+function mapCategoryForPublic(row) {
+  return {
+    id: Number(row.id),
+    slug: row.slug,
+    title: row.title,
+    description: row.description || "",
+    image: resolveAssetUrl(row.image_url),
+    sort_order: Number(row.sort_order || 0),
+    product_count: Number(row.product_count || 0),
   };
 }
 
@@ -229,13 +282,32 @@ function revalidateKitPaths(slug) {
   }
 }
 
-function revalidateMerchandisePaths(slug) {
+function revalidateMerchandisePaths(slug, categorySlug) {
   revalidatePath("/");
   revalidatePath("/admin/catalog");
   revalidatePath("/merchandise");
   revalidatePath("/merchandise/[slug]", "page");
+  revalidatePath("/katalog");
+  revalidatePath("/katalog/[categorySlug]", "page");
+  revalidatePath("/katalog/[categorySlug]/[productSlug]", "page");
   if (slug) {
     revalidatePath(`/merchandise/${slug}`);
+  }
+  if (categorySlug) {
+    revalidatePath(`/katalog/${categorySlug}`);
+    if (slug) {
+      revalidatePath(`/katalog/${categorySlug}/${slug}`);
+    }
+  }
+}
+
+function revalidateCategoryPaths(slug) {
+  revalidatePath("/");
+  revalidatePath("/admin/catalog");
+  revalidatePath("/katalog");
+  revalidatePath("/katalog/[categorySlug]", "page");
+  if (slug) {
+    revalidatePath(`/katalog/${slug}`);
   }
 }
 
@@ -306,6 +378,9 @@ export async function getAdminMerchandiseItems() {
        m.slug,
        m.title,
        m.detail,
+       m.category_id,
+       c.title AS category_title,
+       c.slug AS category_slug,
        m.price_amount,
        m.min_order,
        m.weight_gram,
@@ -328,8 +403,9 @@ export async function getAdminMerchandiseItems() {
          '[]'::json
        ) AS gallery
      FROM content.merchandise_items m
+     LEFT JOIN content.merchandise_categories c ON c.id = m.category_id
      LEFT JOIN content.merchandise_gallery_images g ON g.merchandise_item_id = m.id
-     GROUP BY m.id
+     GROUP BY m.id, c.title, c.slug
      ORDER BY m.updated_at DESC, m.id DESC`,
   );
 
@@ -343,6 +419,9 @@ export async function getActiveMerchandiseForHome() {
        m.slug,
        m.title,
        m.detail,
+       m.category_id,
+       c.title AS category_title,
+       c.slug AS category_slug,
        m.price_amount,
        m.min_order,
        m.weight_gram,
@@ -356,9 +435,10 @@ export async function getActiveMerchandiseForHome() {
          ARRAY[]::text[]
        ) AS gallery
      FROM content.merchandise_items m
+     LEFT JOIN content.merchandise_categories c ON c.id = m.category_id
      LEFT JOIN content.merchandise_gallery_images g ON g.merchandise_item_id = m.id
      WHERE m.is_active = TRUE
-     GROUP BY m.id
+     GROUP BY m.id, c.title, c.slug
      ORDER BY  m.updated_at DESC, m.id DESC`,
   );
 
@@ -372,6 +452,9 @@ export async function getMerchandiseDetailBySlug(slug) {
        m.slug,
        m.title,
        m.detail,
+       m.category_id,
+       c.title AS category_title,
+       c.slug AS category_slug,
        m.price_amount,
        m.min_order,
        m.weight_gram,
@@ -385,16 +468,118 @@ export async function getMerchandiseDetailBySlug(slug) {
          ARRAY[]::text[]
        ) AS gallery
      FROM content.merchandise_items m
+     LEFT JOIN content.merchandise_categories c ON c.id = m.category_id
      LEFT JOIN content.merchandise_gallery_images g ON g.merchandise_item_id = m.id
      WHERE m.slug = $1
        AND m.is_active = TRUE
-     GROUP BY m.id
+     GROUP BY m.id, c.title, c.slug
      LIMIT 1`,
     [slug],
   );
 
   if (result.rowCount === 0) return null;
   return mapMerchandiseForHome(result.rows[0]);
+}
+
+export async function getAdminMerchandiseCategories() {
+  const result = await query(
+    `SELECT
+       c.id,
+       c.slug,
+       c.title,
+       c.description,
+       c.image_url,
+       c.sort_order,
+       c.is_active,
+       c.created_at,
+       c.updated_at,
+       COUNT(m.id)::int AS product_count
+     FROM content.merchandise_categories c
+     LEFT JOIN content.merchandise_items m ON m.category_id = c.id
+     GROUP BY c.id
+     ORDER BY c.sort_order ASC, c.id ASC`,
+  );
+
+  return result.rows.map(mapCategoryForAdmin);
+}
+
+export async function getActiveMerchandiseCategories() {
+  const result = await query(
+    `SELECT
+       c.id,
+       c.slug,
+       c.title,
+       c.description,
+       c.image_url,
+       c.sort_order,
+       COUNT(m.id) FILTER (WHERE m.is_active = TRUE)::int AS product_count
+     FROM content.merchandise_categories c
+     LEFT JOIN content.merchandise_items m ON m.category_id = c.id
+     WHERE c.is_active = TRUE
+     GROUP BY c.id
+     ORDER BY c.sort_order ASC, c.id ASC`,
+  );
+
+  return result.rows.map(mapCategoryForPublic);
+}
+
+export async function getMerchandiseCategoryBySlug(slug) {
+  const result = await query(
+    `SELECT
+       c.id,
+       c.slug,
+       c.title,
+       c.description,
+       c.image_url,
+       c.sort_order,
+       COUNT(m.id) FILTER (WHERE m.is_active = TRUE)::int AS product_count
+     FROM content.merchandise_categories c
+     LEFT JOIN content.merchandise_items m ON m.category_id = c.id
+     WHERE c.slug = $1
+       AND c.is_active = TRUE
+     GROUP BY c.id
+     LIMIT 1`,
+    [slug],
+  );
+
+  if (result.rowCount === 0) return null;
+  return mapCategoryForPublic(result.rows[0]);
+}
+
+export async function getActiveMerchandiseByCategorySlug(categorySlug) {
+  const result = await query(
+    `SELECT
+       m.id,
+       m.slug,
+       m.title,
+       m.detail,
+       m.category_id,
+       c.title AS category_title,
+       c.slug AS category_slug,
+       m.price_amount,
+       m.min_order,
+       m.weight_gram,
+       m.size_options,
+       m.material_options,
+       m.currency,
+       m.image_url,
+       COALESCE(
+         array_agg(g.image_url ORDER BY g.sort_order ASC, g.id ASC)
+           FILTER (WHERE g.id IS NOT NULL),
+         ARRAY[]::text[]
+       ) AS gallery
+     FROM content.merchandise_items m
+     INNER JOIN content.merchandise_categories c ON c.id = m.category_id
+     LEFT JOIN content.merchandise_gallery_images g ON g.merchandise_item_id = m.id
+     WHERE c.slug = $1
+       AND c.is_active = TRUE
+       AND m.is_active = TRUE
+     GROUP BY m.id, c.title, c.slug
+     ORDER BY m.updated_at DESC, m.id DESC`,
+    [categorySlug],
+  );
+
+  return result.rows.map(mapMerchandiseForHome);
 }
 
 export async function getAdminCatalogFiles() {
@@ -990,42 +1175,54 @@ export async function createMerchandiseAction(_prevState, formData) {
   const title = String(formData.get("title") || "").trim();
   const rawSlug = String(formData.get("slug") || "").trim();
   const detail = String(formData.get("detail") || "").trim();
+  const categoryIdRaw = String(formData.get("categoryId") || "").trim();
+  const categoryId = categoryIdRaw
+    ? Number.parseInt(categoryIdRaw, 10)
+    : null;
   const sizeOptions = normalizeStringList(formData.get("sizeOptions"));
   const materialOptions = normalizeStringList(formData.get("materialOptions"));
-  const currency = String(formData.get("currency") || "IDR")
-    .trim()
-    .toUpperCase();
-  const priceAmount = Number.parseFloat(
-    String(formData.get("priceAmount") || ""),
-  );
+  const currency = "IDR";
+  const priceAmount = 0;
   const minOrder = Number.parseInt(String(formData.get("minOrder") || ""), 10);
   const isActive = parseBoolean(formData.get("isActive"), true);
   const imageFiles = formData
     .getAll("images")
     .filter((file) => file instanceof File && file.size > 0);
 
-  if (!title) return { ok: false, message: "Judul merchandise wajib diisi." };
-  if (!detail) return { ok: false, message: "Detail merchandise wajib diisi." };
-  if (!Number.isFinite(priceAmount) || priceAmount < 0) {
-    return { ok: false, message: "Harga tidak valid." };
+  if (!title) return { ok: false, message: "Judul produk wajib diisi." };
+  if (!detail) return { ok: false, message: "Detail produk wajib diisi." };
+  if (categoryId != null && (!Number.isInteger(categoryId) || categoryId <= 0)) {
+    return { ok: false, message: "Kategori tidak valid." };
   }
   if (!Number.isInteger(minOrder) || minOrder < 1) {
     return { ok: false, message: "Minimum order tidak valid." };
-  }
-  if (!/^[A-Z]{3}$/.test(currency)) {
-    return { ok: false, message: "Currency harus 3 huruf, contoh: IDR." };
   }
 
   const slug = toSlug(rawSlug || title);
   if (!slug) return { ok: false, message: "Slug tidak valid." };
 
   if (imageFiles.length === 0) {
-    return { ok: false, message: "Minimal satu gambar merchandise wajib diisi." };
+    return { ok: false, message: "Minimal satu gambar produk wajib diisi." };
   }
 
   const uploadedUrls = [];
+  let categorySlug = null;
 
   try {
+    if (categoryId != null) {
+      const categoryResult = await query(
+        `SELECT id, slug
+         FROM content.merchandise_categories
+         WHERE id = $1
+         LIMIT 1`,
+        [categoryId],
+      );
+      if (categoryResult.rowCount === 0) {
+        return { ok: false, message: "Kategori tidak ditemukan." };
+      }
+      categorySlug = categoryResult.rows[0].slug;
+    }
+
     for (const file of imageFiles) {
       const imageUrl = await saveMerchImageFile(file);
       uploadedUrls.push(imageUrl);
@@ -1040,6 +1237,7 @@ export async function createMerchandiseAction(_prevState, formData) {
            slug,
            title,
            detail,
+           category_id,
            price_amount,
            min_order,
            weight_gram,
@@ -1050,12 +1248,13 @@ export async function createMerchandiseAction(_prevState, formData) {
            is_active,
            updated_at
          )
-         VALUES ($1, $2, $3, $4, $5, 0, $6::text[], $7::text[], $8, $9, $10, NOW())
+         VALUES ($1, $2, $3, $4, $5, $6, 0, $7::text[], $8::text[], $9, $10, $11, NOW())
          RETURNING id`,
         [
           slug,
           title,
           detail,
+          categoryId,
           priceAmount,
           minOrder,
           sizeOptions,
@@ -1076,8 +1275,8 @@ export async function createMerchandiseAction(_prevState, formData) {
       }
     });
 
-    revalidateMerchandisePaths(slug);
-    return { ok: true, message: "Merchandise berhasil dibuat." };
+    revalidateMerchandisePaths(slug, categorySlug);
+    return { ok: true, message: "Produk berhasil dibuat." };
   } catch (error) {
     await deleteFilesBestEffort(uploadedUrls);
 
@@ -1087,7 +1286,7 @@ export async function createMerchandiseAction(_prevState, formData) {
 
     return {
       ok: false,
-      message: error?.message || "Gagal membuat merchandise.",
+      message: error?.message || "Gagal membuat produk.",
     };
   }
 }
@@ -1097,14 +1296,12 @@ export async function updateMerchandiseAction(_prevState, formData) {
   const title = String(formData.get("title") || "").trim();
   const rawSlug = String(formData.get("slug") || "").trim();
   const detail = String(formData.get("detail") || "").trim();
+  const categoryIdRaw = String(formData.get("categoryId") || "").trim();
+  const categoryId = categoryIdRaw
+    ? Number.parseInt(categoryIdRaw, 10)
+    : null;
   const sizeOptions = normalizeStringList(formData.get("sizeOptions"));
   const materialOptions = normalizeStringList(formData.get("materialOptions"));
-  const currency = String(formData.get("currency") || "IDR")
-    .trim()
-    .toUpperCase();
-  const priceAmount = Number.parseFloat(
-    String(formData.get("priceAmount") || ""),
-  );
   const minOrder = Number.parseInt(String(formData.get("minOrder") || ""), 10);
   const isActive = parseBoolean(formData.get("isActive"), false);
   const primaryImageFile = formData.get("primaryImage");
@@ -1117,18 +1314,15 @@ export async function updateMerchandiseAction(_prevState, formData) {
     .filter((value) => Number.isInteger(value) && value > 0);
 
   if (!Number.isInteger(id) || id <= 0) {
-    return { ok: false, message: "ID merchandise tidak valid." };
+    return { ok: false, message: "ID produk tidak valid." };
   }
-  if (!title) return { ok: false, message: "Judul merchandise wajib diisi." };
-  if (!detail) return { ok: false, message: "Detail merchandise wajib diisi." };
-  if (!Number.isFinite(priceAmount) || priceAmount < 0) {
-    return { ok: false, message: "Harga tidak valid." };
+  if (!title) return { ok: false, message: "Judul produk wajib diisi." };
+  if (!detail) return { ok: false, message: "Detail produk wajib diisi." };
+  if (categoryId != null && (!Number.isInteger(categoryId) || categoryId <= 0)) {
+    return { ok: false, message: "Kategori tidak valid." };
   }
   if (!Number.isInteger(minOrder) || minOrder < 1) {
     return { ok: false, message: "Minimum order tidak valid." };
-  }
-  if (!/^[A-Z]{3}$/.test(currency)) {
-    return { ok: false, message: "Currency harus 3 huruf, contoh: IDR." };
   }
 
   const slug = toSlug(rawSlug || title);
@@ -1136,10 +1330,25 @@ export async function updateMerchandiseAction(_prevState, formData) {
 
   const uploadedUrls = [];
   const deletedUrls = [];
+  let categorySlug = null;
 
   try {
+    if (categoryId != null) {
+      const categoryResult = await query(
+        `SELECT id, slug
+         FROM content.merchandise_categories
+         WHERE id = $1
+         LIMIT 1`,
+        [categoryId],
+      );
+      if (categoryResult.rowCount === 0) {
+        return { ok: false, message: "Kategori tidak ditemukan." };
+      }
+      categorySlug = categoryResult.rows[0].slug;
+    }
+
     const currentResult = await query(
-      `SELECT id, slug, image_url
+      `SELECT id, slug, image_url, category_id, price_amount, currency
        FROM content.merchandise_items
        WHERE id = $1
        LIMIT 1`,
@@ -1147,10 +1356,12 @@ export async function updateMerchandiseAction(_prevState, formData) {
     );
 
     if (currentResult.rowCount === 0) {
-      return { ok: false, message: "Merchandise tidak ditemukan." };
+      return { ok: false, message: "Produk tidak ditemukan." };
     }
 
     const current = currentResult.rows[0];
+    const priceAmount = Number(current.price_amount || 0);
+    const currency = String(current.currency || "IDR").toUpperCase();
     let nextImageUrl = current.image_url;
 
     if (primaryImageFile instanceof File && primaryImageFile.size > 0) {
@@ -1172,19 +1383,21 @@ export async function updateMerchandiseAction(_prevState, formData) {
          SET slug = $1,
              title = $2,
              detail = $3,
-             price_amount = $4,
-             min_order = $5,
-             size_options = $6::text[],
-             material_options = $7::text[],
-             currency = $8,
-             image_url = $9,
-             is_active = $10,
+             category_id = $4,
+             price_amount = $5,
+             min_order = $6,
+             size_options = $7::text[],
+             material_options = $8::text[],
+             currency = $9,
+             image_url = $10,
+             is_active = $11,
              updated_at = NOW()
-         WHERE id = $11`,
+         WHERE id = $12`,
         [
           slug,
           title,
           detail,
+          categoryId,
           priceAmount,
           minOrder,
           sizeOptions,
@@ -1235,12 +1448,12 @@ export async function updateMerchandiseAction(_prevState, formData) {
     }
 
     await deleteFilesBestEffort(deletedUrls);
-    revalidateMerchandisePaths(slug);
+    revalidateMerchandisePaths(slug, categorySlug);
     if (current.slug && current.slug !== slug) {
       revalidatePath(`/merchandise/${current.slug}`);
     }
 
-    return { ok: true, message: "Merchandise berhasil diperbarui." };
+    return { ok: true, message: "Produk berhasil diperbarui." };
   } catch (error) {
     await deleteFilesBestEffort(uploadedUrls);
 
@@ -1250,7 +1463,7 @@ export async function updateMerchandiseAction(_prevState, formData) {
 
     return {
       ok: false,
-      message: error?.message || "Gagal memperbarui merchandise.",
+      message: error?.message || "Gagal memperbarui produk.",
     };
   }
 }
@@ -1258,7 +1471,7 @@ export async function updateMerchandiseAction(_prevState, formData) {
 export async function deleteMerchandiseAction(_prevState, formData) {
   const id = Number.parseInt(String(formData.get("id") || ""), 10);
   if (!Number.isInteger(id) || id <= 0) {
-    return { ok: false, message: "ID merchandise tidak valid." };
+    return { ok: false, message: "ID produk tidak valid." };
   }
 
   try {
@@ -1281,7 +1494,7 @@ export async function deleteMerchandiseAction(_prevState, formData) {
     );
 
     if (detailResult.rowCount === 0) {
-      return { ok: false, message: "Merchandise tidak ditemukan." };
+      return { ok: false, message: "Produk tidak ditemukan." };
     }
 
     const target = detailResult.rows[0];
@@ -1295,11 +1508,194 @@ export async function deleteMerchandiseAction(_prevState, formData) {
     await deleteFilesBestEffort([target.image_url, ...(target.gallery || [])]);
     revalidateMerchandisePaths(target.slug);
 
-    return { ok: true, message: "Merchandise berhasil dihapus." };
+    return { ok: true, message: "Produk berhasil dihapus." };
   } catch (error) {
     return {
       ok: false,
-      message: error?.message || "Gagal menghapus merchandise.",
+      message: error?.message || "Gagal menghapus produk.",
+    };
+  }
+}
+
+export async function createMerchandiseCategoryAction(_prevState, formData) {
+  const title = String(formData.get("title") || "").trim();
+  const rawSlug = String(formData.get("slug") || "").trim();
+  const description = String(formData.get("description") || "").trim();
+  const sortOrder = Number.parseInt(String(formData.get("sortOrder") || "0"), 10);
+  const isActive = parseBoolean(formData.get("isActive"), true);
+  const imageFile = formData.get("image");
+
+  if (!title) return { ok: false, message: "Nama kategori wajib diisi." };
+  if (!(imageFile instanceof File) || imageFile.size === 0) {
+    return { ok: false, message: "Gambar kategori wajib diisi." };
+  }
+
+  const slug = toSlug(rawSlug || title);
+  if (!slug) return { ok: false, message: "Slug tidak valid." };
+
+  const uploadedUrls = [];
+
+  try {
+    const imageUrl = await saveCategoryImageFile(imageFile);
+    uploadedUrls.push(imageUrl);
+
+    await query(
+      `INSERT INTO content.merchandise_categories (
+         slug,
+         title,
+         description,
+         image_url,
+         sort_order,
+         is_active,
+         updated_at
+       )
+       VALUES ($1, $2, $3, $4, $5, $6, NOW())`,
+      [
+        slug,
+        title,
+        description,
+        imageUrl,
+        Number.isInteger(sortOrder) ? sortOrder : 0,
+        isActive,
+      ],
+    );
+
+    revalidateCategoryPaths(slug);
+    return { ok: true, message: "Kategori berhasil dibuat." };
+  } catch (error) {
+    await deleteFilesBestEffort(uploadedUrls);
+
+    if (error?.code === "23505") {
+      return { ok: false, message: "Slug sudah digunakan. Gunakan slug lain." };
+    }
+
+    return {
+      ok: false,
+      message: error?.message || "Gagal membuat kategori.",
+    };
+  }
+}
+
+export async function updateMerchandiseCategoryAction(_prevState, formData) {
+  const id = Number.parseInt(String(formData.get("id") || ""), 10);
+  const title = String(formData.get("title") || "").trim();
+  const rawSlug = String(formData.get("slug") || "").trim();
+  const description = String(formData.get("description") || "").trim();
+  const sortOrder = Number.parseInt(String(formData.get("sortOrder") || "0"), 10);
+  const isActive = parseBoolean(formData.get("isActive"), false);
+  const imageFile = formData.get("image");
+
+  if (!Number.isInteger(id) || id <= 0) {
+    return { ok: false, message: "ID kategori tidak valid." };
+  }
+  if (!title) return { ok: false, message: "Nama kategori wajib diisi." };
+
+  const slug = toSlug(rawSlug || title);
+  if (!slug) return { ok: false, message: "Slug tidak valid." };
+
+  const uploadedUrls = [];
+
+  try {
+    const currentResult = await query(
+      `SELECT id, slug, image_url
+       FROM content.merchandise_categories
+       WHERE id = $1
+       LIMIT 1`,
+      [id],
+    );
+
+    if (currentResult.rowCount === 0) {
+      return { ok: false, message: "Kategori tidak ditemukan." };
+    }
+
+    const current = currentResult.rows[0];
+    let nextImageUrl = current.image_url;
+
+    if (imageFile instanceof File && imageFile.size > 0) {
+      const uploaded = await saveCategoryImageFile(imageFile);
+      uploadedUrls.push(uploaded);
+      nextImageUrl = uploaded;
+    }
+
+    await query(
+      `UPDATE content.merchandise_categories
+       SET slug = $1,
+           title = $2,
+           description = $3,
+           image_url = $4,
+           sort_order = $5,
+           is_active = $6,
+           updated_at = NOW()
+       WHERE id = $7`,
+      [
+        slug,
+        title,
+        description,
+        nextImageUrl,
+        Number.isInteger(sortOrder) ? sortOrder : 0,
+        isActive,
+        id,
+      ],
+    );
+
+    if (nextImageUrl !== current.image_url) {
+      await deleteFilesBestEffort([current.image_url]);
+    }
+
+    revalidateCategoryPaths(slug);
+    if (current.slug && current.slug !== slug) {
+      revalidatePath(`/katalog/${current.slug}`);
+    }
+
+    return { ok: true, message: "Kategori berhasil diperbarui." };
+  } catch (error) {
+    await deleteFilesBestEffort(uploadedUrls);
+
+    if (error?.code === "23505") {
+      return { ok: false, message: "Slug sudah digunakan. Gunakan slug lain." };
+    }
+
+    return {
+      ok: false,
+      message: error?.message || "Gagal memperbarui kategori.",
+    };
+  }
+}
+
+export async function deleteMerchandiseCategoryAction(_prevState, formData) {
+  const id = Number.parseInt(String(formData.get("id") || ""), 10);
+  if (!Number.isInteger(id) || id <= 0) {
+    return { ok: false, message: "ID kategori tidak valid." };
+  }
+
+  try {
+    const detailResult = await query(
+      `SELECT id, slug, image_url
+       FROM content.merchandise_categories
+       WHERE id = $1
+       LIMIT 1`,
+      [id],
+    );
+
+    if (detailResult.rowCount === 0) {
+      return { ok: false, message: "Kategori tidak ditemukan." };
+    }
+
+    const target = detailResult.rows[0];
+
+    await query(
+      `DELETE FROM content.merchandise_categories WHERE id = $1`,
+      [id],
+    );
+
+    await deleteFilesBestEffort([target.image_url]);
+    revalidateCategoryPaths(target.slug);
+
+    return { ok: true, message: "Kategori berhasil dihapus." };
+  } catch (error) {
+    return {
+      ok: false,
+      message: error?.message || "Gagal menghapus kategori.",
     };
   }
 }

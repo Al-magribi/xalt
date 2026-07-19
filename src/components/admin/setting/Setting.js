@@ -101,7 +101,6 @@ export default function Setting({ data, activeTab = "website" }) {
       {activeTab === "seo" && (
         <SeoSettingPanel
           items={seoMetadata}
-          faviconUrl={websiteConfig?.favicon_url || ""}
         />
       )}
       {activeTab === "integrations" && (
