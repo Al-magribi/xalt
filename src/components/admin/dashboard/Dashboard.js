@@ -34,8 +34,8 @@ export default function Dashboard({ data }) {
       style: "bg-cyan-50 text-cyan-700 ring-cyan-100",
     },
     {
-      id: "merchandise",
-      title: "Merchandise",
+      id: "produk",
+      title: "Produk",
       value: stats.merchandise ?? 0,
       icon: FiBox,
       style: "bg-indigo-50 text-indigo-700 ring-indigo-100",

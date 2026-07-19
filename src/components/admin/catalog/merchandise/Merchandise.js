@@ -7,9 +7,11 @@ import {
   FiChevronLeft,
   FiChevronRight,
   FiEdit2,
+  FiEye,
   FiSearch,
   FiToggleLeft,
   FiToggleRight,
+  FiX,
   FiXCircle,
 } from "react-icons/fi";
 import { deleteMerchandiseAction } from "@/actions/catalog";
@@ -67,7 +69,7 @@ function DeleteMerchandiseForm({ id }) {
       onSubmit={(event) => {
         if (
           !window.confirm(
-            "Hapus merchandise ini? Gambar lokal akan ikut dihapus.",
+            "Hapus produk ini? Gambar lokal akan ikut dihapus.",
           )
         ) {
           event.preventDefault();
@@ -84,14 +86,6 @@ function DeleteMerchandiseForm({ id }) {
       <Feedback state={state} compact />
     </form>
   );
-}
-
-function formatMoney(value, currency) {
-  return new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: currency || "IDR",
-    maximumFractionDigits: 0,
-  }).format(value || 0);
 }
 
 function formatDate(value) {
@@ -115,13 +109,134 @@ function formatOptionList(values = []) {
   return values.join(", ");
 }
 
+function ProductDetailModal({ item, onClose }) {
+  if (!item) return null;
+
+  const paragraphs = splitDetailParagraphs(item.detail);
+  const gallery = Array.isArray(item.gallery) ? item.gallery : [];
+
+  return (
+    <div className='fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4'>
+      <div className='w-full max-w-3xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl'>
+        <div className='flex items-center justify-between border-b border-slate-200 px-4 py-3'>
+          <div className='min-w-0'>
+            <h3 className='truncate text-base font-semibold text-slate-900'>
+              Detail Produk
+            </h3>
+            <p className='truncate text-xs text-slate-500'>/{item.slug}</p>
+          </div>
+          <button
+            type='button'
+            onClick={onClose}
+            className='rounded-md p-1.5 text-slate-600 transition hover:bg-slate-100'
+            aria-label='Tutup detail'
+          >
+            <FiX className='h-4 w-4' />
+          </button>
+        </div>
+
+        <div className='max-h-[80vh] space-y-4 overflow-y-auto p-4'>
+          <div className='grid gap-4 sm:grid-cols-[180px_1fr]'>
+            <div className='relative aspect-[2/1] overflow-hidden rounded-xl border border-slate-200 bg-slate-50 sm:aspect-square'>
+              <AppImage
+                src={getSafeImageSrc(item.image_url)}
+                alt={item.title}
+                fill
+                className='object-contain'
+                sizes='180px'
+              />
+            </div>
+            <div className='space-y-2'>
+              <h4 className='text-lg font-semibold text-slate-900'>{item.title}</h4>
+              <div className='grid gap-1 text-sm text-slate-600'>
+                <p>
+                  <span className='font-semibold text-slate-800'>Kategori:</span>{" "}
+                  {item.category_title ? (
+                    <span className='inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-xs font-semibold text-blue-800 ring-1 ring-blue-100'>
+                      {item.category_title}
+                    </span>
+                  ) : (
+                    "Belum dipilih"
+                  )}
+                </p>
+                <p>
+                  <span className='font-semibold text-slate-800'>Min. order:</span>{" "}
+                  {item.min_order} pcs
+                </p>
+                <p>
+                  <span className='font-semibold text-slate-800'>Size:</span>{" "}
+                  {formatOptionList(item.size_options)}
+                </p>
+                <p>
+                  <span className='font-semibold text-slate-800'>Bahan:</span>{" "}
+                  {formatOptionList(item.material_options)}
+                </p>
+                <p>
+                  <span className='font-semibold text-slate-800'>Status:</span>{" "}
+                  {item.is_active ? "Aktif" : "Nonaktif"}
+                </p>
+                <p>
+                  <span className='font-semibold text-slate-800'>Update:</span>{" "}
+                  {formatDate(item.updated_at)}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p className='mb-2 text-sm font-semibold text-slate-900'>Deskripsi</p>
+            <div className='space-y-2 rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm leading-6 text-slate-700'>
+              {paragraphs.length > 0 ? (
+                paragraphs.map((paragraph, index) => (
+                  <p key={`${item.id}-modal-detail-${index}`} className='whitespace-pre-line'>
+                    {paragraph}
+                  </p>
+                ))
+              ) : (
+                <p className='text-slate-500'>Belum ada deskripsi produk.</p>
+              )}
+            </div>
+          </div>
+
+          {gallery.length > 0 ? (
+            <div>
+              <p className='mb-2 text-sm font-semibold text-slate-900'>
+                Galeri ({gallery.length})
+              </p>
+              <div className='grid grid-cols-2 gap-2 sm:grid-cols-3'>
+                {gallery.map((entry) => (
+                  <div
+                    key={entry.id || entry.image_url}
+                    className='relative aspect-[4/3] overflow-hidden rounded-lg border border-slate-200 bg-slate-50'
+                  >
+                    <AppImage
+                      src={getSafeImageSrc(entry.image_url)}
+                      alt={`${item.title} gallery`}
+                      fill
+                      className='object-cover'
+                      sizes='160px'
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Merchandise({
   items = [],
+  categories = [],
   mode = "list",
   editId = null,
 }) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
+  const [detailItem, setDetailItem] = useState(null);
   const itemsPerPage = 6;
 
   const selectedItem =
@@ -129,22 +244,32 @@ export default function Merchandise({
 
   const normalizedQuery = searchQuery.trim().toLowerCase();
   const filteredItems = useMemo(() => {
-    if (!normalizedQuery) return items;
-
     return items.filter((item) => {
+      const matchesCategory =
+        categoryFilter === "all"
+          ? true
+          : categoryFilter === "none"
+            ? item.category_id == null
+            : String(item.category_id) === String(categoryFilter);
+
+      if (!matchesCategory) return false;
+
+      if (!normalizedQuery) return true;
+
       const title = String(item.title || "").toLowerCase();
       const slug = String(item.slug || "").toLowerCase();
-      return [title, slug].some((value) =>
+      const categoryTitle = String(item.category_title || "").toLowerCase();
+      return [title, slug, categoryTitle].some((value) =>
         value.includes(normalizedQuery),
       );
     });
-  }, [items, normalizedQuery]);
+  }, [items, normalizedQuery, categoryFilter]);
 
   const totalPages = Math.max(1, Math.ceil(filteredItems.length / itemsPerPage));
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [normalizedQuery]);
+  }, [normalizedQuery, categoryFilter]);
 
   useEffect(() => {
     if (currentPage > totalPages) {
@@ -164,27 +289,27 @@ export default function Merchandise({
         <div className='flex items-center justify-between gap-3'>
           <div>
             <h3 className='text-base font-semibold text-slate-900'>
-              Manajemen Merchandise
+              Manajemen Produk
             </h3>
             <p className='text-sm text-slate-500'>
-              Kelola data merchandise untuk katalog website.
+              Kelola data produk untuk katalog website.
             </p>
           </div>
           <a
             href={
               mode === "create" || mode === "edit"
-                ? "/admin/catalog?tab=merchandise"
-                : "/admin/catalog?tab=merchandise&mode=create"
+                ? "/admin/catalog?tab=produk"
+                : "/admin/catalog?tab=produk&mode=create"
             }
             className='inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700'
           >
             {mode === "create" || mode === "edit"
-              ? "Daftar Merchandise"
-              : "+ Merchandise"}
+              ? "Daftar Produk"
+              : "+ Produk"}
           </a>
         </div>
         <div className='mt-3 rounded-lg border border-blue-200 bg-blue-50/70 p-3 text-xs leading-5 text-slate-600'>
-          <p className='font-semibold text-slate-800'>Panduan ukuran gambar merchandise</p>
+          <p className='font-semibold text-slate-800'>Panduan ukuran gambar produk</p>
           <ul className='mt-1 list-inside list-disc space-y-0.5'>
             <li>
               <span className='font-medium text-slate-700'>Gambar utama</span>: rasio 2:1
@@ -200,7 +325,7 @@ export default function Merchandise({
         {mode === "list" ? (
           <div className='mt-3 border-t border-slate-200 pt-3'>
             <h4 className='text-base font-semibold text-slate-900'>
-              Daftar Merchandise ({filteredItems.length})
+              Daftar Produk ({filteredItems.length})
             </h4>
           </div>
         ) : null}
@@ -209,11 +334,11 @@ export default function Merchandise({
       {mode === "create" ? (
         <article className='rounded-xl border border-slate-200 bg-white p-4'>
           <h3 className='text-base font-semibold text-slate-900'>
-            Tambah Merchandise
+            Tambah Produk
           </h3>
-          <p className='text-sm text-slate-500'>Isi data merchandise baru.</p>
+          <p className='text-sm text-slate-500'>Isi data produk baru.</p>
           <div className='mt-3'>
-            <MerchandiseCreateModal />
+            <MerchandiseCreateModal categories={categories} />
           </div>
         </article>
       ) : null}
@@ -221,21 +346,22 @@ export default function Merchandise({
       {mode === "edit" ? (
         <article className='rounded-xl border border-slate-200 bg-white p-4'>
           <h3 className='text-base font-semibold text-slate-900'>
-            Update Merchandise
+            Update Produk
           </h3>
           <p className='text-sm text-slate-500'>
-            Perbarui data merchandise yang dipilih.
+            Perbarui data produk yang dipilih.
           </p>
           <div className='mt-3'>
             {selectedItem ? (
               <MerchandiseUpdateModal
                 item={selectedItem}
+                categories={categories}
                 forceOpen
                 showToggle={false}
               />
             ) : (
               <div className='rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-500'>
-                Merchandise tidak ditemukan.
+                Produk tidak ditemukan.
               </div>
             )}
           </div>
@@ -246,16 +372,34 @@ export default function Merchandise({
         <article className='space-y-4 rounded-xl border border-slate-200 bg-white p-4'>
           <div className='rounded-xl border border-slate-200 bg-slate-50/70 p-3'>
             <div className='flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between'>
-              <label className='relative block w-full lg:max-w-md'>
-                <FiSearch className='pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400' />
-                <input
-                  type='search'
-                  value={searchQuery}
-                  onChange={(event) => setSearchQuery(event.target.value)}
-                  placeholder='Cari judul atau slug...'
-                  className='w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-9 pr-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
-                />
-              </label>
+              <div className='flex w-full flex-col gap-3 sm:flex-row sm:items-center lg:max-w-3xl'>
+                <label className='relative block w-full sm:flex-1'>
+                  <FiSearch className='pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400' />
+                  <input
+                    type='search'
+                    value={searchQuery}
+                    onChange={(event) => setSearchQuery(event.target.value)}
+                    placeholder='Cari judul, slug, atau kategori...'
+                    className='w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-9 pr-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
+                  />
+                </label>
+                <label className='block w-full sm:w-56'>
+                  <span className='sr-only'>Filter kategori</span>
+                  <select
+                    value={categoryFilter}
+                    onChange={(event) => setCategoryFilter(event.target.value)}
+                    className='w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
+                  >
+                    <option value='all'>Semua kategori</option>
+                    <option value='none'>Tanpa kategori</option>
+                    {categories.map((category) => (
+                      <option key={category.id} value={category.id}>
+                        {category.title}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
               <p className='text-sm text-slate-600'>
                 Menampilkan <span className='font-semibold'>{shownFrom}</span>-
                 <span className='font-semibold'>{shownTo}</span> dari{" "}
@@ -268,8 +412,8 @@ export default function Merchandise({
           {filteredItems.length === 0 ? (
             <div className='rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-500'>
               {items.length === 0
-                ? 'Belum ada merchandise. Tambahkan data baru lewat tombol "Tambah Merchandise".'
-                : "Data tidak ditemukan. Coba kata kunci lain."}
+                ? 'Belum ada produk. Tambahkan data baru lewat tombol "Tambah Produk".'
+                : "Data tidak ditemukan. Coba ubah pencarian atau filter kategori."}
             </div>
           ) : (
             <div className='grid grid-cols-1 gap-4 lg:grid-cols-2'>
@@ -293,10 +437,18 @@ export default function Merchandise({
                         {item.title}
                       </p>
                       <p className='text-xs text-slate-500'>/{item.slug}</p>
-                      <p className='mt-1 text-xs font-semibold text-blue-700'>
-                        {formatMoney(item.price_amount, item.currency)}
-                      </p>
-                      <p className='text-xs text-slate-500'>
+                      <div className='mt-2'>
+                        {item.category_title ? (
+                          <span className='inline-flex max-w-full items-center rounded-full bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-800 ring-1 ring-blue-100'>
+                            <span className='truncate'>{item.category_title}</span>
+                          </span>
+                        ) : (
+                          <span className='inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 ring-1 ring-slate-200'>
+                            Belum ada kategori
+                          </span>
+                        )}
+                      </div>
+                      <p className='mt-2 text-xs text-slate-500'>
                         Min order: {item.min_order}
                       </p>
                       <p className='text-xs text-slate-500'>
@@ -314,24 +466,19 @@ export default function Merchandise({
                     </div>
                   </div>
 
-                  <div className='space-y-3 p-3'>
-                    <div className='space-y-2 text-sm leading-6 text-slate-600'>
-                      {splitDetailParagraphs(item.detail).map(
-                        (paragraph, index) => (
-                          <p
-                            key={`${item.id}-detail-${index}`}
-                            className='whitespace-pre-line'
-                          >
-                            {paragraph}
-                          </p>
-                        ),
-                      )}
-                    </div>
-
+                  <div className='p-3'>
                     <div className='flex flex-wrap items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white p-2'>
                       <div className='inline-flex flex-wrap items-center gap-2'>
+                        <button
+                          type='button'
+                          onClick={() => setDetailItem(item)}
+                          className='inline-flex items-center justify-center gap-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50'
+                        >
+                          <FiEye className='h-3.5 w-3.5' />
+                          Detail
+                        </button>
                         <a
-                          href={`/admin/catalog?tab=merchandise&mode=edit&id=${item.id}`}
+                          href={`/admin/catalog?tab=produk&mode=edit&id=${item.id}`}
                           className='inline-flex items-center justify-center gap-1 rounded-lg border border-blue-300 bg-blue-50 px-3 py-2 text-xs font-semibold text-blue-700 transition hover:bg-blue-100'
                         >
                           <FiEdit2 className='h-3.5 w-3.5' />
@@ -397,6 +544,13 @@ export default function Merchandise({
             </div>
           ) : null}
         </article>
+      ) : null}
+
+      {detailItem ? (
+        <ProductDetailModal
+          item={detailItem}
+          onClose={() => setDetailItem(null)}
+        />
       ) : null}
     </section>
   );

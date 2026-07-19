@@ -3,6 +3,7 @@ module.exports=[19347,a=>a.a(async(b,c)=>{try{var d=a.i(37936),e=a.i(66680),f=a.
        app_url,
        logo_url,
        favicon_url,
+       og_image_url,
        site_tagline,
        hero_title,
        hero_description,
@@ -16,7 +17,7 @@ module.exports=[19347,a=>a.a(async(b,c)=>{try{var d=a.i(37936),e=a.i(66680),f=a.
        linkedin_url
      FROM settings.website_config
      WHERE id = 1
-     LIMIT 1`)).rows[0]||{};return{site_name:a.site_name||"X-ALT",app_url:a.app_url||"",logo_url:(0,j.resolveAssetUrl)(a.logo_url),favicon_url:(0,j.resolveAssetUrl)(a.favicon_url),site_tagline:a.site_tagline||"",hero_title:a.hero_title||"",hero_description:a.hero_description||"",hero_note:a.hero_note||"",hero_image_url:(0,j.resolveAssetUrl)(a.hero_image_url),hero_badge_title:a.hero_badge_title||"",hero_badge_text:a.hero_badge_text||"",whatsapp_number:a.whatsapp_number||"",support_email:a.support_email||"",instagram_url:a.instagram_url||"",linkedin_url:a.linkedin_url||""}}async function z(){return(await (0,i.query)(`SELECT
+     LIMIT 1`)).rows[0]||{};return{site_name:a.site_name||"X-ALT",app_url:a.app_url||"",logo_url:(0,j.resolveAssetUrl)(a.logo_url),favicon_url:(0,j.resolveAssetUrl)(a.favicon_url),og_image_url:(0,j.resolveAssetUrl)(a.og_image_url),site_tagline:a.site_tagline||"",hero_title:a.hero_title||"",hero_description:a.hero_description||"",hero_note:a.hero_note||"",hero_image_url:(0,j.resolveAssetUrl)(a.hero_image_url),hero_badge_title:a.hero_badge_title||"",hero_badge_text:a.hero_badge_text||"",whatsapp_number:a.whatsapp_number||"",support_email:a.support_email||"",instagram_url:a.instagram_url||"",linkedin_url:a.linkedin_url||""}}async function z(){return(await (0,i.query)(`SELECT
        id,
        brand_name,
        logo_url,
@@ -31,6 +32,7 @@ module.exports=[19347,a=>a.a(async(b,c)=>{try{var d=a.i(37936),e=a.i(66680),f=a.
            app_url,
            logo_url,
            favicon_url,
+           og_image_url,
            hero_title,
            hero_description,
            hero_note,
@@ -123,29 +125,34 @@ module.exports=[19347,a=>a.a(async(b,c)=>{try{var d=a.i(37936),e=a.i(66680),f=a.
            is_active,
            updated_at
          FROM content.testimonials
-         ORDER BY sort_order ASC, id ASC`)]);return{websiteConfig:(a=c.rows[0])?{id:Number(a.id),site_name:a.site_name||"",site_tagline:a.site_tagline||"",logo_url:(0,j.resolveAssetUrl)(a.logo_url),favicon_url:(0,j.resolveAssetUrl)(a.favicon_url),hero_title:a.hero_title||"",hero_description:a.hero_description||"",hero_note:a.hero_note||"",hero_image_url:(0,j.resolveAssetUrl)(a.hero_image_url),hero_badge_title:a.hero_badge_title||"",hero_badge_text:a.hero_badge_text||"",default_language:a.default_language||"id",app_url:a.app_url||"",support_email:a.support_email||"",support_phone:a.support_phone||"",whatsapp_number:a.whatsapp_number||"",instagram_url:a.instagram_url||"",linkedin_url:a.linkedin_url||"",updated_at:a.updated_at}:null,seoMetadata:d.rows.map(n),apiIntegrations:e.rows.map(o),smtpConfig:(b=f.rows[0])?{id:Number(b.id),provider:b.provider||"smtp",host:b.host||"",port:Number(b.port||0),secure:!!b.secure,encryption:b.encryption||"tls",username:b.username||"",password:b.password||"",from_name:b.from_name||"",from_email:b.from_email||"",reply_to_email:b.reply_to_email||"",is_active:!!b.is_active,last_tested_at:b.last_tested_at,updated_at:b.updated_at}:null,trustedLogos:g.rows.map(p),faqs:h.rows.map(q),testimonials:k.rows.map(r)}}async function B(a,b){let c=String(b.get("site_name")||"").trim(),d=String(b.get("site_tagline")||"").trim(),e=String(b.get("app_url")||"").trim(),f=String(b.get("hero_title")||"").trim(),g=String(b.get("hero_description")||"").trim(),h=String(b.get("hero_note")||"").trim(),j=b.get("hero_image_file"),k=String(b.get("hero_badge_title")||"").trim(),l=String(b.get("hero_badge_text")||"").trim(),m=String(b.get("default_language")||"id").trim(),n=String(b.get("support_email")||"").trim(),o=String(b.get("support_phone")||"").trim(),p=String(b.get("whatsapp_number")||"").trim(),q=String(b.get("instagram_url")||"").trim(),r=String(b.get("linkedin_url")||"").trim(),s=b.get("logo_file"),t=b.get("favicon_file");if(!c)return{ok:!1,message:"Site name wajib diisi."};if(!m)return{ok:!1,message:"Default language wajib diisi."};if(e)try{let a=new URL(e);if(!["http:","https:"].includes(a.protocol))return{ok:!1,message:"App URL harus diawali http:// atau https://."}}catch{return{ok:!1,message:"Format App URL tidak valid."}}if(q)try{let a=new URL(q);if(!["http:","https:"].includes(a.protocol))return{ok:!1,message:"Instagram URL harus diawali http:// atau https://."}}catch{return{ok:!1,message:"Format Instagram URL tidak valid."}}if(r)try{let a=new URL(r);if(!["http:","https:"].includes(a.protocol))return{ok:!1,message:"LinkedIn URL harus diawali http:// atau https://."}}catch{return{ok:!1,message:"Format LinkedIn URL tidak valid."}}let w=[];try{let a=(await (0,i.query)(`SELECT logo_url, favicon_url, hero_image_url
+         ORDER BY sort_order ASC, id ASC`)]);return{websiteConfig:(a=c.rows[0])?{id:Number(a.id),site_name:a.site_name||"",site_tagline:a.site_tagline||"",logo_url:(0,j.resolveAssetUrl)(a.logo_url),favicon_url:(0,j.resolveAssetUrl)(a.favicon_url),og_image_url:(0,j.resolveAssetUrl)(a.og_image_url),hero_title:a.hero_title||"",hero_description:a.hero_description||"",hero_note:a.hero_note||"",hero_image_url:(0,j.resolveAssetUrl)(a.hero_image_url),hero_badge_title:a.hero_badge_title||"",hero_badge_text:a.hero_badge_text||"",default_language:a.default_language||"id",app_url:a.app_url||"",support_email:a.support_email||"",support_phone:a.support_phone||"",whatsapp_number:a.whatsapp_number||"",instagram_url:a.instagram_url||"",linkedin_url:a.linkedin_url||"",updated_at:a.updated_at}:null,seoMetadata:d.rows.map(n),apiIntegrations:e.rows.map(o),smtpConfig:(b=f.rows[0])?{id:Number(b.id),provider:b.provider||"smtp",host:b.host||"",port:Number(b.port||0),secure:!!b.secure,encryption:b.encryption||"tls",username:b.username||"",password:b.password||"",from_name:b.from_name||"",from_email:b.from_email||"",reply_to_email:b.reply_to_email||"",is_active:!!b.is_active,last_tested_at:b.last_tested_at,updated_at:b.updated_at}:null,trustedLogos:g.rows.map(p),faqs:h.rows.map(q),testimonials:k.rows.map(r)}}async function B(a,b){let c=String(b.get("site_name")||"").trim(),d=String(b.get("site_tagline")||"").trim(),e=String(b.get("app_url")||"").trim(),f=String(b.get("hero_title")||"").trim(),g=String(b.get("hero_description")||"").trim(),h=String(b.get("hero_note")||"").trim(),j=b.get("hero_image_file"),k=String(b.get("hero_badge_title")||"").trim(),l=String(b.get("hero_badge_text")||"").trim(),m=String(b.get("default_language")||"id").trim(),n=String(b.get("support_email")||"").trim(),o=String(b.get("support_phone")||"").trim(),p=String(b.get("whatsapp_number")||"").trim(),q=String(b.get("instagram_url")||"").trim(),r=String(b.get("linkedin_url")||"").trim(),s=b.get("logo_file"),t=b.get("favicon_file"),w=b.get("og_image_file");if(!c)return{ok:!1,message:"Site name wajib diisi."};if(!m)return{ok:!1,message:"Default language wajib diisi."};if(e)try{let a=new URL(e);if(!["http:","https:"].includes(a.protocol))return{ok:!1,message:"App URL harus diawali http:// atau https://."}}catch{return{ok:!1,message:"Format App URL tidak valid."}}if(q)try{let a=new URL(q);if(!["http:","https:"].includes(a.protocol))return{ok:!1,message:"Instagram URL harus diawali http:// atau https://."}}catch{return{ok:!1,message:"Format Instagram URL tidak valid."}}if(r)try{let a=new URL(r);if(!["http:","https:"].includes(a.protocol))return{ok:!1,message:"LinkedIn URL harus diawali http:// atau https://."}}catch{return{ok:!1,message:"Format LinkedIn URL tidak valid."}}let y=[];try{let a=(await (0,i.query)(`SELECT logo_url, favicon_url, hero_image_url, og_image_url
        FROM settings.website_config
        WHERE id = 1
-       LIMIT 1`)).rows[0]||{},b=a.logo_url||null,y=a.favicon_url||null,z=a.hero_image_url||null;return s instanceof File&&s.size>0&&(b=await v(s),w.push(b)),t instanceof File&&t.size>0&&(y=await v(t),w.push(y)),j instanceof File&&j.size>0&&(z=await v(j),w.push(z)),await (0,i.query)(`UPDATE settings.website_config
+       LIMIT 1`)).rows[0]||{},b=a.logo_url||null,z=a.favicon_url||null,A=a.hero_image_url||null,B=a.og_image_url||null;return s instanceof File&&s.size>0&&(b=await v(s),y.push(b)),t instanceof File&&t.size>0&&(z=await v(t),y.push(z)),j instanceof File&&j.size>0&&(A=await v(j),y.push(A)),w instanceof File&&w.size>0&&(B=await v(w),y.push(B)),await (0,i.query)(`UPDATE settings.website_config
        SET site_name = $1,
            site_tagline = $2,
            app_url = $3,
            logo_url = $4,
            favicon_url = $5,
-           hero_title = $6,
-           hero_description = $7,
-           hero_note = $8,
-           hero_image_url = $9,
-           hero_badge_title = $10,
-           hero_badge_text = $11,
-           default_language = $12,
-           support_email = $13,
-           support_phone = $14,
-           whatsapp_number = $15,
-           instagram_url = $16,
-           linkedin_url = $17,
+           og_image_url = $6,
+           hero_title = $7,
+           hero_description = $8,
+           hero_note = $9,
+           hero_image_url = $10,
+           hero_badge_title = $11,
+           hero_badge_text = $12,
+           default_language = $13,
+           support_email = $14,
+           support_phone = $15,
+           whatsapp_number = $16,
+           instagram_url = $17,
+           linkedin_url = $18,
            updated_at = NOW()
-       WHERE id = 1`,[c,d||null,e||null,b,y,f||null,g||null,h||null,z,k||null,l||null,m,n||null,o||null,p||null,q||null,r||null]),a.logo_url&&b!==a.logo_url&&await u(a.logo_url),a.favicon_url&&y!==a.favicon_url&&await u(a.favicon_url),a.hero_image_url&&z!==a.hero_image_url&&await u(a.hero_image_url),x(),{ok:!0,message:"Website config berhasil diperbarui."}}catch(a){for(let a of w)await u(a);return{ok:!1,message:a?.message||"Gagal memperbarui website config."}}}async function C(a,b){let c=String(b.get("trusted_brand_name")||"").trim(),d=b.get("trusted_logo_file");if(!c)return{ok:!1,message:"Nama brand wajib diisi."};if(!(d instanceof File)||0===d.size)return{ok:!1,message:"Logo wajib diunggah."};let e=[];try{let a=await v(d);if(!a)return{ok:!1,message:"Logo gagal diunggah."};e.push(a);let b=await (0,i.query)(`SELECT COALESCE(MAX(sort_order), 0) AS max_sort
+       WHERE id = 1`,[c,d||null,e||null,b,z,B,f||null,g||null,h||null,A,k||null,l||null,m,n||null,o||null,p||null,q||null,r||null]),a.logo_url&&b!==a.logo_url&&await u(a.logo_url),a.favicon_url&&z!==a.favicon_url&&await u(a.favicon_url),a.hero_image_url&&A!==a.hero_image_url&&await u(a.hero_image_url),a.og_image_url&&B!==a.og_image_url&&await u(a.og_image_url),B&&await (0,i.query)(`UPDATE settings.seo_metadata
+         SET og_image_url = $1,
+             twitter_image_url = COALESCE(twitter_image_url, $1),
+             updated_at = NOW()
+         WHERE page_key = 'home'`,[B]),x(),{ok:!0,message:"Website config berhasil diperbarui."}}catch(a){for(let a of y)await u(a);return{ok:!1,message:a?.message||"Gagal memperbarui website config."}}}async function C(a,b){let c=String(b.get("trusted_brand_name")||"").trim(),d=b.get("trusted_logo_file");if(!c)return{ok:!1,message:"Nama brand wajib diisi."};if(!(d instanceof File)||0===d.size)return{ok:!1,message:"Logo wajib diunggah."};let e=[];try{let a=await v(d);if(!a)return{ok:!1,message:"Logo gagal diunggah."};e.push(a);let b=await (0,i.query)(`SELECT COALESCE(MAX(sort_order), 0) AS max_sort
        FROM content.trusted_logos`),f=Number(b.rows[0]?.max_sort||0)+1;return await (0,i.query)(`INSERT INTO content.trusted_logos
        (brand_name, logo_url, sort_order, is_active, updated_at)
        VALUES ($1, $2, $3, TRUE, NOW())`,[c,a,f]),x(),{ok:!0,message:"Logo trusted company berhasil ditambahkan."}}catch(a){for(let a of e)await u(a);return{ok:!1,message:a?.message||"Gagal menambahkan logo."}}}async function D(a,b){let c=t(b.get("trusted_logo_id"),0),d=String(b.get("trusted_brand_name")||"").trim(),e=t(b.get("trusted_sort_order"),0),f=s(b.get("trusted_is_active"),!1),g=b.get("trusted_logo_file");if(!Number.isInteger(c)||c<=0)return{ok:!1,message:"ID logo tidak valid."};if(!d)return{ok:!1,message:"Nama brand wajib diisi."};let h=[];try{let a=await (0,i.query)(`SELECT logo_url
@@ -204,6 +211,6 @@ module.exports=[19347,a=>a.a(async(b,c)=>{try{var d=a.i(37936),e=a.i(66680),f=a.
            reply_to_email = $10,
            is_active = $11,
            updated_at = NOW()
-       WHERE id = 1`,[c,d,e,"ssl"===f,f,g||null,h||null,j,k,l||null,m]),w(),{ok:!0,message:"SMTP config berhasil diperbarui."}}catch(a){return{ok:!1,message:a?.message||"Gagal memperbarui SMTP config."}}}(0,k.ensureServerEntryExports)([y,z,A,B,C,D,E,F,G,H]),(0,d.registerServerReference)(y,"00d7b6f5e7326330ed9bfc0acb7867b5b421b9ac7d",null),(0,d.registerServerReference)(z,"00d2c4c45379d3dac4dff68cc896bf8636c502aec9",null),(0,d.registerServerReference)(A,"0021d7d8d0e554f76ffa084d5417e7ed35a344f789",null),(0,d.registerServerReference)(B,"60e51e11f74096ca80a4a0a0c95ccf9d8864426249",null),(0,d.registerServerReference)(C,"605c61df5ca4df47ae8375dd291b2c73d65fff67db",null),(0,d.registerServerReference)(D,"605a7b6a5cddcf2c0f624cf01b838fd19ed712d10c",null),(0,d.registerServerReference)(E,"60c6fe261bbd7b0d252644a54053b07721028de6c2",null),(0,d.registerServerReference)(F,"60266b4abf1c799f2578ab7204dbef277de3c5fd93",null),(0,d.registerServerReference)(G,"601a93b8b718c236abfded4292211d717642bb902b",null),(0,d.registerServerReference)(H,"60eb48960905b63fe10f80ef7995179f8a6542695b",null),a.s(["addTrustedLogoAction",()=>C,"deleteTrustedLogoAction",()=>E,"getAdminSettingsData",()=>A,"getTrustedLogos",()=>z,"getWebsiteBranding",()=>y,"updateApiIntegrationAction",()=>G,"updateSeoMetadataAction",()=>F,"updateSmtpConfigAction",()=>H,"updateTrustedLogoAction",()=>D,"updateWebsiteConfigAction",()=>B]),c()}catch(a){c(a)}},!1)];
+       WHERE id = 1`,[c,d,e,"ssl"===f,f,g||null,h||null,j,k,l||null,m]),w(),{ok:!0,message:"SMTP config berhasil diperbarui."}}catch(a){return{ok:!1,message:a?.message||"Gagal memperbarui SMTP config."}}}(0,k.ensureServerEntryExports)([y,z,A,B,C,D,E,F,G,H]),(0,d.registerServerReference)(y,"00cac3c7203ab7e077a4a52c2df3522b89ffbedade",null),(0,d.registerServerReference)(z,"00bbfd39fd6944ec9615daf68e8e06cfde5f871582",null),(0,d.registerServerReference)(A,"0059cc629bc9492c35d4d7b468c12fe96b665f18fb",null),(0,d.registerServerReference)(B,"60b35a4d9600a1a382098935b2e14ab77976f3f14c",null),(0,d.registerServerReference)(C,"60526e918614055397856e9af1f19fa06cc11016f8",null),(0,d.registerServerReference)(D,"605c54c7f8be03de9cbc4ab4c4cfd6dbcd1adf48d7",null),(0,d.registerServerReference)(E,"606fe0d28d4c3f3a82ef73fb8680451967804e3195",null),(0,d.registerServerReference)(F,"6097e18e70e17e0ff7805a34bdb96ad74351b6d5c8",null),(0,d.registerServerReference)(G,"600881657c6ac1361196126e0b6ef27a5902f27b21",null),(0,d.registerServerReference)(H,"60041eccb4c8efdda48fc21e1f7008603cd40ea598",null),a.s(["addTrustedLogoAction",()=>C,"deleteTrustedLogoAction",()=>E,"getAdminSettingsData",()=>A,"getTrustedLogos",()=>z,"getWebsiteBranding",()=>y,"updateApiIntegrationAction",()=>G,"updateSeoMetadataAction",()=>F,"updateSmtpConfigAction",()=>H,"updateTrustedLogoAction",()=>D,"updateWebsiteConfigAction",()=>B]),c()}catch(a){c(a)}},!1)];
 
 //# sourceMappingURL=src_actions_setting_01a1e169.js.map

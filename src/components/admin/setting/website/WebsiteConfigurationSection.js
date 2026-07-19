@@ -9,15 +9,20 @@ export default function WebsiteConfigurationSection({
   config,
   logoPreview,
   faviconPreview,
+  ogImagePreview,
   logoFile,
   faviconFile,
+  ogImageFile,
   onChangeLogoFile,
   onResetLogoFile,
   onChangeFaviconFile,
   onResetFaviconFile,
+  onChangeOgImageFile,
+  onResetOgImageFile,
 }) {
   const logoSrc = logoPreview || resolveAssetUrl(config.logo_url);
   const faviconSrc = faviconPreview || resolveAssetUrl(config.favicon_url);
+  const ogImageSrc = ogImagePreview || resolveAssetUrl(config.og_image_url);
 
   return (
     <div className='space-y-4 rounded-xl border border-slate-200 bg-white p-4'>
@@ -118,6 +123,32 @@ export default function WebsiteConfigurationSection({
         <PreviewImage
           title='Preview Favicon'
           src={faviconSrc}
+          ratioClass='h-44'
+          roundedClass='rounded-xl'
+        />
+      </div>
+
+      <div className='border-t border-slate-200 pt-4'>
+        <h5 className='text-xs font-semibold uppercase tracking-wide text-slate-500'>
+          Open Graph Image
+        </h5>
+        <p className='mt-1 text-xs text-slate-500'>
+          Gambar preview saat website dishare di WhatsApp/Facebook. Disarankan 1200×630 px.
+        </p>
+      </div>
+
+      <div className='grid grid-cols-1 gap-3 lg:grid-cols-2'>
+        <FileUploadCard
+          title='Upload OG Image'
+          hint='JPG/PNG rasio 1.91:1 (1200×630), maksimal 5MB.'
+          name='og_image_file'
+          selectedFile={ogImageFile}
+          onChangeFile={onChangeOgImageFile}
+          onReset={onResetOgImageFile}
+        />
+        <PreviewImage
+          title='Preview OG Image'
+          src={ogImageSrc}
           ratioClass='h-44'
           roundedClass='rounded-xl'
         />

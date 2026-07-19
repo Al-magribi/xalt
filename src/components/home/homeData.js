@@ -238,7 +238,8 @@ export const merchandiseTypes = [
 ];
 
 export const navItems = [
-  { label: "Katalog", href: "#katalog" },
+  { label: "Katalog", href: "/katalog" },
+  { label: "Kit", href: "#katalog" },
   { label: "FAQ", href: "#faq" },
   { label: "Kontak", href: "#kontak" },
 ];

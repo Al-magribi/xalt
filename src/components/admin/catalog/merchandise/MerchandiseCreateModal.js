@@ -16,7 +16,7 @@ function SubmitButton() {
       disabled={pending}
       className='inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-blue-300'
     >
-      {pending ? "Menyimpan..." : "Tambah Merchandise"}
+      {pending ? "Menyimpan..." : "Tambah Produk"}
     </button>
   );
 }
@@ -41,7 +41,7 @@ function Feedback({ state }) {
   );
 }
 
-export default function MerchandiseCreateModal() {
+export default function MerchandiseCreateModal({ categories = [] }) {
   const [state, formAction, pending] = useActionState(createMerchandiseAction, INITIAL_FORM_STATE);
   const [imagePreviews, setImagePreviews] = useState([]);
 
@@ -66,11 +66,11 @@ export default function MerchandiseCreateModal() {
 
   return (
     <div className='rounded-xl border border-slate-200 bg-white p-4'>
-      <h4 className='text-sm font-semibold text-slate-900'>Tambah Merchandise</h4>
+      <h4 className='text-sm font-semibold text-slate-900'>Tambah Produk</h4>
       <form action={formAction} className='mt-3 grid gap-4 lg:grid-cols-2'>
               <div className='space-y-4'>
                 <div>
-                  <label className='mb-1 block text-sm font-semibold text-slate-700'>Nama Merchandise</label>
+                  <label className='mb-1 block text-sm font-semibold text-slate-700'>Nama Produk</label>
                   <input
                     type='text'
                     name='title'
@@ -88,29 +88,19 @@ export default function MerchandiseCreateModal() {
                   />
                 </div>
 
-                <div className='grid grid-cols-1 gap-3 sm:grid-cols-3'>
-                  <div className='sm:col-span-2'>
-                    <label className='mb-1 block text-sm font-semibold text-slate-700'>Harga</label>
-                    <input
-                      type='number'
-                      name='priceAmount'
-                      min='0'
-                      step='0.01'
-                      required
-                      className='w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
-                    />
-                  </div>
-                  <div>
-                    <label className='mb-1 block text-sm font-semibold text-slate-700'>Currency</label>
-                    <input
-                      type='text'
-                      name='currency'
-                      defaultValue='IDR'
-                      maxLength={3}
-                      required
-                      className='w-full rounded-lg border border-slate-300 px-3 py-2 text-sm uppercase outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
-                    />
-                  </div>
+                <div>
+                  <label className='mb-1 block text-sm font-semibold text-slate-700'>Kategori</label>
+                  <select
+                    name='categoryId'
+                    className='w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
+                  >
+                    <option value=''>Tanpa kategori</option>
+                    {categories.map((category) => (
+                      <option key={category.id} value={category.id}>
+                        {category.title}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>

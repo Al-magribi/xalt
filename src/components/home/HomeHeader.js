@@ -15,7 +15,10 @@ export default function HomeHeader({ websiteConfig }) {
   const faviconUrl = resolveAssetUrl(websiteConfig?.favicon_url);
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
-  const getNavHref = (href) => (isHomePage ? href : `/${href}`);
+  const getNavHref = (href) => {
+    if (href.startsWith("/") || href.startsWith("http")) return href;
+    return isHomePage ? href : `/${href}`;
+  };
 
   return (
     <header className='sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur'>

@@ -12,43 +12,60 @@ function getSafeImageSrc(value) {
   return FALLBACK_IMAGE_SRC;
 }
 
-export default function MerchandiseSection({ items = [] }) {
+export default function MerchandiseSection({ categories = [] }) {
   return (
-    <section className='mx-auto max-w-7xl px-6 pb-20 md:px-10'>
+    <section id='katalog-produk' className='mx-auto max-w-7xl px-6 pb-20 md:px-10'>
       <motion.div variants={container} initial='hidden' whileInView='show' viewport={{ once: true, amount: 0.15 }}>
-        <p className='font-display text-3xl font-semibold md:text-4xl'>Jenis Merchandise</p>
+        <p className='font-display text-3xl font-semibold text-slate-900 md:text-4xl'>
+          Katalog Produk
+        </p>
         <p className='mt-3 max-w-3xl text-slate-600'>
           Pilih kategori produk populer untuk kebutuhan branding, onboarding, dan event perusahaan.
         </p>
-        <div className='mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-4'>
-          {items.slice(0, 8).map((entry) => (
-            <Link key={entry.id ?? entry.slug ?? entry.title} href={`/merchandise/${entry.slug}`} className='block'>
+
+        <div className='mt-8 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 xl:grid-cols-4'>
+          {categories.slice(0, 8).map((entry) => (
+            <Link
+              key={entry.id ?? entry.slug ?? entry.title}
+              href={`/katalog/${entry.slug}`}
+              className='block'
+            >
               <motion.article
                 variants={item}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className='relative aspect-[2/1] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100'
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md'
               >
-                <AppImage
-                  src={getSafeImageSrc(entry.image)}
-                  alt={entry.title}
-                  fill
-                  className='object-contain'
-                  sizes='(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw'
-                />
-                <div className='absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent' />
-                <div className='absolute bottom-4 left-4 rounded-xl bg-white/95 px-4 py-2 text-sm font-semibold text-slate-800'>
-                  {entry.title}
+                <div className='relative aspect-[4/5] w-full bg-white'>
+                  <AppImage
+                    src={getSafeImageSrc(entry.image)}
+                    alt={entry.title}
+                    fill
+                    className='object-contain object-center p-3'
+                    sizes='(max-width: 640px) 50vw, (max-width: 1280px) 33vw, 25vw'
+                  />
+                </div>
+                <div className='bg-blue-900 px-3 py-3 text-center'>
+                  <p className='line-clamp-2 text-sm font-semibold text-white sm:text-base'>
+                    {entry.title}
+                  </p>
                 </div>
               </motion.article>
             </Link>
           ))}
         </div>
+
+        {categories.length === 0 ? (
+          <div className='mt-8 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-500'>
+            Belum ada kategori produk.
+          </div>
+        ) : null}
+
         <div className='mt-8'>
           <Link
-            href='/merchandise'
+            href='/katalog'
             className='inline-flex items-center justify-center rounded-xl bg-blue-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-800'
           >
-            Tampilkan lebih banyak
+            Lihat semua katalog
           </Link>
         </div>
       </motion.div>

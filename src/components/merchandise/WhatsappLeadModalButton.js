@@ -17,11 +17,13 @@ export default function WhatsappLeadModalButton({
   minOrder,
   displayPrice,
   websiteWhatsappNumber,
+  sourcePage,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const priceLabel = displayPrice || "Hubungi Kami";
   const [form, setForm] = useState({
     ...INITIAL_FORM,
-    message: `Saya ingin order ${productTitle}. Harga ${displayPrice}, min. order ${minOrder} pcs.`,
+    message: `Saya ingin order ${productTitle}. Harga ${priceLabel}, min. order ${minOrder} pcs.`,
   });
   const [feedback, setFeedback] = useState({ ok: false, message: "" });
   const [isSubmitting, startSubmitting] = useTransition();
@@ -46,7 +48,7 @@ export default function WhatsappLeadModalButton({
         email: form.email,
         whatsapp: form.whatsapp,
         message: form.message,
-        sourcePage: `/merchandise/${productSlug}`,
+        sourcePage: sourcePage || `/merchandise/${productSlug}`,
         productSlug,
         productTitle,
         websiteWhatsappNumber,

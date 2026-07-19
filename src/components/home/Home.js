@@ -1,4 +1,4 @@
-import { getActiveKitsForHome, getActiveMerchandiseForHome } from "@/actions/catalog";
+import { getActiveKitsForHome, getActiveMerchandiseCategories } from "@/actions/catalog";
 import { getActiveFaqs } from "@/actions/faq";
 import { getTrustedLogos, getWebsiteBranding } from "@/actions/setting";
 import { getActiveTestimonials } from "@/actions/testimonial";
@@ -14,9 +14,9 @@ import TestimonialsSection from "./TestimonialsSection";
 import TrustedBySection from "./TrustedBySection";
 
 export default async function Home() {
-  const [kits, merchandiseItems, websiteConfig, trustedLogos, faqs, testimonials] = await Promise.all([
+  const [kits, categories, websiteConfig, trustedLogos, faqs, testimonials] = await Promise.all([
     getActiveKitsForHome(),
-    getActiveMerchandiseForHome(),
+    getActiveMerchandiseCategories(),
     getWebsiteBranding(),
     getTrustedLogos(),
     getActiveFaqs(),
@@ -28,7 +28,7 @@ export default async function Home() {
       <HomeHeader websiteConfig={websiteConfig} />
       <HeroSection websiteConfig={websiteConfig} />
       <TrustedBySection logos={trustedLogos} />
-      <MerchandiseSection items={merchandiseItems} />
+      <MerchandiseSection categories={categories} />
       <CatalogSection kits={kits} />
       <ProcessSection />
       <TestimonialsSection testimonials={testimonials} />

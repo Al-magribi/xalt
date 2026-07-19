@@ -13,14 +13,12 @@ import {
   Textarea,
 } from "./ui";
 
-function SeoItemForm({ item, faviconUrl = "" }) {
+function SeoItemForm({ item }) {
   const [state, formAction] = useActionState(updateSeoMetadataAction, INITIAL_STATE);
-  const ogImageUrlValue = faviconUrl || item.og_image_url || "";
 
   return (
     <form action={formAction} className='space-y-3 rounded-xl border border-slate-200 bg-white p-4'>
       <input type='hidden' name='id' value={item.id} />
-      <input type='hidden' name='og_image_url' value={ogImageUrlValue} />
 
       <div className='flex flex-wrap items-start justify-between gap-3 border-b border-slate-100 pb-3'>
         <div>
@@ -39,15 +37,10 @@ function SeoItemForm({ item, faviconUrl = "" }) {
         <Input label='Meta Title' name='meta_title' defaultValue={item.meta_title} required />
         <Input label='OG Title' name='og_title' defaultValue={item.og_title} />
         <Input label='OG Type' name='og_type' defaultValue={item.og_type} />
+        <Input label='OG Image URL' name='og_image_url' defaultValue={item.og_image_url} />
         <Input label='Twitter Card' name='twitter_card' defaultValue={item.twitter_card} />
         <Input label='Twitter Title' name='twitter_title' defaultValue={item.twitter_title} />
         <Input label='Twitter Image URL' name='twitter_image_url' defaultValue={item.twitter_image_url} />
-      </div>
-
-      <div className='rounded-lg border border-slate-200 bg-slate-50 px-3 py-2'>
-        <p className='text-xs font-semibold uppercase tracking-wide text-slate-500'>OG Image URL</p>
-        <p className='mt-1 break-all text-sm text-slate-700'>{ogImageUrlValue || "-"}</p>
-        <p className='mt-1 text-xs text-slate-500'>Otomatis mengikuti favicon URL dari Website Setting.</p>
       </div>
 
       <Textarea label='Meta Description' name='meta_description' defaultValue={item.meta_description} required rows={3} />
@@ -73,12 +66,14 @@ function SeoItemForm({ item, faviconUrl = "" }) {
   );
 }
 
-export default function SeoSettingPanel({ items, faviconUrl = "" }) {
+export default function SeoSettingPanel({ items }) {
   return (
     <section className='space-y-4'>
       <div className='rounded-xl border border-slate-200 bg-white p-4'>
         <h3 className='text-base font-semibold text-slate-900'>SEO Metadata ({items.length})</h3>
-        <p className='text-sm text-slate-500'>Edit data `settings.seo_metadata` per halaman.</p>
+        <p className='text-sm text-slate-500'>
+          Edit data `settings.seo_metadata` per halaman. Untuk gambar share utama, upload OG Image di Website Configuration.
+        </p>
       </div>
 
       {items.length === 0 ? (
@@ -88,7 +83,7 @@ export default function SeoSettingPanel({ items, faviconUrl = "" }) {
       ) : (
         <div className='space-y-4'>
           {items.map((item) => (
-            <SeoItemForm key={item.id} item={item} faviconUrl={faviconUrl} />
+            <SeoItemForm key={item.id} item={item} />
           ))}
         </div>
       )}

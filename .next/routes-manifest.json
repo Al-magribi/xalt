@@ -30,6 +30,23 @@
       "namedRegex": "^/catalog/(?<nxtPslug>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/katalog/[categorySlug]",
+      "regex": "^/katalog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategorySlug": "nxtPcategorySlug"
+      },
+      "namedRegex": "^/katalog/(?<nxtPcategorySlug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/katalog/[categorySlug]/[productSlug]",
+      "regex": "^/katalog/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategorySlug": "nxtPcategorySlug",
+        "nxtPproductSlug": "nxtPproductSlug"
+      },
+      "namedRegex": "^/katalog/(?<nxtPcategorySlug>[^/]+?)/(?<nxtPproductSlug>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/merchandise/[slug]",
       "regex": "^/merchandise/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -156,6 +173,12 @@
       "regex": "^/download\\-katalog(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/download\\-katalog(?:/)?$"
+    },
+    {
+      "page": "/katalog",
+      "regex": "^/katalog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/katalog(?:/)?$"
     },
     {
       "page": "/merchandise",
