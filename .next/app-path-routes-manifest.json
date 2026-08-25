@@ -26,5 +26,7 @@
   "/order-status/page": "/order-status",
   "/order/page": "/order",
   "/page": "/",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml",
   "/uploads/[...path]/route": "/uploads/[...path]"
 }

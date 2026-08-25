@@ -6,6 +6,7 @@ import { getWebsiteBranding } from "@/actions/setting";
 import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 import AppImage from "@/components/ui/AppImage";
+import { buildPageMetadata, NO_INDEX_METADATA, resolveSiteOrigin } from "@/utils/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -36,15 +37,24 @@ function toQueryString(searchParams) {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const kit = await getKitDetailBySlug(slug);
+  const [kit, branding] = await Promise.all([
+    getKitDetailBySlug(slug),
+    getWebsiteBranding(),
+  ]);
+
   if (!kit) {
-    return { title: "Katalog Tidak Ditemukan" };
+    return { title: "Katalog Tidak Ditemukan", ...NO_INDEX_METADATA };
   }
 
-  return {
+  const siteOrigin = resolveSiteOrigin(branding.app_url);
+
+  return buildPageMetadata({
     title: `${kit.title} Detail`,
     description: `Detail ${kit.title} beserta galeri visual dan ringkasan paket.`,
-  };
+    path: `/catalog/${kit.slug}`,
+    siteOrigin,
+    image: kit.image || branding.og_image_url,
+  });
 }
 
 export default async function CatalogDetailPage({ params, searchParams }) {

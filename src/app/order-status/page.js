@@ -5,8 +5,14 @@ import { getWebsiteBranding } from "@/actions/setting";
 import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 import OrderPaymentStatusCard from "@/components/order/OrderPaymentStatusCard";
+import { NO_INDEX_METADATA } from "@/utils/seo";
 
 export const dynamic = "force-dynamic";
+
+export const metadata = {
+  title: "Status Pesanan",
+  ...NO_INDEX_METADATA,
+};
 
 export default async function OrderStatusPage({ searchParams }) {
   const params = await searchParams;

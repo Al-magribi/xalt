@@ -106,10 +106,12 @@ export async function generateMetadata() {
     robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
     },
-    alternates: {
-      canonical: appUrl,
-    },
+    // Canonical diset per-halaman agar tidak semua URL mengarah ke homepage.
   };
 }
 
