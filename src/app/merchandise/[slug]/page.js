@@ -13,6 +13,7 @@ import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 import MerchandiseDetailShowcase from "@/components/merchandise/MerchandiseDetailShowcase";
 import AppImage from "@/components/ui/AppImage";
+import { buildPageMetadata, NO_INDEX_METADATA, resolveSiteOrigin } from "@/utils/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -51,18 +52,30 @@ function toQueryString(searchParams) {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const product = await getMerchandiseDetailBySlug(slug);
+  const [product, branding] = await Promise.all([
+    getMerchandiseDetailBySlug(slug),
+    getWebsiteBranding(),
+  ]);
 
   if (!product) {
-    return { title: "Merchandise Tidak Ditemukan" };
+    return { title: "Merchandise Tidak Ditemukan", ...NO_INDEX_METADATA };
   }
 
+  const siteOrigin = resolveSiteOrigin(branding.app_url);
   const displayPrice = formatMoney(product.price_amount, product.currency);
+  const description = `${product.title} tersedia mulai ${displayPrice} dengan minimal order ${product.min_order} pcs.`;
+  const image =
+    (Array.isArray(product.images) && product.images[0]) ||
+    product.image ||
+    branding.og_image_url;
 
-  return {
+  return buildPageMetadata({
     title: `${product.title} | Merchandise`,
-    description: `${product.title} tersedia mulai ${displayPrice} dengan minimal order ${product.min_order} pcs.`,
-  };
+    description,
+    path: `/merchandise/${product.slug}`,
+    siteOrigin,
+    image,
+  });
 }
 
 export default async function MerchandiseDetailPage({ params, searchParams }) {

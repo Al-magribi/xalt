@@ -2,10 +2,35 @@ import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 import Merchandise from "@/components/merchandise/Merchandise";
 import { getActiveMerchandiseForHome } from "@/actions/catalog";
-import { getWebsiteBranding } from "@/actions/setting";
+import { getSeoMetadataByPageKey, getWebsiteBranding } from "@/actions/setting";
 import { trackVisitorPageView } from "@/actions/analytics";
+import { buildMetadataFromSeo, buildPageMetadata, resolveSiteOrigin } from "@/utils/seo";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata() {
+  const [seo, branding] = await Promise.all([
+    getSeoMetadataByPageKey("merchandise_list"),
+    getWebsiteBranding(),
+  ]);
+  const siteOrigin = resolveSiteOrigin(branding.app_url);
+
+  const fromDb = buildMetadataFromSeo(seo, {
+    siteOrigin,
+    fallbackOgImage: branding.og_image_url,
+  });
+
+  if (fromDb) return fromDb;
+
+  return buildPageMetadata({
+    title: "Semua Merchandise",
+    description:
+      "Jelajahi seluruh pilihan merchandise lengkap dengan estimasi harga dan minimum order.",
+    path: "/merchandise",
+    siteOrigin,
+    image: branding.og_image_url,
+  });
+}
 
 function toQueryString(searchParams) {
   if (!searchParams || typeof searchParams !== "object") return null;

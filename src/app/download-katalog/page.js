@@ -3,12 +3,23 @@ import { trackVisitorPageView } from "@/actions/analytics";
 import { getWebsiteBranding } from "@/actions/setting";
 import CatalogDownloadForm from "@/components/catalog/CatalogDownloadForm";
 import HomeHeader from "@/components/home/HomeHeader";
+import { buildPageMetadata, resolveSiteOrigin } from "@/utils/seo";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = {
-  title: "Download Katalog",
-};
+export async function generateMetadata() {
+  const branding = await getWebsiteBranding();
+  const siteOrigin = resolveSiteOrigin(branding.app_url);
+
+  return buildPageMetadata({
+    title: "Download Katalog",
+    description:
+      "Unduh katalog produk X-ALT untuk melihat pilihan merchandise kit lengkap.",
+    path: "/download-katalog",
+    siteOrigin,
+    image: branding.og_image_url,
+  });
+}
 
 export default async function DownloadKatalogPage() {
   const [websiteConfig, activeCatalog] = await Promise.all([

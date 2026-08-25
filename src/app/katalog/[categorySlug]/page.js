@@ -9,23 +9,33 @@ import { getWebsiteBranding } from "@/actions/setting";
 import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 import KatalogProductGrid from "@/components/katalog/KatalogProductGrid";
+import { buildPageMetadata, NO_INDEX_METADATA, resolveSiteOrigin } from "@/utils/seo";
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }) {
   const { categorySlug } = await params;
-  const category = await getMerchandiseCategoryBySlug(categorySlug);
+  const [category, branding] = await Promise.all([
+    getMerchandiseCategoryBySlug(categorySlug),
+    getWebsiteBranding(),
+  ]);
 
   if (!category) {
-    return { title: "Kategori Tidak Ditemukan" };
+    return { title: "Kategori Tidak Ditemukan", ...NO_INDEX_METADATA };
   }
 
-  return {
+  const siteOrigin = resolveSiteOrigin(branding.app_url);
+  const description =
+    category.description ||
+    `Lihat koleksi produk ${category.title} dari X-ALT.`;
+
+  return buildPageMetadata({
     title: category.title,
-    description:
-      category.description ||
-      `Lihat koleksi produk ${category.title} dari X-ALT.`,
-  };
+    description,
+    path: `/katalog/${category.slug}`,
+    siteOrigin,
+    image: category.image || branding.og_image_url,
+  });
 }
 
 export default async function KatalogCategoryPage({ params }) {

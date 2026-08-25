@@ -225,11 +225,17 @@ async function saveSettingImageFile(file) {
 
 function revalidateSettingPaths() {
   revalidatePath("/admin/setting");
+  revalidatePath("/");
+  revalidatePath("/merchandise");
+  revalidatePath("/robots.txt");
+  revalidatePath("/sitemap.xml");
 }
 
 function revalidateHomePaths() {
   revalidatePath("/");
   revalidatePath("/admin/setting");
+  revalidatePath("/robots.txt");
+  revalidatePath("/sitemap.xml");
 }
 
 export async function getWebsiteBranding() {
@@ -275,6 +281,43 @@ export async function getWebsiteBranding() {
     instagram_url: row.instagram_url || "",
     linkedin_url: row.linkedin_url || "",
   };
+}
+
+export async function getSeoMetadataByPageKey(pageKey) {
+  if (!pageKey) return null;
+
+  try {
+    const result = await query(
+      `SELECT
+         id,
+         page_key,
+         page_path,
+         meta_title,
+         meta_description,
+         meta_keywords,
+         canonical_url,
+         robots_index,
+         robots_follow,
+         og_title,
+         og_description,
+         og_image_url,
+         og_type,
+         twitter_card,
+         twitter_title,
+         twitter_description,
+         twitter_image_url,
+         updated_at
+       FROM settings.seo_metadata
+       WHERE page_key = $1
+       LIMIT 1`,
+      [pageKey],
+    );
+
+    const row = result.rows[0];
+    return row ? mapSeoMetadata(row) : null;
+  } catch {
+    return null;
+  }
 }
 
 export async function getTrustedLogos() {
@@ -813,6 +856,13 @@ export async function updateSeoMetadataAction(_prevState, formData) {
     );
 
     revalidateSettingPaths();
+    if (pagePath) {
+      revalidatePath(pagePath);
+    }
+    revalidatePath("/");
+    revalidatePath("/merchandise");
+    revalidatePath("/robots.txt");
+    revalidatePath("/sitemap.xml");
     return { ok: true, message: "SEO metadata berhasil diperbarui." };
   } catch (error) {
     return { ok: false, message: error?.message || "Gagal memperbarui SEO metadata." };

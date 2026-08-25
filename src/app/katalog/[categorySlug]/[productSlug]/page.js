@@ -12,6 +12,7 @@ import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 import KatalogProductDetail from "@/components/katalog/KatalogProductDetail";
 import AppImage from "@/components/ui/AppImage";
+import { buildPageMetadata, NO_INDEX_METADATA, resolveSiteOrigin } from "@/utils/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -20,19 +21,34 @@ function toWhatsAppNumber(value) {
 }
 
 export async function generateMetadata({ params }) {
-  const { productSlug } = await params;
-  const product = await getMerchandiseDetailBySlug(productSlug);
+  const { categorySlug, productSlug } = await params;
+  const [product, branding] = await Promise.all([
+    getMerchandiseDetailBySlug(productSlug),
+    getWebsiteBranding(),
+  ]);
 
   if (!product) {
-    return { title: "Produk Tidak Ditemukan" };
+    return { title: "Produk Tidak Ditemukan", ...NO_INDEX_METADATA };
   }
 
-  return {
+  const siteOrigin = resolveSiteOrigin(branding.app_url);
+  const categoryPath = product.category_slug || categorySlug;
+  const description =
+    product.description ||
+    `${product.title} tersedia untuk pemesanan via WhatsApp.`;
+  const image =
+    (Array.isArray(product.images) && product.images[0]) ||
+    product.image ||
+    branding.og_image_url;
+
+  return buildPageMetadata({
     title: product.title,
-    description:
-      product.description ||
-      `${product.title} tersedia untuk pemesanan via WhatsApp.`,
-  };
+    description,
+    path: `/katalog/${categoryPath}/${product.slug}`,
+    siteOrigin,
+    image,
+    type: "website",
+  });
 }
 
 export default async function KatalogProductDetailPage({ params }) {

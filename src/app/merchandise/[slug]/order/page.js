@@ -6,6 +6,7 @@ import { getWebsiteBranding } from "@/actions/setting";
 import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 import MerchandiseOrderForm from "@/components/order/MerchandiseOrderForm";
+import { NO_INDEX_METADATA } from "@/utils/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -22,12 +23,13 @@ export async function generateMetadata({ params }) {
   const product = await getMerchandiseDetailBySlug(slug);
 
   if (!product) {
-    return { title: "Halaman Pesanan Tidak Ditemukan" };
+    return { title: "Halaman Pesanan Tidak Ditemukan", ...NO_INDEX_METADATA };
   }
 
   return {
     title: `Pesan ${product.title}`,
     description: `Isi form pesanan untuk ${product.title} dan hitung ongkir dengan RajaOngkir.`,
+    ...NO_INDEX_METADATA,
   };
 }
 

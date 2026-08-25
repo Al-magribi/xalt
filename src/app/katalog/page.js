@@ -4,13 +4,23 @@ import KatalogCategoryGrid from "@/components/katalog/KatalogCategoryGrid";
 import { getActiveMerchandiseCategories } from "@/actions/catalog";
 import { getWebsiteBranding } from "@/actions/setting";
 import { trackVisitorPageView } from "@/actions/analytics";
+import { buildPageMetadata, resolveSiteOrigin } from "@/utils/seo";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = {
-  title: "Katalog Produk",
-  description: "Jelajahi kategori produk merchandise X-ALT sesuai kebutuhan brand Anda.",
-};
+export async function generateMetadata() {
+  const branding = await getWebsiteBranding();
+  const siteOrigin = resolveSiteOrigin(branding.app_url);
+
+  return buildPageMetadata({
+    title: "Katalog Produk",
+    description:
+      "Jelajahi kategori produk merchandise X-ALT sesuai kebutuhan brand Anda.",
+    path: "/katalog",
+    siteOrigin,
+    image: branding.og_image_url,
+  });
+}
 
 export default async function KatalogPage() {
   await trackVisitorPageView({

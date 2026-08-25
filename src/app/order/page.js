@@ -2,8 +2,14 @@ import { getWebsiteBranding } from "@/actions/setting";
 import FooterSection from "@/components/home/FooterSection";
 import HomeHeader from "@/components/home/HomeHeader";
 import CheckOrder from "@/components/order/CheckOrder";
+import { NO_INDEX_METADATA } from "@/utils/seo";
 
 export const dynamic = "force-dynamic";
+
+export const metadata = {
+  title: "Cek Pesanan",
+  ...NO_INDEX_METADATA,
+};
 
 export default async function CheckOrderPage({ searchParams }) {
   const params = await searchParams;
